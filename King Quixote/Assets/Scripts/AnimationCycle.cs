@@ -8,6 +8,8 @@ public class AnimationCycle : MonoBehaviour
     public Sprite Frame2;
     public Sprite Frame3;
     public Sprite Frame4;
+    public Sprite Frame5;
+    public Sprite Frame6;
     public int currentFrame = 1;
     public int maxFrame = 1;
     public float animationSpeed = 0.2f;
@@ -31,6 +33,14 @@ public class AnimationCycle : MonoBehaviour
         if (Frame4 != null)
         {
             maxFrame = 4;
+        }
+        if (Frame5 != null)
+        {
+            maxFrame = 5;
+        }
+        if (Frame6 != null)
+        {
+            maxFrame = 6;
         }
     }
 
@@ -77,6 +87,14 @@ public class AnimationCycle : MonoBehaviour
         if (currentFrame == 4)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame4;
+        }
+        if (currentFrame == 5)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame5;
+        }
+        if (currentFrame == 6)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame6;
         }
     }
 }
