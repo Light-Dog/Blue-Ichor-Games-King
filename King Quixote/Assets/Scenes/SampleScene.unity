@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 870097363}
   - component: {fileID: 870097364}
   - component: {fileID: 870097365}
+  - component: {fileID: 870097366}
   m_Layer: 0
   m_Name: Idle Anim
   m_TagString: Untagged
@@ -568,7 +569,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -600,6 +601,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.426346, y: 3.9387798}
   m_EdgeRadius: 0
+--- !u!114 &870097366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870097359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb669b0646a4ee4f8e30d52f86d8c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 870097363}
+  runSpeed: 40
+  horizontalMove: 0
 --- !u!1 &920301238
 GameObject:
   m_ObjectHideFlags: 0

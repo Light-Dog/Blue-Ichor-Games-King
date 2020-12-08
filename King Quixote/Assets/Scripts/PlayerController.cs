@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Collider2D m_CrouchDisableCollider;
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-    private bool m_Grounded;            // Whether or not the player is grounded.
+    private bool m_Grounded = true;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -33,20 +33,14 @@ public class PlayerController : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
+        /*
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
@@ -62,12 +56,14 @@ public class PlayerController : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
+        */
     }
 
 
     public void Move(float move, bool crouch, bool jump)
     {
         // If crouching, check to see if the character can stand up
+        /*
         if (!crouch)
         {
             // If the character has a ceiling preventing them from standing up, keep them crouching
@@ -76,11 +72,11 @@ public class PlayerController : MonoBehaviour
                 crouch = true;
             }
         }
-
+        */
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
-
+            /*
             // If crouching
             if (crouch)
             {
@@ -109,9 +105,13 @@ public class PlayerController : MonoBehaviour
                     OnCrouchEvent.Invoke(false);
                 }
             }
+            */
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+
+            Debug.Log(targetVelocity);
+
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
