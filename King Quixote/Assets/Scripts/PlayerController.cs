@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*
+        
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
@@ -56,14 +56,14 @@ public class PlayerController : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
-        */
+        
     }
 
 
     public void Move(float move, bool crouch, bool jump)
     {
         // If crouching, check to see if the character can stand up
-        /*
+        
         if (!crouch)
         {
             // If the character has a ceiling preventing them from standing up, keep them crouching
@@ -72,11 +72,11 @@ public class PlayerController : MonoBehaviour
                 crouch = true;
             }
         }
-        */
+        
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
-            /*
+            
             // If crouching
             if (crouch)
             {
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
                     OnCrouchEvent.Invoke(false);
                 }
             }
-            */
+            
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
