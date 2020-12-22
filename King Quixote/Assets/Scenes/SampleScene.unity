@@ -871,7 +871,7 @@ MonoBehaviour:
   Frame6: {fileID: 0}
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.2
+  animationSpeed: 0.1
   timer: 0
 --- !u!212 &1920939375
 SpriteRenderer:
