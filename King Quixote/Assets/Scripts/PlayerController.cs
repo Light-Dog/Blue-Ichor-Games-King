@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 
-            Debug.Log(targetVelocity);
+            //Debug.Log(targetVelocity);
 
             // And then smoothing it out and applying it to the character
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);

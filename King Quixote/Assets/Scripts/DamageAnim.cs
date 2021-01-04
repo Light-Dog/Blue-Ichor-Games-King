@@ -30,10 +30,6 @@ public class DamageAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            damaged = true;
-        }
 
         if (damaged == true)
         {
@@ -65,6 +61,12 @@ public class DamageAnim : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    public void take_damage()
+    {
+        damaged = true;
     }
 
 }

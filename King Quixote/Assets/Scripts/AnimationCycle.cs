@@ -15,9 +15,12 @@ public class AnimationCycle : MonoBehaviour
     public float animationSpeed = 0.2f;
     public float timer = 0.0f;
 
+    public bool pause = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Checks for max size of the spirte list
         if (Frame1 != null)
         {
             maxFrame = 1;
@@ -47,54 +50,66 @@ public class AnimationCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentFrame < maxFrame)
+        //pause for attack animation
+        if (pause == false)
         {
-            if (timer < animationSpeed)
+            //update frame
+            if (currentFrame < maxFrame)
             {
-                timer += Time.deltaTime;
+                if (timer < animationSpeed)
+                {
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    timer = 0.0f;
+                    currentFrame++;
+                }
             }
             else
             {
-                timer = 0.0f;
-                currentFrame++;
+                if (timer < animationSpeed)
+                {
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    timer = 0.0f;
+                    currentFrame = 1;
+                }
             }
-        }
-        else
-        {
-            if (timer < animationSpeed)
-            {
-                timer += Time.deltaTime;
-            }
-            else
-            {
-                timer = 0.0f;
-                currentFrame = 1;
-            }
-        }
 
-        if (currentFrame == 1)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame1;
+
+            //change animation
+            if (currentFrame == 1)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame1;
+            }
+            if (currentFrame == 2)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame2;
+            }
+            if (currentFrame == 3)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame3;
+            }
+            if (currentFrame == 4)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame4;
+            }
+            if (currentFrame == 5)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame5;
+            }
+            if (currentFrame == 6)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame6;
+            }
         }
-        if (currentFrame == 2)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame2;
-        }
-        if (currentFrame == 3)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame3;
-        }
-        if (currentFrame == 4)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame4;
-        }
-        if (currentFrame == 5)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame5;
-        }
-        if (currentFrame == 6)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame6;
-        }
+    }
+
+    public void PauseAnimation(bool toPause)
+    {
+        pause = toPause;
     }
 }
