@@ -5,9 +5,13 @@ using UnityEngine;
 public class DrawCollider : MonoBehaviour
 {
     public bool draw = false;
+    public Color hitboxColor;
+    Color savedColor;
 
     public WeaponAttack weapon;
     public SpriteRenderer hitbox;
+    public bool hurtbox = false;
+    public float timer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +20,7 @@ public class DrawCollider : MonoBehaviour
         hitbox = gameObject.GetComponent<SpriteRenderer>();
 
         hitbox.enabled = false;
+        savedColor = hitbox.color;
     }
 
     // Update is called once per frame
@@ -26,13 +31,39 @@ public class DrawCollider : MonoBehaviour
             draw = !draw;
         }
 
-        if(draw == true)
+        if (draw == true)
         {
+            hitbox.enabled = true;
 
-            if (weapon.currentSprite == weapon.activeFrame)
-                hitbox.enabled = true;
+            if(hurtbox == false)
+            {
+                if (weapon.activeFrame == weapon.currentSprite)
+                    hitbox.color = hitboxColor;
+                else
+                    hitbox.color = savedColor;
+            }
             else
-                hitbox.enabled = false;
+            {
+                if(timer > 0.0f)
+                {
+                    timer -= Time.deltaTime;
+                }
+                else
+                {
+                    hitbox.color = savedColor;
+                }
+            }
+        }
+        else
+            hitbox.enabled = false;
+    }
+
+    public void hurtboxCollision()
+    {
+        if(draw)
+        {
+            hitbox.color = hitboxColor;
+            timer = 1f;
         }
     }
 }

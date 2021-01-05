@@ -16,7 +16,9 @@ public class DamageTaken : MonoBehaviour
         if(other.gameObject.GetComponent<WeaponAttack>() != null)
         {
             print("HA GOT IT");
-            gameObject.GetComponent<DamageAnim>().take_damage();
+            gameObject.GetComponent<DrawCollider>().hurtboxCollision();
+
+            gameObject.GetComponentInParent<DamageAnim>().take_damage();
             health -= other.gameObject.GetComponent<WeaponAttack>().damage;
         }
     }
@@ -24,6 +26,6 @@ public class DamageTaken : MonoBehaviour
     private void FixedUpdate()
     {
         if (health <= 0)
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
     }
 }
