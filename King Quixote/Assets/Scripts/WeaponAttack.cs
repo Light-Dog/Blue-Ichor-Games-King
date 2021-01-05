@@ -10,6 +10,7 @@ public class WeaponAttack : MonoBehaviour
     public int maxSpriteSize = 0;
     public float animationSpeed = 0.2f;
     public float timer = 0.0f;
+    public int activeFrame = 0;
 
     //2d box collider
     public Collider2D lanceCollider;
@@ -32,6 +33,8 @@ public class WeaponAttack : MonoBehaviour
         lanceCollider.enabled = false;
 
         maxSpriteSize = attackSprites.Length;
+
+        activeFrame--;
     }
 
     // Update is called once per frame
@@ -42,9 +45,6 @@ public class WeaponAttack : MonoBehaviour
         //check for button press, and if so set attack to true
         if (Input.GetKeyUp(KeyCode.F) == true)
         {
-            //turn on the collider for the lance
-            lanceCollider.enabled = true;
-
             attack = true;
 
             //Pause the idle animation
@@ -57,6 +57,17 @@ public class WeaponAttack : MonoBehaviour
         if(attack == true)
         {
             print("Attacking....");
+
+            if(activeFrame == currentSprite)
+            {
+                //turn on the collider for the lance
+                lanceCollider.enabled = true;
+            }
+            else
+            {
+                //turn on the collider for the lance
+                lanceCollider.enabled = false;
+            }
 
             //play the lance animation
             player.GetComponent<SpriteRenderer>().sprite = attackSprites[currentSprite];
@@ -81,7 +92,6 @@ public class WeaponAttack : MonoBehaviour
                 timer = 0.0f;
                 attack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
-                lanceCollider.enabled = false;
             }
 
         }

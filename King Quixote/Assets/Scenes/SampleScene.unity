@@ -282,6 +282,7 @@ MonoBehaviour:
   maxSpriteSize: 0
   animationSpeed: 0.2
   timer: 0
+  activeFrame: 3
   lanceCollider: {fileID: 455999016}
   damage: 2
   player: {fileID: 0}
