@@ -17,6 +17,8 @@ public class AnimationCycle : MonoBehaviour
 
     public bool pause = false;
     public float repositionX = 0.0f;
+    public bool reverseAtEnd = false;
+    private bool reversing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +68,23 @@ public class AnimationCycle : MonoBehaviour
                 else
                 {
                     timer = 0.0f;
-                    currentFrame++;
+                    if (reversing == false)
+                    {
+                        currentFrame++;
+                    }
+                    else
+                    {
+                        currentFrame--;
+                    }
+                }
+                if (reversing == true)
+                {
+                    if (currentFrame < 1)
+                    {
+                        timer = 0.0f;
+                        currentFrame++;
+                        reversing = false;
+                    }
                 }
             }
             else
@@ -77,10 +95,23 @@ public class AnimationCycle : MonoBehaviour
                 }
                 else
                 {
-                    timer = 0.0f;
-                    currentFrame = 1;
+                    //loop animation
+                    if (reverseAtEnd == false)
+                    {
+                        timer = 0.0f;
+                        currentFrame = 1;
 
-                    transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
+                        transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
+                    }
+                    //reverse animation
+                    else
+                    {
+                        timer = 0.0f;
+                        currentFrame--;
+                        reversing = true;
+
+                        //transform.position = new Vector3(transform.position.x - repositionX, transform.position.y, transform.position.z);
+                    }
                 }
             }
 
