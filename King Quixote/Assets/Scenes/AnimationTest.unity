@@ -163,6 +163,7 @@ MonoBehaviour:
   maxFrame: 1
   animationSpeed: 0.3
   timer: 0
+  pause: 0
 --- !u!212 &228136836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -499,6 +500,7 @@ MonoBehaviour:
   maxFrame: 1
   animationSpeed: 0.1
   timer: 0
+  pause: 0
 --- !u!212 &1568120218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -604,6 +606,7 @@ MonoBehaviour:
   maxFrame: 1
   animationSpeed: 0.1
   timer: 0
+  pause: 0
 --- !u!212 &1700538209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -808,6 +811,7 @@ MonoBehaviour:
   maxFrame: 1
   animationSpeed: 0.1
   timer: 0
+  pause: 0
 --- !u!212 &2056364910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -880,10 +884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3666205143530448645, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
-      propertyPath: m_BodyType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8380495867995278102, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.04
