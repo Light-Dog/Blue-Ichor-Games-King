@@ -5,42 +5,64 @@ using UnityEngine;
 public class WeaponAttack : MonoBehaviour
 {
     //frames for attack animation
-    public Sprite[] attackSprites;
-    public int currentSprite = 0;
-    public int maxSpriteSize = 0;
+    public Sprite[] attackFrames;
+    int currentFrame = 0;
+    int maxSpriteSize = 0;
+    public int[] activeFrames;
+    int activeFrameIndex = 0;
+
     public float animationSpeed = 0.2f;
-    public float timer = 0.0f;
-    public int activeFrame = 0;
+    float timer = 0.0f;
 
     //2d box collider
-    public Collider2D lanceCollider;
+    public List<BoxCollider2D> attackColliders;
     public int damage = 2;
+    //int colliderCounter = 0;
 
     //player access
-    public GameObject player;
-    //did attack bool
-    public bool attack = false;
+    GameObject player;
+    bool attack = false;
+    bool attacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
         print("Weapon Start");
 
+        //Get Player object
         player = GameObject.FindGameObjectWithTag("Player");
-        //lanceCollider = gameObject.GetComponent<Collider2D>();
+        
+        //Check for single attack collider
+        if(gameObject.GetComponent<BoxCollider2D>() != null)
+        {
+            attackColliders.Add(gameObject.GetComponent<BoxCollider2D>());
+        }
+        else
+        {
+            //Loops through childrens BoxColliders
+            BoxCollider2D[] temp = gameObject.GetComponentsInChildren<BoxCollider2D>();
+            for(int i = 0; i < temp.Length; i++)
+            {
+                attackColliders.Add(temp[i]);
+            }
+        }
 
         attack = false;
-        lanceCollider.enabled = false;
 
-        maxSpriteSize = attackSprites.Length;
+        //Disable colliders
+        for(int i = 0; i < attackColliders.Count; i++)
+        {
+            attackColliders[i].enabled = false;
+            activeFrames[i] -= 1;
+        }
 
-        activeFrame--;
+        maxSpriteSize = attackFrames.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("Weapon Update");
+        //print("Weapon Update");
 
         //check for button press, and if so set attack to true
         if (Input.GetKeyUp(KeyCode.F) == true)
@@ -56,23 +78,22 @@ public class WeaponAttack : MonoBehaviour
         //if the player attacks...
         if(attack == true)
         {
-            print("Attacking....");
+            //print("Attacking....");
 
-            if(activeFrame == currentSprite)
+            //update sprite
+            player.GetComponent<SpriteRenderer>().sprite = attackFrames[currentFrame];
+
+            //if the frame is the next attack frame, enable the collider
+            if (ActiveFrameCheck())
             {
-                //turn on the collider for the lance
-                lanceCollider.enabled = true;
+                //print("Collider Enabled");
+                attackColliders[activeFrameIndex].enabled = true;
+                attacking = true;
+                activeFrameIndex++;
             }
-            else
-            {
-                //turn on the collider for the lance
-                lanceCollider.enabled = false;
-            }
+                
 
-            //play the lance animation
-            player.GetComponent<SpriteRenderer>().sprite = attackSprites[currentSprite];
-
-            if (currentSprite < maxSpriteSize)
+            if (currentFrame < maxSpriteSize)
             {
                 if(timer < animationSpeed)
                 {
@@ -80,20 +101,49 @@ public class WeaponAttack : MonoBehaviour
                 }
                 else
                 {
-                    currentSprite++;
+                    //Change Frame
+                    FrameChange();
+                    currentFrame++;
                     timer = 0.0f;
+                    attacking = false;
                 }
             }
 
             //disabel lance collider after animation finishes
-            if (currentSprite == maxSpriteSize)
+            if (currentFrame == maxSpriteSize)
             {
-                currentSprite = 0;
+                currentFrame = 0;
+                activeFrameIndex = 0;
+
                 timer = 0.0f;
                 attack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
             }
 
         }
+    }
+
+    public bool ActiveFrameCheck()
+    {
+        if(activeFrameIndex < activeFrames.Length)
+            return currentFrame == activeFrames[activeFrameIndex];
+
+        return false;
+    }
+
+    public bool IsAttacking()
+    {
+        return attacking;
+    }
+
+    void FrameChange()
+    {
+        //on frame change disable colliders
+        foreach (BoxCollider2D collider in attackColliders)
+        {
+            //print("disableing collider: " + colliderCounter++);
+            collider.enabled = false;
+        }
+        //colliderCounter = 0;
     }
 }

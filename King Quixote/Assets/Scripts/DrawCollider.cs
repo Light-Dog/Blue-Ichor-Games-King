@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DrawCollider : MonoBehaviour
 {
-    public bool draw = false;
+    bool draw = false;
     public Color hitboxColor;
     Color savedColor;
 
     public WeaponAttack weapon;
     public SpriteRenderer hitbox;
     public bool hurtbox = false;
-    public float timer = 0.0f;
+    float timer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +37,11 @@ public class DrawCollider : MonoBehaviour
 
             if(hurtbox == false)
             {
-                if (weapon.activeFrame == weapon.currentSprite)
+                if (weapon.IsAttacking())
+                {
                     hitbox.color = hitboxColor;
+                    print("Color Change");
+                }
                 else
                     hitbox.color = savedColor;
             }
