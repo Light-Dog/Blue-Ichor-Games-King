@@ -50,7 +50,7 @@ public class DrawCollider : MonoBehaviour
 
             if (hurtbox == false)
             {
-                if (weapon.getCurrentFrame() == activeFrame)
+                if (weapon.GetCurrentFrame() == activeFrame)
                 {
                     hitbox.enabled = true;
 

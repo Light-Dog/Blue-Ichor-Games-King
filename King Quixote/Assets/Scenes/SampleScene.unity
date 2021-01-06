@@ -675,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 455999013}
   m_LocalRotation: {x: 0.0022784718, y: -0.026657503, z: 0.08513111, w: 0.9960105}
   m_LocalPosition: {x: 2.5370002, y: -0.37, z: -5}
-  m_LocalScale: {x: 75.20763, y: 14.487801, z: 1}
+  m_LocalScale: {x: 75.20763, y: 14.4878025, z: 1}
   m_Children: []
   m_Father: {fileID: 849324844}
   m_RootOrder: 0
@@ -697,11 +697,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8c0d99774f6238046b85b1e98b8c3a5a, type: 3}
   - {fileID: 21300000, guid: 59b5ced626885184598a1500113602b7, type: 3}
   - {fileID: 21300000, guid: 8c0d99774f6238046b85b1e98b8c3a5a, type: 3}
-  activeFrames: 03000000
-  animationSpeed: 0.2
+  activeFrames: 02000000
+  parentContoller: {fileID: 849324845}
+  animationMultiplier: 1
   attackColliders: []
-  damage: 2
   attackButton: 102
+  energyCost: 10
 --- !u!61 &455999016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1358,6 +1359,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849324844}
+  - component: {fileID: 849324845}
+  - component: {fileID: 849324846}
   m_Layer: 11
   m_Name: Lance
   m_TagString: Untagged
@@ -1381,6 +1384,43 @@ Transform:
   m_Father: {fileID: 870097362}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849324845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849324843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44254bcc4a49f74f9177f1780bde7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Lance
+  attackList:
+  - {fileID: 455999015}
+  - {fileID: 1911430436}
+  damage: 2
+  comboList:
+  - {fileID: 849324846}
+  animationSpeed: 0.5
+--- !u!114 &849324846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849324843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccaa5c71c8c4b04a99450daa41864ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combo: 1-2-2
+  buttons: 660000007200000072000000
+  keyframes: 000000000200000003000000
+  comboEnabled: 0
+  comboIndex: 0
 --- !u!1 &870097359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,9 +1639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d076e5a59c3de4e9ed721753878c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacks:
-  - {fileID: 455999015}
-  - {fileID: 1911430436}
+  weapons:
+  - {fileID: 849324845}
+  equipedWeapon: 0
   energyBar: {fileID: 1966524622}
 --- !u!1 &920301238
 GameObject:
@@ -2440,7 +2480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552527506706137664, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 338
+      value: 179.5
       objectReference: {fileID: 0}
     - target: {fileID: 2552527506706137664, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2480,11 +2520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552527506954707052, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 209
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2552527506954707052, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32
+      value: -31.600006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
@@ -2679,11 +2719,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bb7674e386f110743a5963677488464b, type: 3}
   - {fileID: 21300000, guid: 3b613fb40f3c73a46a14b7d6843bfaa7, type: 3}
   - {fileID: 21300000, guid: a5f2ae10b276be64ca9b2deefde45579, type: 3}
-  activeFrames: 020000000300000004000000
-  animationSpeed: 0.2
+  activeFrames: 010000000200000003000000
+  parentContoller: {fileID: 849324845}
+  animationMultiplier: 1
   attackColliders: []
-  damage: 2
   attackButton: 114
+  energyCost: 20
 --- !u!1 &1920939373
 GameObject:
   m_ObjectHideFlags: 0

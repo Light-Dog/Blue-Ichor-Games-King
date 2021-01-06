@@ -6,23 +6,28 @@ public class WeaponAttack : MonoBehaviour
 {
     //frames for attack animation
     public Sprite[] attackFrames;
+    public int[] activeFrames;
+
     int currentFrame = 0;
     int maxSpriteSize = 0;
-    public int[] activeFrames;
     int activeFrameIndex = 0;
 
-    public float animationSpeed = 0.2f;
-    float timer = 0.0f;
+    //animation Update & frame control
+    public WeaponController parentContoller;
+    public float animationMultiplier = 1.0f;
 
     //2d box collider
     public List<BoxCollider2D> attackColliders;
-    public int damage = 2;
+
+    //Input
     public KeyCode attackButton;
-    //int colliderCounter = 0;
+    public float energyCost = 0.0f;
 
     //player access
     GameObject player;
     bool attack = false;
+
+    //----------------------------------------------------------------------------------------------------
 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +58,11 @@ public class WeaponAttack : MonoBehaviour
         for(int i = 0; i < attackColliders.Count; i++)
         {
             attackColliders[i].enabled = false;
-            activeFrames[i] -= 1;
+            //activeFrames[i] -= 1;
         }
 
         maxSpriteSize = attackFrames.Length;
+        energyCost = energyCost / 100.0f;
     }
 
     // Update is called once per frame
@@ -82,16 +88,15 @@ public class WeaponAttack : MonoBehaviour
             //Frame Update
             if (currentFrame < maxSpriteSize)
             {
-                if (timer < animationSpeed)
-                {
-                    timer += Time.deltaTime;
-                }
-                else
+                if (parentContoller.timerUpdate())
                 {
                     //Change Frame
-                    FrameChange();
                     currentFrame++;
-                    timer = 0.0f;
+
+                    //on frame change disable colliders
+                    foreach (BoxCollider2D collider in attackColliders)
+                        collider.enabled = false;
+
                 }
             }
 
@@ -102,7 +107,6 @@ public class WeaponAttack : MonoBehaviour
                 currentFrame = 0;
                 activeFrameIndex = 0;
 
-                timer = 0.0f;
                 attack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
             }
@@ -110,7 +114,19 @@ public class WeaponAttack : MonoBehaviour
 
     }
 
-    public bool attackTrigger()
+    //----------------------------------------------------------------------------------------------------
+
+    public void CancelAttack()
+    {
+        currentFrame = 0;
+        activeFrameIndex = 0;
+        attack = false;
+
+        foreach (BoxCollider2D collider in attackColliders)
+            collider.enabled = false;
+    }
+
+    public bool AttackTrigger()
     {
         return attack;
     }
@@ -124,26 +140,14 @@ public class WeaponAttack : MonoBehaviour
         return false;
     }
 
-    //resets all colliders
-    void FrameChange()
-    {
-        //on frame change disable colliders
-        foreach (BoxCollider2D collider in attackColliders)
-        {
-            //print("disableing collider: " + colliderCounter++);
-            collider.enabled = false;
-        }
-        //colliderCounter = 0;
-    }
-
     //returns current frame
-    public int getCurrentFrame()
+    public int GetCurrentFrame()
     {
         return currentFrame;
     }
 
     //triggers attack
-    public void attackWithWeapon()
+    public void AttackWithWeapon()
     {
         //check for button press, and if so set attack to true
         attack = true;
@@ -153,4 +157,5 @@ public class WeaponAttack : MonoBehaviour
 
         print("Input Recieved, attacking now");
     }
+
 }
