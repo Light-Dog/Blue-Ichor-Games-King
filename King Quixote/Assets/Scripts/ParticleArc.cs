@@ -30,14 +30,20 @@ public class ParticleArc : MonoBehaviour
             rb2d = gameObject.GetComponent<Rigidbody2D>();
         }
 
-        rb2d.AddForce(myVector);
+        if (rb2d != null)
+        {
+            rb2d.AddForce(myVector);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0.0f, 0.0f, myRot, Space.Self);
+        if (minRot != 0 && maxRot != 0)
+        {
+            transform.Rotate(0.0f, 0.0f, myRot, Space.Self);
 
+        }
         if (lifetime > 0)
         {
             lifetime -= Time.deltaTime;
