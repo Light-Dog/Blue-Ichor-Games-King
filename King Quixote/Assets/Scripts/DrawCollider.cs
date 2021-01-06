@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrawCollider : MonoBehaviour
 {
     bool draw = false;
+    bool drawAll = false;
     public Color hitboxColor;
     Color savedColor;
 
@@ -13,37 +14,56 @@ public class DrawCollider : MonoBehaviour
     public bool hurtbox = false;
     float timer = 0.0f;
 
+    public int activeFrame = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        weapon = gameObject.GetComponent<WeaponAttack>();
+        //weapon = gameObject.GetComponent<WeaponAttack>();
         hitbox = gameObject.GetComponent<SpriteRenderer>();
 
         hitbox.enabled = false;
         savedColor = hitbox.color;
+
+        activeFrame--;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //attack draw
         if(Input.GetKeyUp(KeyCode.P))
         {
             draw = !draw;
         }
 
-        if (draw == true)
+        //draw all
+        if(Input.GetKeyUp(KeyCode.O))
         {
-            hitbox.enabled = true;
+            drawAll = !drawAll;
+        }
+                
+        if (draw == true || drawAll == true)
+        {
+            if(drawAll)    
+                hitbox.enabled = true;
 
-            if(hurtbox == false)
+            if (hurtbox == false)
             {
-                if (weapon.IsAttacking())
+                if (weapon.getCurrentFrame() == activeFrame)
                 {
+                    hitbox.enabled = true;
+
                     hitbox.color = hitboxColor;
-                    print("Color Change");
+                    //print("Color Change");
                 }
                 else
+                {
+                    if(!drawAll)
+                        hitbox.enabled = false;
+
                     hitbox.color = savedColor;
+                }
             }
             else
             {

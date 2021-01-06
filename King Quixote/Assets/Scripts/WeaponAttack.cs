@@ -17,12 +17,12 @@ public class WeaponAttack : MonoBehaviour
     //2d box collider
     public List<BoxCollider2D> attackColliders;
     public int damage = 2;
+    public KeyCode attackButton;
     //int colliderCounter = 0;
 
     //player access
     GameObject player;
     bool attack = false;
-    bool attacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,22 +64,9 @@ public class WeaponAttack : MonoBehaviour
     {
         //print("Weapon Update");
 
-        //check for button press, and if so set attack to true
-        if (Input.GetKeyUp(KeyCode.F) == true)
-        {
-            attack = true;
-
-            //Pause the idle animation
-            player.GetComponent<AnimationCycle>().PauseAnimation(true);
-
-            print("Input Recieved, attacking now");
-        }
-
         //if the player attacks...
         if(attack == true)
         {
-            //print("Attacking....");
-
             //update sprite
             player.GetComponent<SpriteRenderer>().sprite = attackFrames[currentFrame];
 
@@ -88,14 +75,14 @@ public class WeaponAttack : MonoBehaviour
             {
                 //print("Collider Enabled");
                 attackColliders[activeFrameIndex].enabled = true;
-                attacking = true;
                 activeFrameIndex++;
             }
-                
 
+
+            //Frame Update
             if (currentFrame < maxSpriteSize)
             {
-                if(timer < animationSpeed)
+                if (timer < animationSpeed)
                 {
                     timer += Time.deltaTime;
                 }
@@ -105,13 +92,13 @@ public class WeaponAttack : MonoBehaviour
                     FrameChange();
                     currentFrame++;
                     timer = 0.0f;
-                    attacking = false;
                 }
             }
 
-            //disabel lance collider after animation finishes
+            //resets frame and index date for next attack
             if (currentFrame == maxSpriteSize)
             {
+                //print("End of Attack");
                 currentFrame = 0;
                 activeFrameIndex = 0;
 
@@ -119,10 +106,16 @@ public class WeaponAttack : MonoBehaviour
                 attack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
             }
-
         }
+
     }
 
+    public bool attackTrigger()
+    {
+        return attack;
+    }
+
+    //checks if this frame is an active frame
     public bool ActiveFrameCheck()
     {
         if(activeFrameIndex < activeFrames.Length)
@@ -131,11 +124,7 @@ public class WeaponAttack : MonoBehaviour
         return false;
     }
 
-    public bool IsAttacking()
-    {
-        return attacking;
-    }
-
+    //resets all colliders
     void FrameChange()
     {
         //on frame change disable colliders
@@ -145,5 +134,23 @@ public class WeaponAttack : MonoBehaviour
             collider.enabled = false;
         }
         //colliderCounter = 0;
+    }
+
+    //returns current frame
+    public int getCurrentFrame()
+    {
+        return currentFrame;
+    }
+
+    //triggers attack
+    public void attackWithWeapon()
+    {
+        //check for button press, and if so set attack to true
+        attack = true;
+
+        //Pause the idle animation
+        player.GetComponent<AnimationCycle>().PauseAnimation(true);
+
+        print("Input Recieved, attacking now");
     }
 }
