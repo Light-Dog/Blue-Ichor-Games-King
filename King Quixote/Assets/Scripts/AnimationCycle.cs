@@ -16,6 +16,7 @@ public class AnimationCycle : MonoBehaviour
     public float timer = 0.0f;
 
     public bool pause = false;
+    public float repositionX = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,8 @@ public class AnimationCycle : MonoBehaviour
         {
             maxFrame = 6;
         }
+
+        repositionX *= transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -76,6 +79,8 @@ public class AnimationCycle : MonoBehaviour
                 {
                     timer = 0.0f;
                     currentFrame = 1;
+
+                    transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
                 }
             }
 
