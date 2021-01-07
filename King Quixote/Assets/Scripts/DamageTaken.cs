@@ -24,8 +24,6 @@ public class DamageTaken : MonoBehaviour
             gameObject.GetComponentInParent<DamageAnim>().take_damage();
             health -= other.gameObject.GetComponentInParent<WeaponController>().damage;
         }
-
-
     }
 
     private void Update()
