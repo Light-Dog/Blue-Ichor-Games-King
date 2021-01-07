@@ -11,7 +11,7 @@ public class WeaponController : MonoBehaviour
     public int damage = 2;
 
     public List<ComboScript> comboList;
-    bool comboStart;
+    bool comboConfirm;
 
     public float animationSpeed = 0.2f;
     float timer = 0.0f;
@@ -21,7 +21,7 @@ public class WeaponController : MonoBehaviour
     void Start()
     {
         num_attacks = attackList.Capacity;
-        comboStart = false;
+        comboConfirm = false;
         currentFrame = 0;
         current_attack = 0;
     }
@@ -44,15 +44,12 @@ public class WeaponController : MonoBehaviour
 
             if (Input.GetKeyDown(attack.attackButton))
             {
-                //if a combo hasn't started, aka no input in a bit
-                if (comboStart == false)
+
+                //enable all combos that started
+                foreach(ComboScript combo in comboList)
                 {
-                    //enable all combos that started
-                    foreach(ComboScript combo in comboList)
-                    {
-                        print("Combo check with button " + attack.attackButton.ToString() + " on frame " + attack.GetCurrentFrame());
-                        combo.ContinueCombo(attack.attackButton, attack.GetCurrentFrame());
-                    }
+                    print("Combo check with button " + attack.attackButton.ToString() + " on frame " + attack.GetCurrentFrame());
+                    combo.ContinueCombo(attack.attackButton, attack.GetCurrentFrame());
                 }
 
                 print("Button Pushed: " + attack.attackButton.ToString());
@@ -75,7 +72,7 @@ public class WeaponController : MonoBehaviour
         else
         {
             currentFrame++;
-            print("Current Frame: " + currentFrame);
+            //print("Current Frame: " + currentFrame);
             timer = 0.0f;
             return true;
         }
@@ -83,8 +80,10 @@ public class WeaponController : MonoBehaviour
         return false;
     }
 
-    public void comboCheck()
+    public bool comboCheck()
     {
+        int i = 0;
+
         foreach (WeaponAttack attack in attackList)
         {
             if (Input.GetKeyDown(attack.attackButton))
@@ -97,12 +96,33 @@ public class WeaponController : MonoBehaviour
                     {
                         attackList[current_attack].CancelAttack();
                         currentFrame = 0;
-                        attack.AttackWithWeapon();
+
+                        if (comboConfirm == false)
+                        {
+                            print("Combo Confirmed");
+                            attack.AttackWithWeapon();
+                            comboConfirm = true;
+                            current_attack = i;
+                        }
+                        else
+                        {
+                            print("Combo Finisher");
+                            combo.ComboAttack();
+                            return true;
+                        }
+
                     }
                 }
             }
+
+            i++;
         }
+
+        return false;
+
     }
+
+
 
     //returns true if the weapon is no longer attacking
     public bool WeaponCooldown()
@@ -112,7 +132,7 @@ public class WeaponController : MonoBehaviour
         foreach(WeaponAttack attack in attackList)
         {
             //if a weapon  attack is playing
-            if (attack.AttackTrigger())
+            if (attack.AttackTrigger() || comboList[0].ComboTrigger())
                 cool = false;
         }
 
@@ -120,6 +140,7 @@ public class WeaponController : MonoBehaviour
         {
             comboList[0].comboEnabled = false;
             comboList[0].comboIndex = 0;
+            comboConfirm = false;
         }
 
         return cool;

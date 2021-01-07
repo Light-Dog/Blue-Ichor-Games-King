@@ -13,11 +13,13 @@ public class AttackController : MonoBehaviour
     float timer = 0f;
 
     bool attacking = false;
+    bool comboing = false;
 
     // Start is called before the first frame update
     void Start()
     {
         attacking = false;
+        comboing = false;
     }
 
     // Update is called once per frame
@@ -32,9 +34,17 @@ public class AttackController : MonoBehaviour
         }
         else
         {
-            weapons[equipedWeapon].comboCheck();
+            if(comboing == false)
+            {
+                if (weapons[equipedWeapon].comboCheck())
+                    comboing = true;
+            }
+
             if (weapons[equipedWeapon].WeaponCooldown())
+            {
                 attacking = false;
+                comboing = false;
+            }
         }
 
         energyBar.fillAmount = energyPercent;
