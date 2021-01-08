@@ -149,6 +149,11 @@ public class ComboScript : MonoBehaviour
         player.GetComponent<AnimationCycle>().PauseAnimation(true);
     }
 
+    public int GetCurrentFrame()
+    {
+        return currentFrame;
+    }
+
     public bool ComboTrigger()
     {
         return comboAttack;

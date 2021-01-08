@@ -9,7 +9,8 @@ public class DrawCollider : MonoBehaviour
     public Color hitboxColor;
     Color savedColor;
 
-    public WeaponAttack weapon;
+    public WeaponAttack weapon = null;
+    public ComboScript combo = null;
     public SpriteRenderer hitbox;
     public bool hurtbox = false;
     float timer = 0.0f;
@@ -25,7 +26,7 @@ public class DrawCollider : MonoBehaviour
         hitbox.enabled = false;
         savedColor = hitbox.color;
 
-        activeFrame--;
+        //activeFrame--;
     }
 
     // Update is called once per frame
@@ -50,20 +51,42 @@ public class DrawCollider : MonoBehaviour
 
             if (hurtbox == false)
             {
-                if (weapon.GetCurrentFrame() == activeFrame)
+                if(weapon != null)
                 {
-                    hitbox.enabled = true;
+                    if (weapon.GetCurrentFrame() == activeFrame)
+                    {
+                        hitbox.enabled = true;
 
-                    hitbox.color = hitboxColor;
-                    //print("Color Change");
+                        hitbox.color = hitboxColor;
+                        //print("Color Change");
+                    }
+                    else
+                    {
+                        if (!drawAll)
+                            hitbox.enabled = false;
+
+                        hitbox.color = savedColor;
+                    }
                 }
-                else
+                else if(combo != null)
                 {
-                    if(!drawAll)
-                        hitbox.enabled = false;
+                    if (combo.GetCurrentFrame() == activeFrame)
+                    {
+                        hitbox.enabled = true;
 
-                    hitbox.color = savedColor;
+                        hitbox.color = hitboxColor;
+                        //print("Color Change");
+                    }
+                    else
+                    {
+                        if (!drawAll)
+                            hitbox.enabled = false;
+
+                        hitbox.color = savedColor;
+                    }
                 }
+
+                
             }
             else
             {
