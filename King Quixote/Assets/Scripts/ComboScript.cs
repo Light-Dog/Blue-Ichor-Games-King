@@ -30,6 +30,8 @@ public class ComboScript : MonoBehaviour
 
     public GameObject player;
 
+    public bool playedSound = false;
+
     //----------------------------------------------------------------------------------------------------
 
     // Start is called before the first frame update
@@ -69,6 +71,8 @@ public class ComboScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        repositionX *= player.transform.localScale.x;
+
         if (Input.GetKeyDown(KeyCode.Y))
         {
             player.GetComponent<AnimationCycle>().PauseAnimation(true);
@@ -77,6 +81,13 @@ public class ComboScript : MonoBehaviour
 
         if(comboAttack == true)
         {
+            //audio fx
+            if (playedSound == false)
+            {
+                gameObject.GetComponentInChildren<AudioSource>().Play();
+                playedSound = true;
+            }
+
             player.GetComponent<SpriteRenderer>().sprite = comboFrames[currentFrame];
 
             if (ActiveFrameCheck())
@@ -112,6 +123,8 @@ public class ComboScript : MonoBehaviour
 
                 comboAttack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
+
+                playedSound = false;
             }
         }
     }

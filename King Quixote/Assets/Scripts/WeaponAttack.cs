@@ -26,6 +26,7 @@ public class WeaponAttack : MonoBehaviour
     //player access
     GameObject player;
     bool attack = false;
+    bool playedSound = false;
 
     //----------------------------------------------------------------------------------------------------
 
@@ -73,6 +74,16 @@ public class WeaponAttack : MonoBehaviour
         //if the player attacks...
         if(attack == true)
         {
+            //audio fx
+            //if (playedSound == false)
+            {
+                if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
+                {
+                    gameObject.GetComponentInChildren<AudioSource>().Play();
+                }
+                //playedSound = true;
+            }
+
             //update sprite
             player.GetComponent<SpriteRenderer>().sprite = attackFrames[currentFrame];
 
@@ -109,6 +120,8 @@ public class WeaponAttack : MonoBehaviour
 
                 attack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
+
+                //playedSound = false;
             }
         }
 
