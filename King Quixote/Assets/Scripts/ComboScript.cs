@@ -39,7 +39,7 @@ public class ComboScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        repositionX *= player.transform.localScale.x;
+        //repositionX *= player.transform.localScale.x;
 
         if (gameObject.GetComponent<BoxCollider2D>() != null)
         {
@@ -71,7 +71,7 @@ public class ComboScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        repositionX *= player.transform.localScale.x;
+        //repositionX *= player.transform.localScale.x;
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
