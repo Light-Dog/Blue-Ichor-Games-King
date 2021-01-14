@@ -32,7 +32,7 @@ public class WeaponController : MonoBehaviour
 
     }
 
-    //returns true if a weapon attack is pushed;
+    //returns cost of an attack if an attack is pressed
     public float WeaponCheck()
     {
         float cost = 0.0f;
@@ -65,6 +65,7 @@ public class WeaponController : MonoBehaviour
         return cost;
     }
 
+    //timer for the weapons
     public bool timerUpdate()
     {
         if (timer < animationSpeed)
