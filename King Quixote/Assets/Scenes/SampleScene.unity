@@ -1160,8 +1160,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675707919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.276, y: -0.301, z: 0}
-  m_LocalScale: {x: 42.942104, y: 57.08543, z: 1}
+  m_LocalPosition: {x: 4.276, y: -0.091, z: 0}
+  m_LocalScale: {x: 42.942104, y: 51.8361, z: 1}
   m_Children: []
   m_Father: {fileID: 1556078858}
   m_RootOrder: 1
@@ -1675,6 +1675,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 920301239}
   m_CeilingCheck: {fileID: 2121157705}
   m_CrouchDisableCollider: {fileID: 0}
+  m_FacingRight: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2793,6 +2794,7 @@ MonoBehaviour:
   repositionX: 2.6
   comboColliders: []
   player: {fileID: 0}
+  playedSound: 0
 --- !u!4 &1556078858
 Transform:
   m_ObjectHideFlags: 0

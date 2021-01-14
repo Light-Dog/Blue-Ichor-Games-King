@@ -31,6 +31,7 @@ public class ComboScript : MonoBehaviour
     public GameObject player;
 
     public bool playedSound = false;
+    bool directionFacing = true;
 
     //----------------------------------------------------------------------------------------------------
 
@@ -119,7 +120,12 @@ public class ComboScript : MonoBehaviour
                 currentFrame = 0;
                 activeFrameIndex = 0;
 
-                player.transform.position = new Vector3(player.transform.position.x + repositionX, player.transform.position.y, player.transform.position.z);
+                directionFacing = player.GetComponent<PlayerController>().m_FacingRight;
+
+                if(directionFacing)
+                    player.transform.position = new Vector3(player.transform.position.x + repositionX, player.transform.position.y, player.transform.position.z);
+                else
+                    player.transform.position = new Vector3(player.transform.position.x - repositionX, player.transform.position.y, player.transform.position.z);
 
                 comboAttack = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
