@@ -13,10 +13,14 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<AttackController>() != null)
+        if(collision.gameObject.GetComponent<AttackController>() != null || collision.gameObject.GetComponent<ShieldBlock>() != null)
         {
             print("Player Damaged!");
-            player.GetComponentInChildren<DamageTaken>().ouch();
+
+            if(player.GetComponentInChildren<ShieldBlock>().EnemyBlockCheck())
+                player.GetComponentInChildren<DamageTaken>().shieldOuch();
+            else
+                player.GetComponentInChildren<DamageTaken>().ouch();
         }
     }
 

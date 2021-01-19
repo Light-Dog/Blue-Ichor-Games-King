@@ -9,6 +9,7 @@ public class DamageTaken : MonoBehaviour
     public Image healthBar;
 
     bool damageTaken = false;
+    bool shield = false;
 
     private void Start()
     {
@@ -38,7 +39,11 @@ public class DamageTaken : MonoBehaviour
         {
             if (healthBar != null)
             {
-                healthBar.fillAmount -= .21f;
+                if(shield) 
+                    healthBar.fillAmount -= .11f;
+                else
+                    healthBar.fillAmount -= .21f;
+
                 gameObject.GetComponent<DrawCollider>().hurtboxCollision();
                 damageTaken = false;
 
@@ -51,5 +56,11 @@ public class DamageTaken : MonoBehaviour
     public void ouch()
     {
         damageTaken = true;
+    }
+
+    public void shieldOuch()
+    {
+        damageTaken = true;
+        shield = true;
     }
 }

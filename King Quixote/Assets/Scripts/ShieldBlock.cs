@@ -9,7 +9,7 @@ public class ShieldBlock : MonoBehaviour
     public Sprite[] blockFrames;
 
     //out of 3 blocking frames the 2nd is the block
-    int activeFrame = 1;
+    public int activeFrame = 1;
 
     int currentFrame = 0;
     int maxFrameCount = 0;
@@ -67,7 +67,7 @@ public class ShieldBlock : MonoBehaviour
                 holdBlock = false;
             }
 
-            if(currentFrame == activeFrame)
+            if(currentFrame == activeFrame || holdBlock)
             {
                 print("HA blocked");
                 blockCollider.enabled = true;
@@ -88,6 +88,7 @@ public class ShieldBlock : MonoBehaviour
                 blocking = false;
                 holdBlock = false;
                 player.GetComponent<AnimationCycle>().PauseAnimation(false);
+                blockCollider.enabled = false;
             }
         }
 
@@ -134,5 +135,10 @@ public class ShieldBlock : MonoBehaviour
     public bool blockComplete()
     {
         return blocking; 
+    }
+
+    public bool EnemyBlockCheck()
+    {
+        return blockCollider.enabled;
     }
 }
