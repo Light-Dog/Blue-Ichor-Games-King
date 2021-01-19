@@ -8,6 +8,8 @@ public class DamageTaken : MonoBehaviour
     public int health;
     public Image healthBar;
 
+    bool damageTaken = false;
+
     private void Start()
     {
         health = 10;
@@ -32,16 +34,22 @@ public class DamageTaken : MonoBehaviour
             Destroy(gameObject.transform.parent.gameObject);
 
         //Self damage player
-        if (Input.GetKeyDown(KeyCode.M))
+        if (damageTaken)
         {
             if (healthBar != null)
             {
                 healthBar.fillAmount -= .21f;
                 gameObject.GetComponent<DrawCollider>().hurtboxCollision();
+                damageTaken = false;
 
                 if (healthBar.fillAmount <= 0.0f)
                     healthBar.fillAmount= .05f;
             }
         }
+    }
+
+    public void ouch()
+    {
+        damageTaken = true;
     }
 }

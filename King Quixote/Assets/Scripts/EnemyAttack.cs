@@ -9,11 +9,14 @@ public class EnemyAttack : MonoBehaviour
     public BoxCollider2D attackCollider;
     public int frame = 0;
 
+    GameObject player;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<AttackController>() != null)
         {
             print("Player Damaged!");
+            player.GetComponentInChildren<DamageTaken>().ouch();
         }
     }
 
@@ -21,6 +24,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         attackCollider.enabled = false;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

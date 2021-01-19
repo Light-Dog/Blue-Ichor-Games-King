@@ -106,7 +106,7 @@ public class DrawCollider : MonoBehaviour
 
     public void hurtboxCollision()
     {
-        if(draw)
+        if(draw || drawAll)
         {
             hitbox.color = hitboxColor;
             timer = 1f;
