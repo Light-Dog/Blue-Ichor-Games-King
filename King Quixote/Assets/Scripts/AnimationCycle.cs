@@ -19,6 +19,22 @@ public class AnimationCycle : MonoBehaviour
     public float repositionX = 0.0f;
     public bool reverseAtEnd = false;
     private bool reversing = false;
+    public bool lerp = false;
+
+    /*
+    // Transforms to act as start and end markers for the journey.
+    public Transform startMarker;
+    public Transform endMarker;
+
+    // Movement speed in units per second.
+    public float speed = 1.0F;
+
+    // Time when the movement started.
+    private float startTime;
+
+    // Total distance between the markers.
+    private float journeyLength;
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +65,33 @@ public class AnimationCycle : MonoBehaviour
             maxFrame = 6;
         }
 
+        //old code
         repositionX *= transform.localScale.x;
+        //
+
+        /*
+        // Keep a note of the time the movement started.
+        startTime = Time.time;
+
+        // Calculate the journey length.
+        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        // Distance moved equals elapsed time x speed..
+        float distCovered = (Time.time - startTime) * speed;
+
+        // Fraction of journey completed equals current distance divided by total distance.
+        float fractionOfJourney = distCovered / journeyLength;
+
+        // Set position as a fraction of the distance between the markers.
+        transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+        */
+
         //pause for attack animation
         if (pause == false)
         {
@@ -101,7 +138,16 @@ public class AnimationCycle : MonoBehaviour
                         timer = 0.0f;
                         currentFrame = 1;
 
-                        transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
+                        if (lerp == false)
+                        {
+                            transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
+                        }
+                        else
+                        {
+                            Vector3 posX = new Vector3(transform.position.x + repositionX, transform.position.y);
+
+                            transform.position = Vector3.Lerp(transform.position, posX, 1.0f);
+                        }
                     }
                     //reverse animation
                     else
