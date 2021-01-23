@@ -4,190 +4,99 @@ using UnityEngine;
 
 public class AnimationCycle : MonoBehaviour
 {
-    public Sprite Frame1;
-    public Sprite Frame2;
-    public Sprite Frame3;
-    public Sprite Frame4;
-    public Sprite Frame5;
-    public Sprite Frame6;
-    public int currentFrame = 1;
-    public int maxFrame = 1;
-    public float animationSpeed = 0.2f;
-    public float timer = 0.0f;
+    public Sprite[] frames;
+    public float animationSpeed = .2f;
+    public bool reverse = false;
 
-    public bool pause = false;
-    public float repositionX = 0.0f;
-    public bool reverseAtEnd = false;
-    private bool reversing = false;
     public bool lerp = false;
+    public float repositionX = 0.0f;
 
-    /*
-    // Transforms to act as start and end markers for the journey.
-    public Transform startMarker;
-    public Transform endMarker;
+    bool forward = true;
+    public int currentFrame = 0;
+    public int maxFrame;
+    float timer = 0.0f;
+    bool pause = false;
 
-    // Movement speed in units per second.
-    public float speed = 1.0F;
-
-    // Time when the movement started.
-    private float startTime;
-
-    // Total distance between the markers.
-    private float journeyLength;
-    */
+    bool move = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //Checks for max size of the spirte list
-        if (Frame1 != null)
-        {
-            maxFrame = 1;
-        }
-        if (Frame2 != null)
-        {
-            maxFrame = 2;
-        }
-        if (Frame3 != null)
-        {
-            maxFrame = 3;
-        }
-        if (Frame4 != null)
-        {
-            maxFrame = 4;
-        }
-        if (Frame5 != null)
-        {
-            maxFrame = 5;
-        }
-        if (Frame6 != null)
-        {
-            maxFrame = 6;
-        }
+        maxFrame = frames.Length;
 
-        //old code
-        repositionX *= transform.localScale.x;
-        //
-
-        /*
-        // Keep a note of the time the movement started.
-        startTime = Time.time;
-
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
-        */
+        //repositionX *= transform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        // Distance moved equals elapsed time x speed..
-        float distCovered = (Time.time - startTime) * speed;
-
-        // Fraction of journey completed equals current distance divided by total distance.
-        float fractionOfJourney = distCovered / journeyLength;
-
-        // Set position as a fraction of the distance between the markers.
-        transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
-        */
-
         //pause for attack animation
         if (pause == false)
         {
-            //update frame
-            if (currentFrame < maxFrame)
+            if(currentFrame >= 0 && currentFrame < maxFrame)
+                gameObject.GetComponent<SpriteRenderer>().sprite = frames[currentFrame];
+
+            if(forward)
             {
-                if (timer < animationSpeed)
+                if(timerUpdate())
                 {
-                    timer += Time.deltaTime;
-                }
-                else
-                {
-                    timer = 0.0f;
-                    if (reversing == false)
+                    if (currentFrame < maxFrame)
                     {
                         currentFrame++;
                     }
                     else
                     {
-                        currentFrame--;
+                        forward = false;
+                        move = true;
                     }
-                }
-                if (reversing == true)
-                {
-                    if (currentFrame < 1)
-                    {
-                        timer = 0.0f;
-                        currentFrame++;
-                        reversing = false;
-                    }
+
+
                 }
             }
             else
             {
-                if (timer < animationSpeed)
+                if(reverse)
                 {
-                    timer += Time.deltaTime;
+                    if(timerUpdate())
+                    {
+                        if (currentFrame == 0)
+                            forward = true;
+                        else
+                            currentFrame--;
+                    }
                 }
                 else
                 {
-                    //loop animation
-                    if (reverseAtEnd == false)
+                    currentFrame = 0;
+                    forward = true;
+                    if (lerp)
                     {
-                        timer = 0.0f;
-                        currentFrame = 1;
-
-                        if (lerp == false)
+                        if(move)
                         {
                             transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
-                        }
-                        else
-                        {
-                            Vector3 posX = new Vector3(transform.position.x + repositionX, transform.position.y);
-
-                            transform.position = Vector3.Lerp(transform.position, posX, 1.0f);
+                            move = false;
                         }
                     }
-                    //reverse animation
-                    else
-                    {
-                        timer = 0.0f;
-                        currentFrame--;
-                        reversing = true;
 
-                        //transform.position = new Vector3(transform.position.x - repositionX, transform.position.y, transform.position.z);
-                    }
                 }
             }
-
-
-            //change animation
-            if (currentFrame == 1)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame1;
-            }
-            if (currentFrame == 2)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame2;
-            }
-            if (currentFrame == 3)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame3;
-            }
-            if (currentFrame == 4)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame4;
-            }
-            if (currentFrame == 5)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame5;
-            }
-            if (currentFrame == 6)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Frame6;
-            }
         }
+    }
+
+    bool timerUpdate()
+    {
+        if(timer < animationSpeed)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0.0f;
+            return true;
+        }
+
+        return false;
     }
 
     public void PauseAnimation(bool toPause)

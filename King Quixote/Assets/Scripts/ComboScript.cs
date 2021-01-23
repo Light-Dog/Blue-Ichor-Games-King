@@ -6,7 +6,7 @@ public class ComboScript : MonoBehaviour
 {
     public string combo;
     public List<KeyCode> buttons;
-    public List<int> keyframes;
+    public List<int> keyframes;  //make into a window of frames to recieve input
     public bool comboEnabled = false;
     public int comboIndex = 0;
 
