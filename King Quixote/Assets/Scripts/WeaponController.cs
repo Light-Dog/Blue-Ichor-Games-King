@@ -11,7 +11,7 @@ public class WeaponController : MonoBehaviour
     public int damage = 2;
 
     public List<ComboScript> comboList;
-    bool comboConfirm;
+    bool comboConfirm = false;
 
     public float animationSpeed = 0.2f;
     float timer = 0.0f;
@@ -21,9 +21,6 @@ public class WeaponController : MonoBehaviour
     void Start()
     {
         num_attacks = attackList.Capacity;
-        comboConfirm = false;
-        currentFrame = 0;
-        current_attack = 0;
     }
 
     // Update is called once per frame
@@ -66,7 +63,7 @@ public class WeaponController : MonoBehaviour
     }
 
     //timer for the weapons
-    public bool timerUpdate()
+    public bool TimerUpdate()
     {
         if (timer < animationSpeed)
             timer += Time.deltaTime;

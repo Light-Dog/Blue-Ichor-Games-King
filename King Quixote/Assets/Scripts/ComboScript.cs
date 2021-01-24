@@ -101,7 +101,7 @@ public class ComboScript : MonoBehaviour
             //Frame Update
             if (currentFrame < maxSpriteSize)
             {
-                if (parentContoller.timerUpdate())
+                if (parentContoller.TimerUpdate())
                 {
                     //Change Frame
                     currentFrame++;
