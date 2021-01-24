@@ -66,10 +66,8 @@ GameObject:
   - component: {fileID: 6845037766477707962}
   - component: {fileID: 6845037766477707963}
   - component: {fileID: 6845037766477707960}
-  - component: {fileID: 6845037766477707965}
   - component: {fileID: 6845037766477707967}
   - component: {fileID: 6845037766477707966}
-  - component: {fileID: 6845037766477707964}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -182,36 +180,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 500
-  m_CrouchSpeed: 0.4
+  runSpeed: 40
   m_MovementSmoothing: 0.05
-  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
   m_GroundCheck: {fileID: 6845037766528431580}
-  m_CeilingCheck: {fileID: 6845037767747671842}
-  m_CrouchDisableCollider: {fileID: 0}
+  health: 10
+  weapons: []
+  equipedWeapon: 0
+  energyBar: {fileID: 0}
   m_FacingRight: 1
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &6845037766477707965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6845037766477707940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb669b0646a4ee4f8e30d52f86d8c0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 6845037766477707960}
-  runSpeed: 40
 --- !u!50 &6845037766477707967
 Rigidbody2D:
   serializedVersion: 4
@@ -259,23 +238,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.426346, y: 4.0199795}
   m_EdgeRadius: 0
---- !u!114 &6845037766477707964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6845037766477707940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d076e5a59c3de4e9ed721753878c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 6845037766465187910}
-  equipedWeapon: 0
-  shield: {fileID: 6845037767604062457}
-  energyBar: {fileID: 0}
 --- !u!1 &6845037766511246587
 GameObject:
   m_ObjectHideFlags: 0
