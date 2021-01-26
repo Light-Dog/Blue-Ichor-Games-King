@@ -7,6 +7,8 @@ public class GoToScene : MonoBehaviour
 
     public int TargetSceneIndex = 1;
     public Scene TargetScene;
+    public bool touch = false;
+    public float touchTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,23 @@ public class GoToScene : MonoBehaviour
         SceneManager.LoadScene(TargetSceneIndex);
         //SceneManager.LoadScene(TargetScene.buildIndex);
     }
+
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (touch == true)
+        {
+            if (touchTime > 0)
+            {
+                touchTime -= Time.deltaTime;
+            }
+            else
+            {
+                SwitchScene();
+            }
+        }
+    }
+
 
     // Update is called once per frame
     void Update()

@@ -85,7 +85,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        energyBar.fillAmount = energyPercent;
+        if (energyBar != null)
+        {
+            energyBar.fillAmount = energyPercent;
+        }
 
         //4 energy per second back
         if (timer >= 1.0f)
