@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AttackController : MonoBehaviour
 {
-    public List<WeaponController> weapons;
+    public List<WeaponController_old> weapons;
     public int equipedWeapon = 0;
 
     public ShieldBlock shield;

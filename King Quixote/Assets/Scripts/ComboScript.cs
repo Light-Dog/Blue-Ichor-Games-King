@@ -21,7 +21,7 @@ public class ComboScript : MonoBehaviour
     int damage = 4;
 
     //animation Update & frame control
-    public WeaponController parentContoller;
+    public WeaponController_old parentContoller;
     public float animationMultiplier = 1.0f;
     public float repositionX = 0.0f;
 

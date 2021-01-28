@@ -11,26 +11,42 @@ public class ComboAction : WeaponAction
     public int comboIndex = 0;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        
+        base.Start();
+        actionType = typeOfAction.Combo;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Activate Once a Combo is complete
         if(CheckActive())
         {
-            //play Sound
-            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
-                gameObject.GetComponentInChildren<AudioSource>().Play();
-
             //update sprite
             UpdateFrame();
 
             if (GetCurrentFrame() == GetMaxFrames())
                 ResetData();
         }
+    }
+
+    public bool CheckComboComplete()
+    {
+        if (comboIndex == buttons.Capacity)
+        {
+            comboIndex = 0;
+            comboEnabled = false;
+
+            //play Sound
+            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
+                gameObject.GetComponentInChildren<AudioSource>().Play();
+
+            ActivateAction();
+            return true;
+        }
+
+        return false;
     }
 
     public bool ContinueCombo(KeyCode keyPress, int currrentFrame)
@@ -42,16 +58,18 @@ public class ComboAction : WeaponAction
                 comboIndex++;
                 comboEnabled = true;
             }
-
-            comboEnabled = false;
-        }
-
-        if(comboIndex == buttons.Capacity)
-        {
-            ActivateAction();
+            else
+                comboEnabled = false;
         }
 
         return comboEnabled;
+    }
+
+    public void ResetCombo()
+    {
+        comboEnabled = false;
+        comboIndex = 0;
+        base.CancelAction();
     }
 
     public bool ComboEnabled()

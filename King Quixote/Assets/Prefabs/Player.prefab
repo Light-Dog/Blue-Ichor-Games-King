@@ -31,6 +31,7 @@ Transform:
   - {fileID: 6845037767164437837}
   - {fileID: 6845037767588300360}
   - {fileID: 6845037768312765025}
+  - {fileID: 6845037767604062436}
   m_Father: {fileID: 6845037766477707961}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90,7 +91,6 @@ Transform:
   - {fileID: 6845037767747671842}
   - {fileID: 6845037767627908186}
   - {fileID: 6845037766465187911}
-  - {fileID: 6845037767604062436}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,9 +187,10 @@ MonoBehaviour:
     m_Bits: 256
   m_GroundCheck: {fileID: 6845037766528431580}
   health: 10
-  weapons: []
-  equipedWeapon: 0
   energyBar: {fileID: 0}
+  weapons: []
+  new_weapons: []
+  equipedWeapon: 0
   m_FacingRight: 1
 --- !u!50 &6845037766477707967
 Rigidbody2D:
@@ -365,6 +366,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   hitbox: {fileID: 6845037766511246584}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 1
 --- !u!1 &6845037766528431581
 GameObject:
@@ -523,6 +525,7 @@ MonoBehaviour:
   combo: {fileID: 6845037768312765026}
   hitbox: {fileID: 6845037766906193784}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 3
 --- !u!1 &6845037767164437838
 GameObject:
@@ -599,6 +602,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   hitbox: {fileID: 6845037767164437826}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 2
 --- !u!212 &6845037767164437826
 SpriteRenderer:
@@ -890,12 +894,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6845037767604062437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.22, y: 0.333, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.22, y: 0.33300006, z: 0}
   m_LocalScale: {x: 33.283554, y: 52.81495, z: 1}
   m_Children: []
-  m_Father: {fileID: 6845037766477707961}
-  m_RootOrder: 4
+  m_Father: {fileID: 6845037766465187911}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6845037767604062457
 MonoBehaviour:
@@ -1012,6 +1016,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   hitbox: {fileID: 6845037767604062458}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 0
 --- !u!1 &6845037767627908187
 GameObject:
@@ -1129,6 +1134,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   hitbox: {fileID: 6845037767627908190}
   hurtbox: 1
+  action: {fileID: 0}
   activeFrame: 0
 --- !u!61 &6845037767627908185
 BoxCollider2D:
@@ -1313,6 +1319,7 @@ MonoBehaviour:
   combo: {fileID: 6845037768312765026}
   hitbox: {fileID: 6845037767885620948}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 2
 --- !u!1 &6845037768154895859
 GameObject:
@@ -1441,6 +1448,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   hitbox: {fileID: 6845037768154895856}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 2
 --- !u!1 &6845037768312765027
 GameObject:
@@ -1761,6 +1769,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   hitbox: {fileID: 6845037768474705836}
   hurtbox: 0
+  action: {fileID: 0}
   activeFrame: 3
 --- !u!1 &6845037768555394090
 GameObject:

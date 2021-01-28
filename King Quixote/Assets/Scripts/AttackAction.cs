@@ -7,9 +7,10 @@ public class AttackAction : WeaponAction
     public KeyCode attackButton;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        
+        base.Start();
+        actionType = typeOfAction.Attack;
     }
 
     // Update is called once per frame
@@ -17,22 +18,35 @@ public class AttackAction : WeaponAction
     {
         if(CheckActive())
         {
-            //play Sound
-            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
-                gameObject.GetComponentInChildren<AudioSource>().Play();
-
             //update sprite
             UpdateFrame();
 
             if (GetCurrentFrame() == GetMaxFrames())
                 ResetData();
+            
         }
+    }
+
+    public bool AttackStart()
+    {
+        if (Input.GetKeyDown(attackButton))
+        {
+            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
+                gameObject.GetComponentInChildren<AudioSource>().Play();
+
+            ActivateAction();
+            return true;
+        }
+
+        return false;
     }
 
     public bool AttackCheck()
     {
         if(Input.GetKeyDown(attackButton))
+        {
             return true;
+        }
         
         return false;
     }

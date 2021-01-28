@@ -5,64 +5,136 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public string weaponName;
-    public List<WeaponAttack> attackList;
-    int num_attacks = 0;
-    int current_attack = 0;
-    public int damage = 2;
 
-    public List<ComboScript> comboList;
-    bool comboConfirm = false;
+    public List<AttackAction> attacks;
+    public List<ComboAction> combos;
+    public BlockAction block;
 
+    public int damage = 0;
     public float animationSpeed = 0.2f;
+
     float timer = 0.0f;
     int currentFrame = 0;
+    WeaponAction currentAction = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        num_attacks = attackList.Capacity;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    //returns cost of an attack if an attack is pressed
     public float WeaponCheck()
     {
-        float cost = 0.0f;
-        int i = 0;
+        //check should look for attack input, combos, blocking
+        //function to check for inputs, bool to track if an action is running
+        //while an attack is playing, check for combos
+        //needs to output energy cost
+        //holding block should drain stamina
+        float weaponCost = 0.0f;
 
-        foreach(WeaponAttack attack in attackList)
+        if(currentAction == null)
+            weaponCost = ActionStart();
+        else
         {
-            //print("Attacking allowed");
+            if(currentAction.actionType == WeaponAction.typeOfAction.Attack)
+                ActionUpdate();
 
-            if (Input.GetKeyDown(attack.attackButton))
-            {
-
-                //enable all combos that started
-                foreach(ComboScript combo in comboList)
-                {
-                    print("Combo check with button " + attack.attackButton.ToString() + " on frame " + attack.GetCurrentFrame());
-                    combo.ContinueCombo(attack.attackButton, attack.GetCurrentFrame());
-                }
-
-                print("Button Pushed: " + attack.attackButton.ToString());
-                attack.AttackWithWeapon();
-                cost = attack.energyCost;
-                currentFrame = 0;
-                current_attack = i;
-            }
-
-            i++;
+            if (CheckCooldown())
+                ResetActions();
+            
         }
 
-        return cost;
+        return weaponCost;
     }
 
-    //timer for the weapons
+    private float ActionStart()
+    {
+        //check for attacks and all combos that start with that attack
+        foreach(AttackAction attack in attacks)
+        {
+            if(attack.AttackStart())
+            {
+                //attack action is active
+                currentAction = attack;
+                currentFrame = 0;
+                foreach(ComboAction combo in combos)
+                {
+                    if (combo.ContinueCombo(attack.attackButton, currentFrame))
+                        print("Combo Started");
+                }
+
+                return attack.energyCost;
+            }
+        }
+
+        //check for block
+        if(block.BlockCheck())
+        {
+            currentAction = block;
+            return block.energyCost;
+        }
+        
+
+        return 0.0f;
+    }
+
+    private void ActionUpdate()
+    {
+        foreach (AttackAction attack in attacks)
+        {
+            if (attack.AttackCheck())
+            {
+                foreach(ComboAction combo in combos)
+                {
+                    if(combo.ComboEnabled())
+                    {
+                        combo.ContinueCombo(attack.attackButton, currentFrame);
+
+                        if (combo.CheckComboComplete())
+                            currentAction.CancelAction();
+                    }
+                }
+            }
+        }
+    }
+
+    private void ResetActions()
+    {
+        currentFrame = 0;
+        currentAction = null;
+
+        foreach (AttackAction attack in attacks)
+            attack.CancelAction();
+
+        foreach (ComboAction combo in combos)
+            combo.ResetCombo();
+    }
+
+    private bool CheckCooldown()
+    {
+        bool cool = true;
+        foreach(AttackAction attack in attacks)
+        {
+            if (attack.CheckActive())
+                cool = false;
+        }
+        foreach(ComboAction combo in combos)
+        {
+            if (combo.CheckActive())
+                cool = false;
+        }
+        if (block.CheckButtonHold())
+            cool = false;
+
+        return cool;
+    }
+
     public bool TimerUpdate()
     {
         if (timer < animationSpeed)
@@ -70,77 +142,10 @@ public class WeaponController : MonoBehaviour
         else
         {
             currentFrame++;
-            //print("Current Frame: " + currentFrame);
             timer = 0.0f;
             return true;
         }
 
         return false;
-    }
-
-    public bool comboCheck()
-    {
-        int i = 0;
-
-        foreach (WeaponAttack attack in attackList)
-        {
-            if (Input.GetKeyDown(attack.attackButton))
-            {
-                foreach (ComboScript combo in comboList)
-                {
-                    //if a combo is continued correctly, reset frame and execute attack
-                    print("Combo check with button " + attack.attackButton.ToString() + " on frame " + currentFrame);
-                    if(combo.ContinueCombo(attack.attackButton, currentFrame))
-                    {
-                        attackList[current_attack].CancelAttack();
-                        currentFrame = 0;
-
-                        if (comboConfirm == false)
-                        {
-                            print("Combo Confirmed");
-                            attack.AttackWithWeapon();
-                            comboConfirm = true;
-                            current_attack = i;
-                        }
-                        else
-                        {
-                            print("Combo Finisher");
-                            combo.ComboAttack();
-                            return true;
-                        }
-
-                    }
-                }
-            }
-
-            i++;
-        }
-
-        return false;
-
-    }
-
-
-
-    //returns true if the weapon is no longer attacking
-    public bool WeaponCooldown()
-    {
-        bool cool = true;
-
-        foreach(WeaponAttack attack in attackList)
-        {
-            //if a weapon  attack is playing
-            if (attack.AttackTrigger() || comboList[0].ComboTrigger())
-                cool = false;
-        }
-
-        if (cool == true)
-        {
-            comboList[0].comboEnabled = false;
-            comboList[0].comboIndex = 0;
-            comboConfirm = false;
-        }
-
-        return cool;
     }
 }

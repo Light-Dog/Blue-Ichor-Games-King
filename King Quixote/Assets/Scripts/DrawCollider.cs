@@ -15,6 +15,8 @@ public class DrawCollider : MonoBehaviour
     public bool hurtbox = false;
     float timer = 0.0f;
 
+    public WeaponAction action = null;
+
     public int activeFrame = 0;
 
     // Start is called before the first frame update
@@ -32,6 +34,22 @@ public class DrawCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(action != null)
+        {
+            if (action.ActiveFrameCheck())
+            {
+                hitbox.enabled = true;
+                hitbox.color = hitboxColor;
+            }
+            else
+            {
+                hitbox.enabled = false;
+                hitbox.color = savedColor;
+            }
+        }
+
+
+        /*
         //attack draw
         if(Input.GetKeyUp(KeyCode.P))
         {
@@ -102,6 +120,7 @@ public class DrawCollider : MonoBehaviour
         }
         else
             hitbox.enabled = false;
+            */
     }
 
     public void hurtboxCollision()

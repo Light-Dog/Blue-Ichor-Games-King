@@ -7,9 +7,10 @@ public class BlockAction : WeaponAction
     public KeyCode blockButton;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        
+        base.Start();
+        actionType = typeOfAction.Block;
     }
 
     // Update is called once per frame
@@ -17,10 +18,7 @@ public class BlockAction : WeaponAction
     {
         if(CheckActive())
         {
-            //play Sound
-            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
-                gameObject.GetComponentInChildren<AudioSource>().Play();
-
+  
             UpdateHoldFrame(CheckButtonHold());
 
             if (GetCurrentFrame() == GetMaxFrames())
@@ -28,7 +26,7 @@ public class BlockAction : WeaponAction
         }
     }
 
-    private bool CheckButtonHold()
+    public bool CheckButtonHold()
     {
         if (Input.GetKey(blockButton))
             return true;
@@ -39,7 +37,10 @@ public class BlockAction : WeaponAction
     public bool BlockCheck()
     {
         if (Input.GetKeyDown(blockButton))
+        {
+            ActivateAction();
             return true;
+        }
 
         return false;
     }

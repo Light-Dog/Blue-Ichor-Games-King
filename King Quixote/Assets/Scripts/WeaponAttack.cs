@@ -13,7 +13,7 @@ public class WeaponAttack : MonoBehaviour
     int activeFrameIndex = 0;
 
     //animation Update & frame control
-    public WeaponController parentContoller;
+    public WeaponController_old parentContoller;
     public float animationMultiplier = 1.0f;
 
     //2d box collider

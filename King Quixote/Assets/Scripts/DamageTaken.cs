@@ -18,14 +18,14 @@ public class DamageTaken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.GetComponentInParent<WeaponController>() != null)
+        if(other.gameObject.GetComponentInParent<WeaponController_old>() != null)
         {
             print("HA GOT IT");
             gameObject.GetComponent<DrawCollider>().hurtboxCollision();
 
             //take damage
             gameObject.GetComponentInParent<DamageAnim>().take_damage();
-            health -= other.gameObject.GetComponentInParent<WeaponController>().damage;
+            health -= other.gameObject.GetComponentInParent<WeaponController_old>().damage;
         }
     }
 

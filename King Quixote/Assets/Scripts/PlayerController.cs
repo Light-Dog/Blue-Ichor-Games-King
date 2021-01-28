@@ -61,29 +61,7 @@ public class PlayerController : MonoBehaviour
             jump = true;
         }
 
-        if (attacking == false)
-        {
-            //check for attack inputs
-            float cost = weapons[equipedWeapon].WeaponCheck();
-            if (cost > 0.0f)
-                attacking = true;
-
-            energyPercent -= cost;
-        }
-        else
-        {
-            if (comboing == false)
-            {
-                if (weapons[equipedWeapon].comboCheck())
-                    comboing = true;
-            }
-
-            if (weapons[equipedWeapon].WeaponCooldown())
-            {
-                attacking = false;
-                comboing = false;
-            }
-        }
+        energyPercent -= weapons[equipedWeapon].WeaponCheck();
 
         if (energyBar != null)
         {

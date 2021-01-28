@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class WeaponAction : MonoBehaviour
 {
+    public enum typeOfAction { Attack, Combo, Block, Dash, none };
+
     //frames for animation
     public Sprite[] frames;
     public int[] activeFrames;
@@ -16,22 +18,23 @@ public class WeaponAction : MonoBehaviour
     int activeFrameIndex = 0;
 
     //2d box collider
-    List<BoxCollider2D> actionColliders;
+    public List<BoxCollider2D> actionColliders;
 
     public float energyCost = 0.0f;
-
     public float repositionX = 0.0f;
+    public typeOfAction actionType = typeOfAction.none;
 
-    WeaponController parent;
+    public WeaponController parent;
     GameObject player;
     bool active = false;
-    bool playSound = false;
+    //bool playSound = false;
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        parent = gameObject.GetComponentInParent<WeaponController>();
 
         BoxCollider2D[] childBoxes = gameObject.GetComponentsInChildren<BoxCollider2D>();
         foreach (BoxCollider2D collider in childBoxes)
@@ -86,19 +89,25 @@ public class WeaponAction : MonoBehaviour
         player.GetComponent<SpriteRenderer>().sprite = frames[currentFrame];
 
         if(ActiveFrameCheck())
+        {
+            //print("Hitbox Active");
             actionColliders[activeFrameIndex].enabled = true;
+        }
 
         if(currentFrame < maxFrames)
         {
             if(parent.TimerUpdate())
             {
-                currentFrame++;
-
                 if (ActiveFrameCheck())
                     activeFrameIndex++;
 
+                currentFrame++;
+
                 foreach (BoxCollider2D collider in actionColliders)
+                {
+                    //print("Reset Hitbox");
                     collider.enabled = false;
+                }
             }
         }
     }
@@ -115,21 +124,19 @@ public class WeaponAction : MonoBehaviour
         {
             if(ActiveFrameCheck() && held)
             {
-                //dont update timer
+
             }
-            else
+            else if (parent.TimerUpdate())
             {
-                if (parent.TimerUpdate())
-                {
-                    currentFrame++;
+                if (ActiveFrameCheck())
+                    activeFrameIndex++;
 
-                    if (ActiveFrameCheck())
-                        activeFrameIndex++;
+                currentFrame++;
 
-                    foreach (BoxCollider2D collider in actionColliders)
-                        collider.enabled = false;
-                }
+                foreach (BoxCollider2D collider in actionColliders)
+                    collider.enabled = false;
             }
+            
         }
     }
 
@@ -147,7 +154,7 @@ public class WeaponAction : MonoBehaviour
         player.GetComponent<AnimationCycle>().PauseAnimation(false);
     }
 
-    private bool ActiveFrameCheck()
+    public bool ActiveFrameCheck()
     {
         if (activeFrameIndex < activeFrames.Length)
             return (currentFrame == activeFrames[activeFrameIndex]);
