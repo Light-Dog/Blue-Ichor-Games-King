@@ -1732,16 +1732,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames:
+  idleFrames:
   - {fileID: 21300000, guid: 7b4e7f6855be9074f8777505e38da93c, type: 3}
   - {fileID: 21300000, guid: 7421f5db2d2c5fd48a99008f1913cd34, type: 3}
   - {fileID: 21300000, guid: 3af99c9d91c710c45a1996100040c799, type: 3}
+  moveFrames:
+  - {fileID: 21300000, guid: 640b5f974241097498603f787ee9c308, type: 3}
+  - {fileID: 21300000, guid: b6d4b098142f1fe4ea173815b7403793, type: 3}
+  - {fileID: 21300000, guid: ed0d31e517ca74e47a1b6207f0595c08, type: 3}
+  - {fileID: 21300000, guid: 24b49396bc913ea418fa196e8c6e069d, type: 3}
   animationSpeed: 0.2
-  reverse: 0
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  unitController: {fileID: 6219677546009896625}
+  isMoving: 0
 --- !u!114 &6219677546009896621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,6 +1774,7 @@ MonoBehaviour:
   - {fileID: 6219677545639679579}
   equipedWeapon: 0
   m_FacingRight: 1
+  moving: 0
 --- !u!50 &6219677546009896618
 Rigidbody2D:
   serializedVersion: 4

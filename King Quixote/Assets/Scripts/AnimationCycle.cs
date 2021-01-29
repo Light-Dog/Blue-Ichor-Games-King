@@ -4,83 +4,61 @@ using UnityEngine;
 
 public class AnimationCycle : MonoBehaviour
 {
-    public Sprite[] frames;
+    enum UnitType { player, enemy, none };
+
+    public Sprite[] idleFrames;
+    public Sprite[] moveFrames;
     public float animationSpeed = .2f;
-    public bool reverse = false;
+    public bool reverseIdle = false;
 
     public bool lerp = false;
     public float repositionX = 0.0f;
 
-    bool forward = true;
     public int currentFrame = 0;
     public int maxFrame;
+    int maxMoveFrame = 0;
     float timer = 0.0f;
-    bool pause = false;
 
-    bool move = false;
+    public GameObject unitController = null;
+    PlayerController player = null;
+    //EnemyController enemy = null;
+    UnitType type = UnitType.none;
+
+    bool forwardPlay = true;
+    bool pause = false;
+    bool moveUnit = false;
+    bool isMoving = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //Checks for max size of the spirte list
-        maxFrame = frames.Length;
+        maxFrame = idleFrames.Length;
+        maxMoveFrame = moveFrames.Length;
 
-        //repositionX *= transform.localScale.x;
+        if(unitController != null && unitController.GetComponent<PlayerController>() != null)
+        {
+            player = unitController.GetComponent<PlayerController>();
+            type = UnitType.player;
+        }
+        else if(unitController != null)// && unitController.GetComponent<EnemyController>()
+        {
+            //enemy = unitController.GetComponent<EnemyController>();
+            type = UnitType.enemy;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //pause for attack animation
         if (pause == false)
         {
-            if(currentFrame >= 0 && currentFrame < maxFrame)
-                gameObject.GetComponent<SpriteRenderer>().sprite = frames[currentFrame];
+            MoveCheck();
 
-            if(forward)
-            {
-                if(timerUpdate())
-                {
-                    if (currentFrame < maxFrame)
-                    {
-                        currentFrame++;
-                    }
-                    else
-                    {
-                        forward = false;
-                        move = true;
-                    }
-
-
-                }
-            }
+            if (isMoving)
+                MoveUpdate();
             else
-            {
-                if(reverse)
-                {
-                    if(timerUpdate())
-                    {
-                        if (currentFrame == 0)
-                            forward = true;
-                        else
-                            currentFrame--;
-                    }
-                }
-                else
-                {
-                    currentFrame = 0;
-                    forward = true;
-                    if (lerp)
-                    {
-                        if(move)
-                        {
-                            transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
-                            move = false;
-                        }
-                    }
-
-                }
-            }
+                IdleUpdate();
         }
     }
 
@@ -97,6 +75,87 @@ public class AnimationCycle : MonoBehaviour
         }
 
         return false;
+    }
+
+    void IdleUpdate()
+    {
+        if (currentFrame >= 0 && currentFrame < maxFrame)
+            gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
+
+        if (forwardPlay)
+        {
+            if (timerUpdate())
+            {
+                if (currentFrame < maxFrame)
+                    currentFrame++;
+                else
+                {
+                    forwardPlay = false;
+                    moveUnit = true;
+                }
+            }
+        }
+        else
+        {
+            if (reverseIdle)
+            {
+                if (timerUpdate())
+                {
+                    if (currentFrame == 0)
+                        forwardPlay = true;
+                    else
+                        currentFrame--;
+                }
+            }
+            else
+            {
+                currentFrame = 0;
+                forwardPlay = true;
+
+                MoveAnimation();
+            }
+        }
+    }
+
+    void MoveUpdate()
+    {
+        if (currentFrame >= 0 && currentFrame < maxMoveFrame)
+            gameObject.GetComponent<SpriteRenderer>().sprite = moveFrames[currentFrame];
+
+        if (timerUpdate())
+        {
+            if (currentFrame < maxMoveFrame)
+                currentFrame++;
+            else
+            {
+                currentFrame = 0;
+            }
+        }
+    }
+
+    //returns true if moving
+    void MoveCheck()
+    {
+        if(type == UnitType.player)
+        {
+            if(isMoving != player.moving)
+            {
+                isMoving = player.moving;
+                currentFrame = 0;
+            }
+        }
+    }
+
+    void MoveAnimation()
+    {
+        if (lerp)
+        {
+            if (moveUnit)
+            {
+                transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
+                moveUnit = false;
+            }
+        }
     }
 
     public void PauseAnimation(bool toPause)
