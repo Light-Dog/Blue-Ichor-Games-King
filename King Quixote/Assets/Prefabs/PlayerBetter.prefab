@@ -213,6 +213,7 @@ MonoBehaviour:
   energyCost: 20
   repositionX: 0
   actionType: 4
+  sfx: {fileID: 6219677545123391549}
   parent: {fileID: 0}
   attackButton: 120
 --- !u!114 &6219677545749392756
@@ -238,6 +239,7 @@ MonoBehaviour:
   energyCost: 0
   repositionX: 0
   actionType: 4
+  sfx: {fileID: 0}
   parent: {fileID: 0}
   comboName: 1-2
   buttons: 7a00000078000000
@@ -544,6 +546,7 @@ MonoBehaviour:
   energyCost: 40
   repositionX: 0
   actionType: 4
+  sfx: {fileID: 0}
   parent: {fileID: 0}
   blockButton: 99
 --- !u!1 &6219677545012787278
@@ -1161,6 +1164,7 @@ MonoBehaviour:
   energyCost: 40
   repositionX: 2.6
   actionType: 4
+  sfx: {fileID: 6219677545186736529}
   parent: {fileID: 0}
   attackButton: 120
 --- !u!1 &6219677545540651494
@@ -2016,5 +2020,6 @@ MonoBehaviour:
   energyCost: 10
   repositionX: 0
   actionType: 4
+  sfx: {fileID: 6219677544928156496}
   parent: {fileID: 0}
   attackButton: 122

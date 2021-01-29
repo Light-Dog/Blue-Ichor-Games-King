@@ -31,9 +31,6 @@ public class AttackAction : WeaponAction
     {
         if (Input.GetKeyDown(attackButton))
         {
-            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
-                gameObject.GetComponentInChildren<AudioSource>().Play();
-
             ActivateAction();
             return true;
         }

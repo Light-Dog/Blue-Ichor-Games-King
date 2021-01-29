@@ -38,10 +38,6 @@ public class ComboAction : WeaponAction
             comboIndex = 0;
             comboEnabled = false;
 
-            //play Sound
-            if (gameObject.GetComponentInChildren<AudioSource>().isPlaying == false)
-                gameObject.GetComponentInChildren<AudioSource>().Play();
-
             ActivateAction();
             return true;
         }

@@ -23,6 +23,7 @@ public class WeaponAction : MonoBehaviour
     public float energyCost = 0.0f;
     public float repositionX = 0.0f;
     public typeOfAction actionType = typeOfAction.none;
+    public AudioSource sfx = null;
 
     public WeaponController parent;
     GameObject player;
@@ -67,6 +68,12 @@ public class WeaponAction : MonoBehaviour
     {
         player.GetComponent<AnimationCycle>().PauseAnimation(true);
         active = true;
+
+        if(sfx != null)
+        {
+            if (!sfx.isPlaying)
+                sfx.Play();
+        }
     }
 
     public bool CheckActive()
