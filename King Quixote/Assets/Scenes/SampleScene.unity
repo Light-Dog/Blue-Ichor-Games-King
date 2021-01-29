@@ -190,13 +190,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: []
+  idleFrames: []
+  moveFrames: []
   animationSpeed: 0.2
-  reverse: 0
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  unitController: {fileID: 0}
 --- !u!212 &286477269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -670,13 +672,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: []
+  idleFrames: []
+  moveFrames: []
   animationSpeed: 0.15
-  reverse: 0
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  unitController: {fileID: 0}
 --- !u!212 &481062949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1153,13 +1157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: []
+  idleFrames: []
+  moveFrames: []
   animationSpeed: 0.1
-  reverse: 0
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  unitController: {fileID: 0}
 --- !u!114 &1418932126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,13 +1672,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: []
+  idleFrames: []
+  moveFrames: []
   animationSpeed: 0.1
-  reverse: 0
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  unitController: {fileID: 0}
 --- !u!212 &1920939375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1966,13 +1974,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: []
+  idleFrames: []
+  moveFrames: []
   animationSpeed: 0.2
-  reverse: 0
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  unitController: {fileID: 0}
 --- !u!212 &2056957553
 SpriteRenderer:
   m_ObjectHideFlags: 0
