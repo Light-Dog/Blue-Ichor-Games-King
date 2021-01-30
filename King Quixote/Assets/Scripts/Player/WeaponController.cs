@@ -53,6 +53,14 @@ public class WeaponController : MonoBehaviour
         return weaponCost;
     }
 
+    public bool ActionCheck()
+    {
+        if (currentAction == null)
+            return true;
+
+        return false;
+    }
+
     private float ActionStart()
     {
         //check for attacks and all combos that start with that attack

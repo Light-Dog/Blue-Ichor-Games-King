@@ -85,8 +85,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move(horizontalMove * Time.deltaTime, jump);
-        jump = false;
+        if(weapons[equipedWeapon].ActionCheck())
+        {
+            Move(horizontalMove * Time.deltaTime, jump);
+            jump = false;
+        }
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------
