@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stats")]
     public int health = 10;
     public Image energyBar;
+    public Image healthBar;
 
     [Header("Weapons")]
     public List<WeaponController> weapons;
@@ -39,6 +40,12 @@ public class PlayerController : MonoBehaviour
     bool airControl = true;
     bool jump = false;
 
+    public float invincibleTime = .2f;
+    bool damaged = false;
+    float iFrameTimer = 0.0f;
+
+    public bool drawCollider = false;
+
     float horizontalMove = 0.0f;
 
 
@@ -49,6 +56,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        /*
+        if (Input.GetKeyDown(KeyCode.P))
+            drawCollider = !drawCollider;
+        */
 
         GroundCheck();
 
@@ -81,6 +92,19 @@ public class PlayerController : MonoBehaviour
         }
         else
             timer += Time.deltaTime;
+
+        if(damaged)
+        {
+            if(iFrameTimer < invincibleTime)
+            {
+                iFrameTimer += Time.deltaTime;
+            }
+            else
+            {
+                iFrameTimer = 0.0f;
+                damaged = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -89,6 +113,28 @@ public class PlayerController : MonoBehaviour
         {
             Move(horizontalMove * Time.deltaTime, jump);
             jump = false;
+        }
+    }
+
+    public int DealDamage()
+    {
+        return weapons[equipedWeapon].damage;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(damaged == false)
+        {
+            if (weapons[equipedWeapon].IsBlocking())
+                damage = damage / 2;
+
+            print("Damage Taken: " + damage);
+
+            health -= damage;
+            float percentDamage = (float)damage / 10.0f;
+            healthBar.fillAmount -= percentDamage;
+
+            damaged = true;
         }
     }
 

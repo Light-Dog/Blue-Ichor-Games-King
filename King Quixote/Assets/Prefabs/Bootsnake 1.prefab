@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1173547583729112752}
   - component: {fileID: 1173547583729112767}
-  - component: {fileID: 1173547583729112766}
   - component: {fileID: 1173547583729112753}
+  - component: {fileID: 1132999191498704433}
   m_Layer: 0
-  m_Name: Hitbox
+  m_Name: SnakeStrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173547583729112755}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -84,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1173547583729112766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173547583729112755}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0776e5b2412ee44b8336d2a4eff9026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyDamage: 2
-  attack: {fileID: 0}
-  attackCollider: {fileID: 1173547583729112753}
-  frame: 4
 --- !u!61 &1173547583729112753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,6 +110,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &1132999191498704433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173547583729112755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506504d0fc95e4b4292c0a1cbae18f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 668c74ac60a5f634f8dd8343744ee77e, type: 3}
+  - {fileID: 21300000, guid: f96b1a6898392e245a9acad64a8ae1aa, type: 3}
+  - {fileID: 21300000, guid: d4c1d1a96fc3e8f41bd6135401b4e9d4, type: 3}
+  - {fileID: 21300000, guid: 9394fa4bd667d024aadbe0b502c50945, type: 3}
+  - {fileID: 21300000, guid: de36e379ba96137449cee131a053e1fb, type: 3}
+  - {fileID: 21300000, guid: 9394fa4bd667d024aadbe0b502c50945, type: 3}
+  - {fileID: 21300000, guid: d4c1d1a96fc3e8f41bd6135401b4e9d4, type: 3}
+  - {fileID: 21300000, guid: f96b1a6898392e245a9acad64a8ae1aa, type: 3}
+  - {fileID: 21300000, guid: 668c74ac60a5f634f8dd8343744ee77e, type: 3}
+  activeFrames: 04000000
+  actionColliders: []
+  repositionX: 0
+  lerp: 0
+  damage: 2
 --- !u!1 &1173547584337664841
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,9 +147,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1173547584337664854}
   - component: {fileID: 1173547584337664850}
-  - component: {fileID: 1173547584337664853}
   - component: {fileID: 1173547584337664852}
-  - component: {fileID: 1173547584337664855}
+  - component: {fileID: 3288988812349096020}
   m_Layer: 0
   m_Name: Hurtbox
   m_TagString: Untagged
@@ -211,20 +221,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1173547584337664853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173547584337664841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202d4be0bf7b38a4a853d4fda27ce47c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  healthBar: {fileID: 0}
 --- !u!61 &1173547584337664852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -251,7 +247,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
---- !u!114 &1173547584337664855
+--- !u!114 &3288988812349096020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,15 +256,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173547584337664841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf0186123a4b94478053f0f01cb88cc, type: 3}
+  m_Script: {fileID: 11500000, guid: f33eceb299094714b88aaa14e7606b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxColor: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
-  weapon: {fileID: 0}
-  combo: {fileID: 0}
-  hitbox: {fileID: 1173547584337664850}
-  hurtbox: 1
-  activeFrame: 0
 --- !u!1 &4260433950707364089
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,8 +270,8 @@ GameObject:
   - component: {fileID: 4260433950707364090}
   - component: {fileID: 4260433950707364091}
   - component: {fileID: 4260433950707364088}
-  - component: {fileID: 1173547583114683621}
   - component: {fileID: 1173547583114683617}
+  - component: {fileID: 7122391362256300668}
   m_Layer: 0
   m_Name: Bootsnake 1
   m_TagString: Untagged
@@ -368,114 +358,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames:
-  - {fileID: 21300000, guid: 668c74ac60a5f634f8dd8343744ee77e, type: 3}
-  - {fileID: 21300000, guid: f96b1a6898392e245a9acad64a8ae1aa, type: 3}
-  - {fileID: 21300000, guid: d4c1d1a96fc3e8f41bd6135401b4e9d4, type: 3}
-  - {fileID: 21300000, guid: 9394fa4bd667d024aadbe0b502c50945, type: 3}
-  - {fileID: 21300000, guid: de36e379ba96137449cee131a053e1fb, type: 3}
+  idleFrames: []
+  moveFrames: []
   animationSpeed: 0.2
-  reverse: 1
+  reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
---- !u!82 &1173547583114683621
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4260433950707364089}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81c42bc54d959bc47806c9a55fc1945f, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.95
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  unitController: {fileID: 0}
 --- !u!114 &1173547583114683617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,3 +383,22 @@ MonoBehaviour:
   animationSpeed: 0.02
   maxHeight: 1.5
   minWidth: 0.8
+--- !u!114 &7122391362256300668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260433950707364089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1769ee9ee8c9ebf4684c456bdb51924b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  health: 10
+  actions:
+  - {fileID: 1132999191498704433}
+  moving: 0
+  drawCollider: 0
+  animationSpeed: 0.1

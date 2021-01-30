@@ -22,20 +22,31 @@ public class WeaponAction : MonoBehaviour
 
     public float energyCost = 0.0f;
     public float repositionX = 0.0f;
+    public bool lerp = false;
     public typeOfAction actionType = typeOfAction.none;
     public AudioSource sfx = null;
 
     public WeaponController parent;
     GameObject player;
     bool active = false;
-    //bool playSound = false;
 
+    SpriteRenderer[] hitboxs;
+    public Color hitboxColor;
+    Color savedColor;
 
     // Start is called before the first frame update
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         parent = gameObject.GetComponentInParent<WeaponController>();
+
+        hitboxs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        savedColor = hitboxs[0].color;
+        foreach(SpriteRenderer childHitbox in hitboxs)
+        {
+            childHitbox.enabled = false;
+        }
+
 
         BoxCollider2D[] childBoxes = gameObject.GetComponentsInChildren<BoxCollider2D>();
         foreach (BoxCollider2D collider in childBoxes)
@@ -95,11 +106,11 @@ public class WeaponAction : MonoBehaviour
     {
         player.GetComponent<SpriteRenderer>().sprite = frames[currentFrame];
 
+        if (player.GetComponent<PlayerController>().drawCollider)
+            DrawCollider();
+
         if(ActiveFrameCheck())
-        {
-            //print("Hitbox Active");
             actionColliders[activeFrameIndex].enabled = true;
-        }
 
         if(currentFrame < maxFrames)
         {
@@ -109,6 +120,9 @@ public class WeaponAction : MonoBehaviour
                     activeFrameIndex++;
 
                 currentFrame++;
+
+                if (lerp)
+                    Move();
 
                 foreach (BoxCollider2D collider in actionColliders)
                 {
@@ -153,11 +167,6 @@ public class WeaponAction : MonoBehaviour
         activeFrameIndex = 0;
         active = false;
 
-        if(player.GetComponent<PlayerController>().m_FacingRight)
-            player.transform.position = new Vector3(player.transform.position.x + repositionX, player.transform.position.y, player.transform.position.z);
-        else
-            player.transform.position = new Vector3(player.transform.position.x - repositionX, player.transform.position.y, player.transform.position.z);
-
         player.GetComponent<AnimationCycle>().PauseAnimation(false);
     }
 
@@ -167,5 +176,31 @@ public class WeaponAction : MonoBehaviour
             return (currentFrame == activeFrames[activeFrameIndex]);
 
         return false;
+    }
+
+    private void Move()
+    {
+        if (player.GetComponent<PlayerController>().m_FacingRight)
+            player.transform.position = new Vector3(player.transform.position.x + repositionX, player.transform.position.y, player.transform.position.z);
+        else
+            player.transform.position = new Vector3(player.transform.position.x - repositionX, player.transform.position.y, player.transform.position.z);
+    }
+
+    public void DrawCollider(bool drawAll = false)
+    {
+        if(ActiveFrameCheck())
+        {
+            hitboxs[activeFrameIndex].enabled = true;
+            hitboxs[activeFrameIndex].color = hitboxColor;
+        }
+        else if(drawAll)
+        {
+            hitboxs[activeFrameIndex].enabled = true;
+            hitboxs[activeFrameIndex].color = savedColor;
+        }
+        else
+        {
+            hitboxs[activeFrameIndex].enabled = false;
+        }
     }
 }

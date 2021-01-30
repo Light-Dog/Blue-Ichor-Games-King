@@ -156,4 +156,15 @@ public class WeaponController : MonoBehaviour
 
         return false;
     }
+
+    public bool IsBlocking()
+    {
+        if(currentAction)
+        {
+            if (currentAction.actionType == WeaponAction.typeOfAction.Block)
+                return true;
+        }
+
+        return false;
+    }
 }
