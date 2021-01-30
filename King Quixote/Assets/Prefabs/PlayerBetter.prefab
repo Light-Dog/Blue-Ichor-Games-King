@@ -811,7 +811,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6219677545349506676}
-  - component: {fileID: 6219677545349506679}
   - component: {fileID: 6219677545707575184}
   m_Layer: 9
   m_Name: LanceOverhead
@@ -837,37 +836,6 @@ Transform:
   m_Father: {fileID: 6219677545989123154}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6219677545349506679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6219677545349506678}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccaa5c71c8c4b04a99450daa41864ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combo: 1-2-2
-  buttons: 660000007200000072000000
-  keyframes: 000000000200000003000000
-  comboEnabled: 0
-  comboIndex: 0
-  comboFrames:
-  - {fileID: 21300000, guid: ea6c218fbe8ca5343835b1ca673858f0, type: 3}
-  - {fileID: 21300000, guid: c13af4a30f50f414090d895295720940, type: 3}
-  - {fileID: 21300000, guid: de3498ea35148794aa3597362256ce6e, type: 3}
-  - {fileID: 21300000, guid: 368c1a58c61af6040b962577275f4ffb, type: 3}
-  activeFrames: 0200000003000000
-  currentFrame: 0
-  maxSpriteSize: 0
-  parentContoller: {fileID: 0}
-  animationMultiplier: 1
-  repositionX: 2.6
-  comboColliders: []
-  player: {fileID: 0}
-  playedSound: 0
 --- !u!114 &6219677545707575184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,8 +856,8 @@ MonoBehaviour:
   activeFrames: 0200000003000000
   actionColliders: []
   energyCost: 40
-  repositionX: 2.6
-  lerp: 0
+  repositionX: 0.8
+  lerp: 1
   actionType: 4
   sfx: {fileID: 6219677545186736529}
   parent: {fileID: 0}

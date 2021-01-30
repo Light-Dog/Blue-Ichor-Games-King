@@ -2056,11 +2056,6 @@ Transform:
   m_Father: {fileID: 2053596250}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2079036443 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6219677545186736529, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-  m_PrefabInstance: {fileID: 6219677546233464702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1173547584185254150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2148,18 +2143,6 @@ PrefabInstance:
     - target: {fileID: 6219677545566993262, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 6219677545707575184, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: sfx
-      value: 
-      objectReference: {fileID: 2079036443}
-    - target: {fileID: 6219677545707575184, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: lerp
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6219677545707575184, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: repositionX
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6219677545749392756, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: sfx
