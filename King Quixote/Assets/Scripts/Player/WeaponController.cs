@@ -9,6 +9,7 @@ public class WeaponController : MonoBehaviour
     public List<AttackAction> attacks;
     public List<ComboAction> combos;
     public BlockAction block;
+    public DashAction dash;
 
     public int damage = 0;
     public float animationSpeed = 0.2f;
@@ -45,6 +46,16 @@ public class WeaponController : MonoBehaviour
             if(currentAction.actionType == WeaponAction.typeOfAction.Attack)
                 ActionUpdate();
 
+            if(currentAction.actionType == WeaponAction.typeOfAction.Attack || currentAction.actionType == WeaponAction.typeOfAction.Combo)
+            {
+                if(dash.DashStart())
+                {
+                    currentAction.CancelAction();
+                    currentAction = dash;
+                    return dash.energyCost;
+                }
+            }
+
             if (CheckCooldown())
                 ResetActions();
             
@@ -59,88 +70,6 @@ public class WeaponController : MonoBehaviour
             return true;
 
         return false;
-    }
-
-    private float ActionStart()
-    {
-        //check for attacks and all combos that start with that attack
-        foreach(AttackAction attack in attacks)
-        {
-            if(attack.AttackStart())
-            {
-                //attack action is active
-                currentAction = attack;
-                currentFrame = 0;
-                foreach(ComboAction combo in combos)
-                {
-                    if (combo.ContinueCombo(attack.attackButton, currentFrame))
-                        print("Combo Started");
-                }
-
-                return attack.energyCost;
-            }
-        }
-
-        //check for block
-        if(block.BlockCheck())
-        {
-            currentAction = block;
-            return block.energyCost;
-        }
-        
-
-        return 0.0f;
-    }
-
-    private void ActionUpdate()
-    {
-        foreach (AttackAction attack in attacks)
-        {
-            if (attack.AttackCheck())
-            {
-                foreach(ComboAction combo in combos)
-                {
-                    if(combo.ComboEnabled())
-                    {
-                        combo.ContinueCombo(attack.attackButton, currentFrame);
-
-                        if (combo.CheckComboComplete())
-                            currentAction.CancelAction();
-                    }
-                }
-            }
-        }
-    }
-
-    private void ResetActions()
-    {
-        currentFrame = 0;
-        currentAction = null;
-
-        foreach (AttackAction attack in attacks)
-            attack.CancelAction();
-
-        foreach (ComboAction combo in combos)
-            combo.ResetCombo();
-    }
-
-    private bool CheckCooldown()
-    {
-        bool cool = true;
-        foreach(AttackAction attack in attacks)
-        {
-            if (attack.CheckActive())
-                cool = false;
-        }
-        foreach(ComboAction combo in combos)
-        {
-            if (combo.CheckActive())
-                cool = false;
-        }
-        if (block.CheckButtonHold())
-            cool = false;
-
-        return cool;
     }
 
     public bool TimerUpdate()
@@ -166,5 +95,107 @@ public class WeaponController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void CancelAction()
+    {
+        ResetActions();
+    }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------
+
+    private float ActionStart()
+    {
+        if(dash.DashStart())
+        {
+            currentAction = dash;
+            return dash.energyCost;
+        }
+
+        //check for attacks and all combos that start with that attack
+        foreach (AttackAction attack in attacks)
+        {
+            if (attack.AttackStart())
+            {
+                //attack action is active
+                currentAction = attack;
+                currentFrame = 0;
+                foreach (ComboAction combo in combos)
+                {
+                    if (combo.ContinueCombo(attack.attackButton, currentFrame))
+                        print("Combo Started");
+                }
+
+                return attack.energyCost;
+            }
+        }
+
+        //check for block
+        if (block.BlockCheck())
+        {
+            currentAction = block;
+            return block.energyCost;
+        }
+
+
+        return 0.0f;
+    }
+
+    private void ActionUpdate()
+    {
+        foreach (AttackAction attack in attacks)
+        {
+            if (attack.AttackCheck())
+            {
+                foreach (ComboAction combo in combos)
+                {
+                    if (combo.ComboEnabled())
+                    {
+                        combo.ContinueCombo(attack.attackButton, currentFrame);
+
+                        if (combo.CheckComboComplete())
+                        {
+                            currentAction.CancelAction();
+                            currentAction = combo;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void ResetActions()
+    {
+        currentFrame = 0;
+        currentAction = null;
+
+        foreach (AttackAction attack in attacks)
+            attack.CancelAction();
+
+        foreach (ComboAction combo in combos)
+            combo.ResetCombo();
+    }
+
+    private bool CheckCooldown()
+    {
+        bool cool = true;
+        foreach (AttackAction attack in attacks)
+        {
+            if (attack.CheckActive())
+                cool = false;
+        }
+        foreach (ComboAction combo in combos)
+        {
+            if (combo.CheckActive())
+                cool = false;
+        }
+
+        if (block.CheckButtonHold())
+            cool = false;
+
+        if (dash.CheckActive())
+            cool = false;
+
+        return cool;
     }
 }

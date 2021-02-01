@@ -41,7 +41,8 @@ public class WeaponAction : MonoBehaviour
         parent = gameObject.GetComponentInParent<WeaponController>();
 
         hitboxs = gameObject.GetComponentsInChildren<SpriteRenderer>();
-        savedColor = hitboxs[0].color;
+        if(hitboxs.Length != 0)
+            savedColor = hitboxs[0].color;
         foreach(SpriteRenderer childHitbox in hitboxs)
         {
             childHitbox.enabled = false;
@@ -80,7 +81,7 @@ public class WeaponAction : MonoBehaviour
         player.GetComponent<AnimationCycle>().PauseAnimation(true);
         active = true;
 
-        if(sfx != null)
+        if (sfx != null)
         {
             if (!sfx.isPlaying)
                 sfx.Play();
@@ -100,6 +101,11 @@ public class WeaponAction : MonoBehaviour
     public int GetMaxFrames()
     {
         return maxFrames;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 
     public void UpdateFrame()

@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------------------------------------
 
     //moves the player
-    void Move(float move, bool jump)
+    private void Move(float move, bool jump)
     {   
         if (m_Grounded || airControl)
         {
@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void GroundCheck()
+    private void GroundCheck()
     {
         m_Grounded = false;
 

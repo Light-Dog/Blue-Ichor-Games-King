@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2904519365663239077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5358288803938503800}
+  - component: {fileID: 5026864855561489773}
+  m_Layer: 9
+  m_Name: Dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5358288803938503800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904519365663239077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6219677545989123154}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5026864855561489773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904519365663239077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f83f249bb92a34fbd6bc9addc3cd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: bd3fe705e07f2bf46aebc88ba29d355d, type: 3}
+  - {fileID: 21300000, guid: e87794f84a7d97d488fa1f4eeaa438a6, type: 3}
+  activeFrames: 
+  actionColliders: []
+  energyCost: 10
+  repositionX: 0
+  lerp: 0
+  actionType: 4
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  dashButton: 102
+  dashForce: 8
+  dashCooldown: 0.3
 --- !u!1 &6219677544721504965
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +497,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   blockButton: 99
+  blockPercentage: 0.6
 --- !u!1 &6219677545055183802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1281,7 @@ Transform:
   - {fileID: 6219677544901646941}
   - {fileID: 6219677545349506676}
   - {fileID: 6219677544984188145}
+  - {fileID: 5358288803938503800}
   m_Father: {fileID: 6219677546009896620}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1244,6 +1304,7 @@ MonoBehaviour:
   combos:
   - {fileID: 6219677545749392756}
   block: {fileID: 6219677545151770189}
+  dash: {fileID: 5026864855561489773}
   damage: 2
   animationSpeed: 0.2
 --- !u!1 &6219677546009896625

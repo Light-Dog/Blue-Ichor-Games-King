@@ -2144,6 +2144,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 6219677545639679579, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6219677545749392756, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: sfx
       value: 
