@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlockAction : WeaponAction
 {
     public KeyCode blockButton;
+    public float blockPercentage = 0.6f;
 
     // Start is called before the first frame update
     new void Start()

@@ -154,20 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: a27e632dbdd012d46a7d996bdf471e74, type: 3}
-  Frame2: {fileID: 21300000, guid: 66e4fd86325f6124f9d7f4d9f27afadc, type: 3}
-  Frame3: {fileID: 0}
-  Frame4: {fileID: 0}
-  Frame5: {fileID: 0}
-  Frame6: {fileID: 0}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.3
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.3
-  timer: 0
-  pause: 0
-  repositionX: 0
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &31801111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &31801113
 MonoBehaviour:
@@ -397,7 +392,7 @@ Transform:
   m_LocalScale: {x: 0.84875, y: 0.7525, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &305869815
 GameObject:
@@ -612,7 +607,7 @@ SpriteRenderer:
   m_Size: {x: 38.643497, y: 29.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &358740619
@@ -775,7 +770,7 @@ Transform:
   m_LocalScale: {x: 0.84875, y: 0.7525, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &664308718
 GameObject:
@@ -858,7 +853,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780072294
 GameObject:
@@ -955,7 +950,7 @@ SpriteRenderer:
   m_Size: {x: 37.141754, y: 28.926317}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &796795143
@@ -970,7 +965,7 @@ Transform:
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844906007
 GameObject:
@@ -1035,20 +1030,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: 8c9f02c6918abfc4bbf5877d9b282a38, type: 3}
-  Frame2: {fileID: 21300000, guid: 3a5527a949c803f49a55d5bdf64f0c29, type: 3}
-  Frame3: {fileID: 21300000, guid: 1ea985d79f615ff44b10ed12d88eaa3a, type: 3}
-  Frame4: {fileID: 21300000, guid: 9c1655d1b0bb8bd4f92a8153c6589c6a, type: 3}
-  Frame5: {fileID: 21300000, guid: 1ea985d79f615ff44b10ed12d88eaa3a, type: 3}
-  Frame6: {fileID: 21300000, guid: 3a5527a949c803f49a55d5bdf64f0c29, type: 3}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.12
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.12
-  timer: 0
-  pause: 0
-  repositionX: 0
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &844906011
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1144,20 +1134,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: 27936c8995481844c9576dd90aa23d80, type: 3}
-  Frame2: {fileID: 21300000, guid: 1f6928f36b502c049bd465b5968d7974, type: 3}
-  Frame3: {fileID: 21300000, guid: 81559c5d27d87554799715db27631f16, type: 3}
-  Frame4: {fileID: 21300000, guid: 402c43a78fcbd6247ae986a37e46146b, type: 3}
-  Frame5: {fileID: 21300000, guid: c9ce334b58bbc7f4eae79165d6420449, type: 3}
-  Frame6: {fileID: 0}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.1
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 5.2
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.1
-  timer: 0
-  pause: 0
-  repositionX: 5.2
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &879784045
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1288,7 +1273,7 @@ SpriteRenderer:
   m_Size: {x: 37.141754, y: 28.926317}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &915580413
@@ -1355,20 +1340,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: a22a11f05e34adf44ae262e742b1bb33, type: 3}
-  Frame2: {fileID: 21300000, guid: 75b5b0d2c4265054ba03024c3da78cef, type: 3}
-  Frame3: {fileID: 21300000, guid: 160e9acc3e24c5d48acacaa708834257, type: 3}
-  Frame4: {fileID: 0}
-  Frame5: {fileID: 0}
-  Frame6: {fileID: 0}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.2
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.2
-  timer: 0
-  pause: 0
-  repositionX: 0
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &1048286102
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1477,20 +1457,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: 3942afd785ccc9a4dabe13986295d0eb, type: 3}
-  Frame2: {fileID: 21300000, guid: 70394e0d865136a4c930ec00332d363b, type: 3}
-  Frame3: {fileID: 21300000, guid: f3c1f404c9d64d84a920845045a9a99f, type: 3}
-  Frame4: {fileID: 21300000, guid: 0e1f7eec6f3aeaf44a68d2ec78d0d74e, type: 3}
-  Frame5: {fileID: 21300000, guid: 75416aae097965e409a2b992289a9fa8, type: 3}
-  Frame6: {fileID: 21300000, guid: 77b19be68521e93469ad1ca1a83844ba, type: 3}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.2
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 2.25
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.2
-  timer: 0
-  pause: 0
-  repositionX: 2.25
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &1166386508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1539,7 +1514,7 @@ SpriteRenderer:
   m_Size: {x: 7.94, y: 6.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1166386509
@@ -1554,7 +1529,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458350262
 GameObject:
@@ -1668,20 +1643,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: c279929a75d072a48b1f90a610be894e, type: 3}
-  Frame2: {fileID: 21300000, guid: 8c0d99774f6238046b85b1e98b8c3a5a, type: 3}
-  Frame3: {fileID: 21300000, guid: 0dec7fda7e5c3a24e85c6e71be7815a5, type: 3}
-  Frame4: {fileID: 0}
-  Frame5: {fileID: 0}
-  Frame6: {fileID: 0}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.1
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.1
-  timer: 0
-  pause: 0
-  repositionX: 0
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &1568120218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1745,7 +1715,37 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1586561230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586561231}
+  m_Layer: 0
+  m_Name: Bootsnake (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1586561231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586561230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589092440
 GameObject:
@@ -1811,7 +1811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700538207
 GameObject:
@@ -1843,20 +1843,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: ea6c218fbe8ca5343835b1ca673858f0, type: 3}
-  Frame2: {fileID: 21300000, guid: c13af4a30f50f414090d895295720940, type: 3}
-  Frame3: {fileID: 21300000, guid: de3498ea35148794aa3597362256ce6e, type: 3}
-  Frame4: {fileID: 21300000, guid: 368c1a58c61af6040b962577275f4ffb, type: 3}
-  Frame5: {fileID: 0}
-  Frame6: {fileID: 0}
+  idleFrames: []
+  moveFrames: []
+  animationSpeed: 0.1
+  reverseIdle: 0
+  lerp: 0
+  repositionX: 2.8
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.1
-  timer: 0
-  pause: 0
-  repositionX: 2.8
-  reverseAtEnd: 0
-  lerp: 0
+  unitController: {fileID: 0}
 --- !u!212 &1700538209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1920,7 +1915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837096887
 GameObject:
@@ -1987,7 +1982,7 @@ SpriteRenderer:
   m_Size: {x: 38.643497, y: 29.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1837096889
@@ -2002,7 +1997,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1838998516
 GameObject:
@@ -2101,7 +2096,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863815566
 GameObject:
@@ -2282,20 +2277,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame1: {fileID: 21300000, guid: bd3fe705e07f2bf46aebc88ba29d355d, type: 3}
-  Frame2: {fileID: 21300000, guid: e87794f84a7d97d488fa1f4eeaa438a6, type: 3}
-  Frame3: {fileID: 21300000, guid: bd3fe705e07f2bf46aebc88ba29d355d, type: 3}
-  Frame4: {fileID: 0}
-  Frame5: {fileID: 0}
-  Frame6: {fileID: 0}
+  idleFrames:
+  - {fileID: 21300000, guid: bd3fe705e07f2bf46aebc88ba29d355d, type: 3}
+  - {fileID: 21300000, guid: e87794f84a7d97d488fa1f4eeaa438a6, type: 3}
+  moveFrames: []
+  animationSpeed: 0.2
+  reverseIdle: 0
+  lerp: 1
+  repositionX: -0.7
   currentFrame: 1
   maxFrame: 1
-  animationSpeed: 0.2
-  timer: 0
-  pause: 0
-  repositionX: -1.4
-  reverseAtEnd: 0
-  lerp: 1
+  unitController: {fileID: 0}
 --- !u!212 &2056364910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2359,7 +2351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2056364912
 Rigidbody2D:
@@ -2382,60 +2374,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &3128134038741936264
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3128134039264527084, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_Name
-      value: Bootsnake
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3128134039264527087, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b232314105d28ac41a2d76615d1a5b5c, type: 3}

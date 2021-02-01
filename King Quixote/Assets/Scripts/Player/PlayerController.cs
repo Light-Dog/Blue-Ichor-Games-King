@@ -123,16 +123,18 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        float damagePercentage = damage;
+
         if(damaged == false)
         {
             if (weapons[equipedWeapon].IsBlocking())
-                damage = damage / 2;
+                damagePercentage = damagePercentage * weapons[equipedWeapon].block.blockPercentage;
 
             print("Damage Taken: " + damage);
 
-            health -= damage;
-            float percentDamage = (float)damage / 10.0f;
-            healthBar.fillAmount -= percentDamage;
+            health -= (int)damagePercentage;
+            damagePercentage = damagePercentage / 10.0f;
+            healthBar.fillAmount -= damagePercentage;
 
             damaged = true;
         }
