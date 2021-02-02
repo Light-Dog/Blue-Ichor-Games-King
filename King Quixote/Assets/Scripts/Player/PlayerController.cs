@@ -57,10 +57,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        /*
+
         if (Input.GetKeyDown(KeyCode.P))
-            drawCollider = !drawCollider;
-        */
+            health = 0;
+        //drawCollider = !drawCollider;
+
         if(!dead)
         {
             GroundCheck();
