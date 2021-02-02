@@ -30,9 +30,16 @@ public class EnemyController : MonoBehaviour
         EnemyUpdate();
 
         //move
+        //Create move controller class that has a list of move nodes as a path to follow
+        //might look into giving enemies rigidbodies
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            moving = !moving;
+
+        }
 
         //attack
-        if(actions.Capacity != 0)
+        if (actions.Capacity != 0)
         {
             if(Input.GetKeyDown(KeyCode.M))
             {

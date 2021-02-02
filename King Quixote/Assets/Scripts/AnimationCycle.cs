@@ -17,19 +17,19 @@ public class AnimationCycle : MonoBehaviour
 
     public int currentFrame = 0;
     public int maxFrame;
-    int maxMoveFrame = 0;
+    public int maxMoveFrame = 0;
     int maxDeathFrame = 0;
     float timer = 0.0f;
 
     public GameObject unitController = null;
     PlayerController player = null;
-    //EnemyController enemy = null;
+    EnemyController enemy = null;
     UnitType type = UnitType.none;
 
     bool forwardPlay = true;
     bool pause = false;
     bool moveUnit = false;
-    bool isMoving = false;
+    public bool isMoving = false;
     bool killUnit = false;
 
     // Start is called before the first frame update
@@ -45,9 +45,9 @@ public class AnimationCycle : MonoBehaviour
             player = unitController.GetComponent<PlayerController>();
             type = UnitType.player;
         }
-        else if(unitController != null)// && unitController.GetComponent<EnemyController>()
+        else if(unitController != null && unitController.GetComponent<EnemyController>())
         {
-            //enemy = unitController.GetComponent<EnemyController>();
+            enemy = unitController.GetComponent<EnemyController>();
             type = UnitType.enemy;
         }
     }
@@ -116,8 +116,6 @@ public class AnimationCycle : MonoBehaviour
             {
                 currentFrame = 0;
                 forwardPlay = true;
-
-                MoveAnimation();
             }
         }
     }
@@ -130,7 +128,10 @@ public class AnimationCycle : MonoBehaviour
         if (timerUpdate())
         {
             if (currentFrame < maxMoveFrame)
+            {
+                MoveAnimation();
                 currentFrame++;
+            }
             else
             {
                 currentFrame = 0;
@@ -167,6 +168,14 @@ public class AnimationCycle : MonoBehaviour
                 currentFrame = 0;
             }
         }
+        if(type == UnitType.enemy)
+        {
+            if(isMoving != enemy.moving)
+            {
+                isMoving = enemy.moving;
+                currentFrame = 0;
+            }
+        }
     }
 
     public void DeathCheck()
@@ -181,11 +190,7 @@ public class AnimationCycle : MonoBehaviour
     {
         if (lerp)
         {
-            if (moveUnit)
-            {
-                transform.position = new Vector3(transform.position.x + repositionX, transform.position.y, transform.position.z);
-                moveUnit = false;
-            }
+            unitController.transform.position = new Vector3(unitController.transform.position.x + repositionX, unitController.transform.position.y, unitController.transform.position.z);
         }
     }
 
