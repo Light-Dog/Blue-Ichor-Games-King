@@ -56,7 +56,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   dashButton: 102
-  dashForce: 8
+  dashForce: 9
   dashCooldown: 0.3
 --- !u!1 &6219677544721504965
 GameObject:
