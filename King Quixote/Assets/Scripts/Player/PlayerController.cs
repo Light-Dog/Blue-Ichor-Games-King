@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
                 jump = true;
             }
 
-            if(energyPercent >= .1f)
+            //if(energyPercent >= .1f)
                 energyPercent -= weapons[equipedWeapon].WeaponCheck();
 
             StatusUpdate();

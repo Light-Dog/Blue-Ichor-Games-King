@@ -199,7 +199,9 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  maxMoveFrame: 0
   unitController: {fileID: 0}
+  isMoving: 0
 --- !u!212 &286477269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -693,7 +695,9 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  maxMoveFrame: 0
   unitController: {fileID: 0}
+  isMoving: 0
 --- !u!212 &481062949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1046,6 +1050,16 @@ Transform:
   m_Father: {fileID: 216310424}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &776661034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4260433950707364089, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+  m_PrefabInstance: {fileID: 1173547584185254150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1132646442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8951340527477293171, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+  m_PrefabInstance: {fileID: 6619188603164205653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1382257024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2552527506706137665, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
@@ -1164,7 +1178,9 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  maxMoveFrame: 0
   unitController: {fileID: 0}
+  isMoving: 0
 --- !u!114 &1418932126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,7 +1718,9 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  maxMoveFrame: 0
   unitController: {fileID: 0}
+  isMoving: 0
 --- !u!212 &1920939375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2010,7 +2028,9 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  maxMoveFrame: 0
   unitController: {fileID: 0}
+  isMoving: 0
 --- !u!212 &2056957553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2083,6 +2103,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1173547584337664850, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: idleFrames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: idleFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 50a0567a083763641b9ed4122d528c87, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: idleFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d63d5ebb8b104e48be99312ae484d46, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: idleFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8bb6482d8115a2844a08c6891103407d, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 27936c8995481844c9576dd90aa23d80, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f6928f36b502c049bd465b5968d7974, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 81559c5d27d87554799715db27631f16, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 402c43a78fcbd6247ae986a37e46146b, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: c9ce334b58bbc7f4eae79165d6420449, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: moveFrames.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 30d5f37e324e75348ab4836c14de0d32, type: 3}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: lerp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: repositionX
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: unitController
+      value: 
+      objectReference: {fileID: 776661034}
     - target: {fileID: 4260433950707364089, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_Name
       value: Bootsnake
@@ -2285,6 +2365,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3942afd785ccc9a4dabe13986295d0eb, type: 3}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 70394e0d865136a4c930ec00332d363b, type: 3}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f3c1f404c9d64d84a920845045a9a99f, type: 3}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0e1f7eec6f3aeaf44a68d2ec78d0d74e, type: 3}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 75416aae097965e409a2b992289a9fa8, type: 3}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: moveFrames.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 77b19be68521e93469ad1ca1a83844ba, type: 3}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: isMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: unitController
+      value: 
+      objectReference: {fileID: 1132646442}
+    - target: {fileID: 8951340527477293168, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
+      propertyPath: repositionX
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8951340527477293171, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
       propertyPath: m_Name
       value: Worm
