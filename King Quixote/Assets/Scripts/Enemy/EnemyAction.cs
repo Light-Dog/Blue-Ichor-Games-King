@@ -18,6 +18,9 @@ public class EnemyAction : MonoBehaviour
     public float repositionX = 0.0f;
     public bool lerp = false;
 
+    public bool reverse = false;
+    bool forward = true;
+
     EnemyController parent;
     bool active = false;
 
@@ -44,10 +47,29 @@ public class EnemyAction : MonoBehaviour
     {
         if (active)
         {
-            UpdateFrame();
+            if(!reverse)
+            {
+                UpdateFrame();
 
-            if (currentFrame == maxFrames)
-                ResetData();
+                if (currentFrame == maxFrames)
+                    ResetData();
+            }
+            else
+            {
+                if (forward)
+                    UpdateFrame();
+                else
+                    ReverseFrame();
+
+                if (currentFrame == maxFrames)
+                {
+                    currentFrame--;
+                    forward = false;
+                }
+
+                if (currentFrame < 0)
+                    ResetData();
+            }
         }
     }
 
@@ -66,6 +88,37 @@ public class EnemyAction : MonoBehaviour
                     activeFrameIndex++;
 
                 currentFrame++;
+
+                if(lerp)
+                    parent.transform.position = new Vector3(parent.transform.position.x + repositionX, parent.transform.position.y, parent.transform.position.z);
+
+                foreach (BoxCollider2D collider in actionColliders)
+                {
+                    //print("Reset Hitbox");
+                    collider.enabled = false;
+                }
+            }
+        }
+    }
+
+    public void ReverseFrame()
+    {
+        parent.GetComponent<SpriteRenderer>().sprite = frames[currentFrame];
+
+        if (ActiveFrameCheck())
+            actionColliders[activeFrameIndex].enabled = true;
+
+        if (currentFrame >= 0)
+        {
+            if (parent.TimerUpdate())
+            {
+                if (ActiveFrameCheck())
+                    activeFrameIndex++;
+
+                currentFrame--;
+
+                if (lerp)
+                    parent.transform.position = new Vector3(parent.transform.position.x - repositionX, parent.transform.position.y, parent.transform.position.z);
 
                 foreach (BoxCollider2D collider in actionColliders)
                 {
@@ -89,6 +142,7 @@ public class EnemyAction : MonoBehaviour
         currentFrame = 0;
         activeFrameIndex = 0;
         active = false;
+        forward = true;
 
         parent.GetComponent<AnimationCycle>().PauseAnimation(false);
     }

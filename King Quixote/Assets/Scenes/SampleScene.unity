@@ -2107,6 +2107,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1173547584337664854, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173547584337664854, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 4260433950707364088, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: idleFrames.Array.size
       value: 3
@@ -2211,6 +2219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364091, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 668c74ac60a5f634f8dd8343744ee77e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
 --- !u!1001 &6219677546233464702

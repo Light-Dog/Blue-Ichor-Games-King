@@ -128,14 +128,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4c1d1a96fc3e8f41bd6135401b4e9d4, type: 3}
   - {fileID: 21300000, guid: 9394fa4bd667d024aadbe0b502c50945, type: 3}
   - {fileID: 21300000, guid: de36e379ba96137449cee131a053e1fb, type: 3}
-  - {fileID: 21300000, guid: 9394fa4bd667d024aadbe0b502c50945, type: 3}
-  - {fileID: 21300000, guid: d4c1d1a96fc3e8f41bd6135401b4e9d4, type: 3}
-  - {fileID: 21300000, guid: f96b1a6898392e245a9acad64a8ae1aa, type: 3}
-  - {fileID: 21300000, guid: 668c74ac60a5f634f8dd8343744ee77e, type: 3}
   activeFrames: 04000000
   actionColliders: []
-  repositionX: 0
-  lerp: 0
+  repositionX: -0.4
+  lerp: 1
+  reverse: 1
   damage: 2
 --- !u!1 &1173547584337664841
 GameObject:
@@ -360,13 +357,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleFrames: []
   moveFrames: []
+  deathFrames: []
   animationSpeed: 0.2
   reverseIdle: 0
   lerp: 0
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
+  maxMoveFrame: 0
   unitController: {fileID: 0}
+  isMoving: 0
 --- !u!114 &1173547583114683617
 MonoBehaviour:
   m_ObjectHideFlags: 0
