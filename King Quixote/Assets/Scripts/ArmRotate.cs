@@ -25,12 +25,12 @@ public class ArmRotate : MonoBehaviour
         if (Input.mousePosition.y > screenCenter)
         {
             currentPos = 1;
-            Debug.Log("A "+Input.mousePosition.y);
+            //Debug.Log("A "+Input.mousePosition.y);
         }
         else
         {
             currentPos = 2;
-            Debug.Log("B "+Input.mousePosition.y);
+            //Debug.Log("B "+Input.mousePosition.y);
         }
 
         if (currentPos == 1)
