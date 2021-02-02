@@ -6,7 +6,7 @@ public class DashAction : WeaponAction
 {
     public KeyCode dashButton;
     public float dashForce = 0.0f;
-    public float dashCooldown = .2f;
+    public float dashCooldown = .15f;
     bool delay = false;
     float dashTimer = 0.0f;
 

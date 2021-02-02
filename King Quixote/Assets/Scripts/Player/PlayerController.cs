@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public int health = 10;
     public Image energyBar;
     public Image healthBar;
+    bool dead = false;
 
     [Header("Weapons")]
     public List<WeaponController> weapons;
@@ -60,51 +61,30 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             drawCollider = !drawCollider;
         */
-
-        GroundCheck();
-
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
-        if (horizontalMove > 0.0f ||  horizontalMove < 0.0f)
-            moving = true;
-        else
-            moving = false;
-
-        if (Input.GetButtonDown("Jump"))
+        if(!dead)
         {
-            jump = true;
-        }
+            GroundCheck();
 
-        energyPercent -= weapons[equipedWeapon].WeaponCheck();
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (energyBar != null)
-        {
-            energyBar.fillAmount = energyPercent;
-        }
-
-        //4 energy per second back
-        if (timer >= 1.0f)
-        {
-            timer = 0.0f;
-
-            if (energyPercent < 1.0f)
-                energyPercent += .04f;
-        }
-        else
-            timer += Time.deltaTime;
-
-        if(damaged)
-        {
-            if(iFrameTimer < invincibleTime)
-            {
-                iFrameTimer += Time.deltaTime;
-            }
+            if (horizontalMove > 0.0f ||  horizontalMove < 0.0f)
+                moving = true;
             else
+                moving = false;
+
+            if (Input.GetButtonDown("Jump"))
             {
-                iFrameTimer = 0.0f;
-                damaged = false;
+                jump = true;
             }
+
+            if(energyPercent >= .1f)
+                energyPercent -= weapons[equipedWeapon].WeaponCheck();
+
+            StatusUpdate();
+
         }
+
+
     }
 
     private void FixedUpdate()
@@ -137,6 +117,44 @@ public class PlayerController : MonoBehaviour
             healthBar.fillAmount -= damagePercentage;
 
             damaged = true;
+        }
+    }
+
+    private void StatusUpdate()
+    {
+        if (energyBar != null)
+        {
+            energyBar.fillAmount = energyPercent;
+        }
+
+        //4 energy per second back
+        if (timer >= 1.0f)
+        {
+            timer = 0.0f;
+
+            if (energyPercent < 1.0f)
+                energyPercent += .04f;
+        }
+        else
+            timer += Time.deltaTime;
+
+        if (damaged)
+        {
+            if (iFrameTimer < invincibleTime)
+            {
+                iFrameTimer += Time.deltaTime;
+            }
+            else
+            {
+                iFrameTimer = 0.0f;
+                damaged = false;
+            }
+        }
+
+        if(health <= 0)
+        {
+            gameObject.GetComponent<AnimationCycle>().DeathCheck();
+            dead = true;
         }
     }
 

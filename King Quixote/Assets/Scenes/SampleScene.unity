@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleFrames: []
   moveFrames: []
+  deathFrames: []
   animationSpeed: 0.2
   reverseIdle: 0
   lerp: 0
@@ -674,6 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleFrames: []
   moveFrames: []
+  deathFrames: []
   animationSpeed: 0.15
   reverseIdle: 0
   lerp: 0
@@ -1144,6 +1146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleFrames: []
   moveFrames: []
+  deathFrames: []
   animationSpeed: 0.1
   reverseIdle: 0
   lerp: 0
@@ -1677,6 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleFrames: []
   moveFrames: []
+  deathFrames: []
   animationSpeed: 0.1
   reverseIdle: 0
   lerp: 0
@@ -1984,6 +1988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleFrames: []
   moveFrames: []
+  deathFrames: []
   animationSpeed: 0.2
   reverseIdle: 0
   lerp: 0
@@ -2208,6 +2213,22 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1382257024}
+    - target: {fileID: 6219677546009896622, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: deathFrames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546009896622, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: deathFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b4fde015004861045afb8d5f66951894, type: 3}
+    - target: {fileID: 6219677546009896622, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: deathFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: cdb28c442b8970c4c86fee20108b84c3, type: 3}
+    - target: {fileID: 6219677546009896622, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: deathFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: bf986591686d47d42bea4c7ab5a2cdf2, type: 3}
     - target: {fileID: 6219677546009896623, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_Sprite
       value: 

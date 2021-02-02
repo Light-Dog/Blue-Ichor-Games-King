@@ -8,6 +8,7 @@ public class AnimationCycle : MonoBehaviour
 
     public Sprite[] idleFrames;
     public Sprite[] moveFrames;
+    public Sprite[] deathFrames;
     public float animationSpeed = .2f;
     public bool reverseIdle = false;
 
@@ -17,6 +18,7 @@ public class AnimationCycle : MonoBehaviour
     public int currentFrame = 0;
     public int maxFrame;
     int maxMoveFrame = 0;
+    int maxDeathFrame = 0;
     float timer = 0.0f;
 
     public GameObject unitController = null;
@@ -28,6 +30,7 @@ public class AnimationCycle : MonoBehaviour
     bool pause = false;
     bool moveUnit = false;
     bool isMoving = false;
+    bool killUnit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,7 @@ public class AnimationCycle : MonoBehaviour
         //Checks for max size of the spirte list
         maxFrame = idleFrames.Length;
         maxMoveFrame = moveFrames.Length;
+        maxDeathFrame = deathFrames.Length;
 
         if(unitController != null && unitController.GetComponent<PlayerController>() != null)
         {
@@ -51,10 +55,11 @@ public class AnimationCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pause == false)
+        if (killUnit)
+            DeathUpdate();
+        else if (pause == false)
         {
             MoveCheck();
-
             if (isMoving)
                 MoveUpdate();
             else
@@ -62,9 +67,9 @@ public class AnimationCycle : MonoBehaviour
         }
     }
 
-    bool timerUpdate()
+    bool timerUpdate(float multiplier = 1.0f)
     {
-        if(timer < animationSpeed)
+        if(timer < animationSpeed * multiplier)
         {
             timer += Time.deltaTime;
         }
@@ -133,6 +138,24 @@ public class AnimationCycle : MonoBehaviour
         }
     }
 
+    void DeathUpdate()
+    {
+        if (currentFrame >= 0 && currentFrame < maxDeathFrame)
+            gameObject.GetComponent<SpriteRenderer>().sprite = deathFrames[currentFrame];
+
+        if (timerUpdate(2.0f))
+        {
+            if (currentFrame < maxDeathFrame)
+                currentFrame++;
+            else
+            {
+                currentFrame = 0;
+                pause = true;
+                killUnit = false;
+            }
+        }
+    }
+
     //returns true if moving
     void MoveCheck()
     {
@@ -144,6 +167,14 @@ public class AnimationCycle : MonoBehaviour
                 currentFrame = 0;
             }
         }
+    }
+
+    public void DeathCheck()
+    {
+        currentFrame = 0;
+
+        killUnit = true;
+        pause = true;
     }
 
     void MoveAnimation()
