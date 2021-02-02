@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public int health = 10;
     public Image energyBar;
     public Image healthBar;
-    bool dead = false;
+    public bool dead = false;
 
     [Header("Weapons")]
     public List<WeaponController> weapons;
