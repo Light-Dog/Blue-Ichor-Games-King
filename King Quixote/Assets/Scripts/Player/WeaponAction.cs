@@ -209,4 +209,5 @@ public class WeaponAction : MonoBehaviour
             hitboxs[activeFrameIndex].enabled = false;
         }
     }
+
 }
