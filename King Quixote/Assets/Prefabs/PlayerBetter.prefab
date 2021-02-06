@@ -152,7 +152,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -605,7 +605,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1042,7 +1042,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1164,7 +1164,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1286,7 +1286,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1482,7 +1482,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b6d4b098142f1fe4ea173815b7403793, type: 3}
   - {fileID: 21300000, guid: ed0d31e517ca74e47a1b6207f0595c08, type: 3}
   - {fileID: 21300000, guid: 24b49396bc913ea418fa196e8c6e069d, type: 3}
-  deathFrames: []
+  deathFrames:
+  - {fileID: 21300000, guid: b4fde015004861045afb8d5f66951894, type: 3}
+  - {fileID: 21300000, guid: cdb28c442b8970c4c86fee20108b84c3, type: 3}
+  - {fileID: 21300000, guid: bf986591686d47d42bea4c7ab5a2cdf2, type: 3}
   animationSpeed: 0.2
   reverseIdle: 0
   lerp: 0
@@ -1504,7 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e5ad5d8e4e5d54cbfda42b2a961eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 500
+  m_JumpForce: 600
   runSpeed: 40
   m_MovementSmoothing: 0.05
   m_WhatIsGround:
@@ -1708,7 +1711,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
