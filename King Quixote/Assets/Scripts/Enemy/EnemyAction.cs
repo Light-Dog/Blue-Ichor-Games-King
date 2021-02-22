@@ -22,15 +22,18 @@ public class EnemyAction : MonoBehaviour
     bool forward = true;
 
     EnemyController parent;
+    Transform player;
     bool active = false;
 
     public int damage = 0;
+    public float attackRange = 5.5f;
 
 
     // Start is called before the first frame update
     void Start()
     {
         parent = gameObject.GetComponentInParent<EnemyController>();
+        player = FindObjectOfType<PlayerController>().gameObject.GetComponent<Transform>();
 
         BoxCollider2D[] childBoxes = gameObject.GetComponentsInChildren<BoxCollider2D>();
         foreach (BoxCollider2D collider in childBoxes)
@@ -153,6 +156,16 @@ public class EnemyAction : MonoBehaviour
         parent.GetComponent<AnimationCycle>().PauseAnimation(true);
     }
 
+    public bool RangeCheck()
+    {
+        float distance = Mathf.Abs((player.localPosition.x - parent.GetComponent<Transform>().localPosition.x));
+
+        if (distance < attackRange)
+            return true;
+
+        return false;
+    }
+
     //deal damage
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -160,4 +173,6 @@ public class EnemyAction : MonoBehaviour
         if (player)
             player.TakeDamage(damage);
     }
+
+    public bool IsActive() { return active;  }
 }

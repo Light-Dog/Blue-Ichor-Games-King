@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [Header("Movement Variables")]
-    public float moveSpeed;
-    float moveSmoothing = .05f;
-    Rigidbody2D body;
-    Vector3 vecRef = Vector3.zero;
+    EnemyPather pathfinding;
 
+    /*
     //current node
     Node currentNode = null;
     //node map
@@ -17,10 +14,12 @@ public class EnemyController : MonoBehaviour
     //path
     public List<Node> path;
     public Node goal = null;
+    */
 
     [Header("Enemy Variables")]
     public int health = 10;
     public List<EnemyAction> actions;
+    EnemyAction currentAction = null;
 
     public bool moving = false;
     public bool drawCollider = false;
@@ -31,11 +30,13 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(gameObject.GetComponent<Rigidbody2D>())
-            body = gameObject.GetComponent<Rigidbody2D>();
+        if(gameObject.GetComponent<EnemyPather>())
+            pathfinding = gameObject.GetComponent<EnemyPather>();
 
+        /*
         moveMap = FindObjectOfType<NodeMap>();
         currentNode = moveMap.FindClosesttNode(gameObject.transform);
+        */
     }
 
     // Update is called once per frame
@@ -43,26 +44,27 @@ public class EnemyController : MonoBehaviour
     {
         //decision making
         EnemyStatusUpdate();
-        Move();
+       
 
-        //move
-        //Create move controller class that has a list of move nodes as a path to follow
-        //might look into giving enemies rigidbodies
-        if (Input.GetKeyDown(KeyCode.N))
+        if(currentAction)
         {
-            moving = !moving;
-            //FindObjectOfType<PlayerController>().transform;
+            if (!currentAction.IsActive())
+                currentAction = null;
         }
-
-        //attack
-        if (actions.Capacity != 0)
+        else
         {
-            if(Input.GetKeyDown(KeyCode.M))
+            if (actions.Capacity != 0)
             {
-                actions[0].Activate();
-                goal = moveMap.GeneratePath(FindObjectOfType<PlayerController>().GetComponent<Transform>(), currentNode, path);
+                if (actions[0].RangeCheck())
+                {
+                    actions[0].Activate();
+                    currentAction = actions[0];
+                }
             }
+
+
         }
+
     }
 
     private void EnemyStatusUpdate()
@@ -88,7 +90,8 @@ public class EnemyController : MonoBehaviour
 
     private void Move()
     {
-        if(moving && body)
+        /*
+         if(moving && body)
         {
             Vector3 targetVelocity = new Vector2(moveSpeed * 1f, body.velocity.y);
             body.velocity = Vector3.SmoothDamp(body.velocity, targetVelocity, ref vecRef, moveSmoothing);
@@ -98,5 +101,6 @@ public class EnemyController : MonoBehaviour
             if(body)
                 body.velocity = Vector3.zero;
         }
+        */
     }
 }

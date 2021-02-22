@@ -26,10 +26,11 @@ public class AnimationCycle : MonoBehaviour
     EnemyController enemy = null;
     UnitType type = UnitType.none;
 
+    public bool isMoving = false;
+    public bool facingRight = false;
     bool forwardPlay = true;
     bool pause = false;
     bool moveUnit = false;
-    public bool isMoving = false;
     bool killUnit = false;
 
     // Start is called before the first frame update
@@ -190,7 +191,11 @@ public class AnimationCycle : MonoBehaviour
     {
         if (lerp)
         {
-            unitController.transform.position = new Vector3(unitController.transform.position.x + repositionX, unitController.transform.position.y, unitController.transform.position.z);
+            if(facingRight)
+                unitController.transform.position = new Vector3(unitController.transform.position.x + repositionX, unitController.transform.position.y, unitController.transform.position.z);
+            else
+                unitController.transform.position = new Vector3(unitController.transform.position.x - repositionX, unitController.transform.position.y, unitController.transform.position.z);
+
         }
     }
 
