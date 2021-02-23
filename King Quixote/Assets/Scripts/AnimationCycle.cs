@@ -10,6 +10,7 @@ public class AnimationCycle : MonoBehaviour
     public Sprite[] moveFrames;
     public Sprite[] deathFrames;
     public float animationSpeed = .2f;
+
     public bool reverseIdle = false;
 
     public bool lerp = false;
@@ -17,8 +18,8 @@ public class AnimationCycle : MonoBehaviour
 
     public int currentFrame = 0;
     public int maxFrame;
-    public int maxMoveFrame = 0;
-    int maxDeathFrame = 0;
+    private int maxMoveFrame = 0;
+    private int maxDeathFrame = 0;
     float timer = 0.0f;
 
     public GameObject unitController = null;
@@ -26,8 +27,9 @@ public class AnimationCycle : MonoBehaviour
     EnemyController enemy = null;
     UnitType type = UnitType.none;
 
-    public bool isMoving = false;
     public bool facingRight = false;
+    private bool isMoving = false;
+
     bool forwardPlay = true;
     bool pause = false;
     bool moveUnit = false;
@@ -85,35 +87,32 @@ public class AnimationCycle : MonoBehaviour
 
     void IdleUpdate()
     {
-        if (currentFrame >= 0 && currentFrame < maxFrame)
-            gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
 
-        if (forwardPlay)
+        if(!reverseIdle)
         {
-            if (timerUpdate())
+            UpdateFrame();
+
+            if (currentFrame == maxFrame)
             {
-                if (currentFrame < maxFrame)
-                    currentFrame++;
-                else
-                {
-                    forwardPlay = false;
-                    moveUnit = true;
-                }
+                currentFrame = 0;
+                forwardPlay = true;
             }
         }
         else
         {
-            if (reverseIdle)
-            {
-                if (timerUpdate())
-                {
-                    if (currentFrame == 0)
-                        forwardPlay = true;
-                    else
-                        currentFrame--;
-                }
-            }
+
+            if (forwardPlay)
+                UpdateFrame();
             else
+                ReverseUpdate();
+
+            if(currentFrame == maxFrame)
+            {
+                forwardPlay = false;
+                currentFrame--;
+            }
+
+            if(currentFrame < 0)
             {
                 currentFrame = 0;
                 forwardPlay = true;
@@ -155,6 +154,29 @@ public class AnimationCycle : MonoBehaviour
                 pause = true;
                 killUnit = false;
             }
+        }
+    }
+
+    void UpdateFrame()
+    {
+        if(currentFrame >= 0 && currentFrame < maxFrame)
+            gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
+
+        if (timerUpdate())
+        {
+            if (currentFrame < maxFrame)
+                currentFrame++;
+        }
+    }
+
+    void ReverseUpdate()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
+
+        if (timerUpdate())
+        {
+            if (currentFrame >= 0)
+                currentFrame--;
         }
     }
 

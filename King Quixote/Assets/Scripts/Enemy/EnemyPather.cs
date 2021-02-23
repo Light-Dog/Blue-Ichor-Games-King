@@ -10,12 +10,13 @@ public class EnemyPather : MonoBehaviour
     private Vector3 vecRef = Vector3.zero;
 
     public float moveRange = 15.0f;
-    public float direction = 1.0f;
-    public bool inMoveRange = false;
-    private bool moving = false;
+    public float attackRange = 6.0f;
+    private float direction = 1.0f;
+    private bool inMoveRange = false;
+    private bool inAttackRange = false;
+    public bool moving = false;
 
     private Transform player;
-    private AnimationCycle animator;
 
     //consider a function taking the enemy current action or next planned action to update the attack range to adjust for different attacks
 
@@ -24,7 +25,6 @@ public class EnemyPather : MonoBehaviour
     {
         body = gameObject.GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>().gameObject.GetComponent<Transform>();
-        animator = gameObject.GetComponent<AnimationCycle>();
     }
 
     // Update is called once per frame
@@ -34,16 +34,10 @@ public class EnemyPather : MonoBehaviour
         RangeCheck();
         CheckSide();
         //check if the player is in the move range 
-        if (inMoveRange)
-        {
-            animator.isMoving = true;
+        if (inMoveRange && !inAttackRange)
             moving = true;
-        }
         else
-        {
-            animator.isMoving = false;
             moving = false;
-        }
         //check the direction to move
         //set move
         Move();
@@ -63,15 +57,14 @@ public class EnemyPather : MonoBehaviour
         //print("Distance: " + distance);
 
         if (distance <= moveRange)
-        {
-            animator.PauseAnimation(true);
             inMoveRange = true;
-        }
         else
-        {
-            animator.PauseAnimation(false);
             inMoveRange = false;
-        }
+
+        if (distance <= attackRange)
+            inAttackRange = true;
+        else
+            inAttackRange = false;
 
     }
 
@@ -85,7 +78,9 @@ public class EnemyPather : MonoBehaviour
         else
         {
             if (body)
-                body.velocity = Vector3.zero;
+                body.velocity = new Vector3(0.0f, body.velocity.y);
         }
     }
+
+    public bool InAttackRange() { return inAttackRange;  }
 }

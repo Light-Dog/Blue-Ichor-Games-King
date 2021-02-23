@@ -16,6 +16,7 @@ public class WeaponDamage : MonoBehaviour
         if (other.GetComponent<EnemyController>())
         {
             other.GetComponent<EnemyController>().health -= weapon.parent.damage;
+
             other.GetComponent<DamageAnim>().take_damage();
         }
     }

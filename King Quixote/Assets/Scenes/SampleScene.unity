@@ -247,9 +247,7 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  maxMoveFrame: 0
   unitController: {fileID: 0}
-  isMoving: 0
   facingRight: 0
 --- !u!212 &286477269
 SpriteRenderer:
@@ -791,9 +789,7 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  maxMoveFrame: 0
   unitController: {fileID: 0}
-  isMoving: 0
   facingRight: 0
 --- !u!212 &481062949
 SpriteRenderer:
@@ -1211,10 +1207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78aefee7b3c4b5248b522d8218893f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 3
   moveRange: 15
-  direction: 1
-  inMoveRange: 0
+  attackRange: 5.5
+  moving: 0
 --- !u!1 &1049649402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,9 +1381,7 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  maxMoveFrame: 0
   unitController: {fileID: 0}
-  isMoving: 0
   facingRight: 0
 --- !u!114 &1418932126
 MonoBehaviour:
@@ -1401,7 +1395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e6dd7c558131841a3e4e61dbdb4fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damaged: 0
   animationSpeed: 0.02
   maxHeight: 1.5
   minWidth: 0.8
@@ -1412,7 +1405,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418932122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1769ee9ee8c9ebf4684c456bdb51924b, type: 3}
   m_Name: 
@@ -1980,9 +1973,7 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  maxMoveFrame: 0
   unitController: {fileID: 0}
-  isMoving: 0
   facingRight: 0
 --- !u!212 &1920939375
 SpriteRenderer:
@@ -2291,9 +2282,7 @@ MonoBehaviour:
   repositionX: 0
   currentFrame: 1
   maxFrame: 1
-  maxMoveFrame: 0
   unitController: {fileID: 0}
-  isMoving: 0
   facingRight: 0
 --- !u!212 &2056957553
 SpriteRenderer:
@@ -2369,7 +2358,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 461527818956312098, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_Mass
-      value: 5000
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 461527818956312098, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461527818956312098, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1173547583729112752, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2465,11 +2462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4260433950707364090, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.06
+      value: 17.76
       objectReference: {fileID: 0}
     - target: {fileID: 4260433950707364090, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 7.91
       objectReference: {fileID: 0}
     - target: {fileID: 4260433950707364090, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_LocalPosition.z

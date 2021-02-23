@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
-            health = 0;
+        //if (Input.GetKeyDown(KeyCode.P))
+            //health = 0;
         //drawCollider = !drawCollider;
 
         if(!dead)

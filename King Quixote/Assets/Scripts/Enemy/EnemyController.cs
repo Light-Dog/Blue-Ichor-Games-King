@@ -44,26 +44,32 @@ public class EnemyController : MonoBehaviour
     {
         //decision making
         EnemyStatusUpdate();
-       
 
-        if(currentAction)
+        moving = pathfinding.moving;
+
+        if(pathfinding.InAttackRange())
         {
-            if (!currentAction.IsActive())
-                currentAction = null;
-        }
-        else
-        {
-            if (actions.Capacity != 0)
+            if(currentAction)
             {
-                if (actions[0].RangeCheck())
+                if (!currentAction.IsActive())
+                    currentAction = null;
+            }
+            else
+            {
+                if (actions.Capacity != 0)
                 {
-                    actions[0].Activate();
-                    currentAction = actions[0];
+                    if (actions[0].RangeCheck())
+                    {
+                        actions[0].Activate();
+                        currentAction = actions[0];
+                    }
                 }
+
+
             }
 
-
         }
+
 
     }
 
@@ -86,21 +92,5 @@ public class EnemyController : MonoBehaviour
         }
 
         return false;
-    }
-
-    private void Move()
-    {
-        /*
-         if(moving && body)
-        {
-            Vector3 targetVelocity = new Vector2(moveSpeed * 1f, body.velocity.y);
-            body.velocity = Vector3.SmoothDamp(body.velocity, targetVelocity, ref vecRef, moveSmoothing);
-        }
-        else
-        {
-            if(body)
-                body.velocity = Vector3.zero;
-        }
-        */
     }
 }

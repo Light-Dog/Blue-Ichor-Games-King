@@ -8,21 +8,27 @@ public class DamageAnim : MonoBehaviour
     //it causes the sprite to quickly bounce up and inward
     //then returns to the starting position
 
-    public bool damaged = false;
     public float animationSpeed = 0.02f;
     public float maxHeight = 1.5f;
     public float minWidth = 0.8f;
+
+    private bool damaged = false;
     private bool maxedOut = false;
+
     private float timer = 0.0f;
     private float maxTimer = 1f;
-    private Vector3 newSize;
+
+    private SpriteRenderer npc;
+    private Vector2 newSize;
     private Vector3 oldSize;
 
     // Start is called before the first frame update
     void Start()
     {
-        newSize = new Vector3(minWidth, maxHeight);
-        oldSize = new Vector3(transform.localScale.x, transform.localScale.y);
+        npc = gameObject.GetComponent<SpriteRenderer>();
+
+        newSize = new Vector2(minWidth, maxHeight);
+        oldSize = npc.size;
 
         maxTimer = animationSpeed * 4.5f;
     }
@@ -30,7 +36,6 @@ public class DamageAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (damaged == true)
         {
             if (maxedOut == false)
@@ -38,7 +43,8 @@ public class DamageAnim : MonoBehaviour
                 if (timer < maxTimer)
                 {
                     timer += Time.deltaTime;
-                    transform.localScale = Vector3.Lerp(transform.localScale, newSize, animationSpeed);
+                    Vector2 tempSize = Vector2.Lerp(npc.size, newSize, animationSpeed);
+                    npc.size.Set(tempSize.x, tempSize.y);
                 }
                 else
                 {
@@ -51,7 +57,8 @@ public class DamageAnim : MonoBehaviour
                 if (timer < maxTimer)
                 {
                     timer += Time.deltaTime;
-                    transform.localScale = Vector3.Lerp(transform.localScale, oldSize, animationSpeed);
+                    Vector2 tempSize = Vector2.Lerp(npc.size, oldSize, animationSpeed);
+                    npc.size.Set(tempSize.x, tempSize.y);
                 }
                 else
                 {
@@ -67,6 +74,7 @@ public class DamageAnim : MonoBehaviour
     public void take_damage()
     {
         damaged = true;
+        print("here");
     }
 
 }
