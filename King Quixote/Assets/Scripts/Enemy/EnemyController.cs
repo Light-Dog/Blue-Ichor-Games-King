@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     EnemyPather pathfinding;
+    public bool facingRight = false;
 
     /*
     //current node
@@ -46,6 +47,11 @@ public class EnemyController : MonoBehaviour
         EnemyStatusUpdate();
 
         moving = pathfinding.moving;
+
+        if (pathfinding.direction > 0 && facingRight == false)
+            Flip();
+        else if (pathfinding.direction < 0 && facingRight == true)
+            Flip();
 
         if(pathfinding.InAttackRange())
         {
@@ -92,5 +98,15 @@ public class EnemyController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

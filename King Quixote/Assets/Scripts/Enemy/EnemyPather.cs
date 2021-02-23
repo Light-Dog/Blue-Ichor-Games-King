@@ -11,7 +11,7 @@ public class EnemyPather : MonoBehaviour
 
     public float moveRange = 15.0f;
     public float attackRange = 6.0f;
-    private float direction = 1.0f;
+    public float direction = 1.0f;
     private bool inMoveRange = false;
     private bool inAttackRange = false;
     public bool moving = false;
