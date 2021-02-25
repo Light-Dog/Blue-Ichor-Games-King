@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour
     public bool moving = false;
     public bool drawCollider = false;
 
+    public bool dontDie = false;
+
     public float animationSpeed = 0.2f;
     float timer = 0.0f;
 
@@ -43,18 +45,22 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //decision making
+        //Health check
         EnemyStatusUpdate();
 
+        //Check if moving (for animation control)
         moving = pathfinding.moving;
 
+        //Flips Image if needed
         if (pathfinding.direction > 0 && facingRight == false)
             Flip();
         else if (pathfinding.direction < 0 && facingRight == true)
             Flip();
 
+        //Checks attack range
         if(pathfinding.InAttackRange())
         {
+            //checks if there is an attack playing
             if(currentAction)
             {
                 if (!currentAction.IsActive())
@@ -62,8 +68,10 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+                //if they have an action
                 if (actions.Capacity != 0)
                 {
+                    //check range of attack
                     if (actions[0].RangeCheck())
                     {
                         actions[0].Activate();
@@ -81,7 +89,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyStatusUpdate()
     {
-        if(health <= 0)
+        if(health <= 0 && !dontDie)
         {
             Destroy(gameObject);
         }
