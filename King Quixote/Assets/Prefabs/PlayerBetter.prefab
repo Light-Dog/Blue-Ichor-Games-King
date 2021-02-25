@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1074612055058350941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2130455160551298915}
+  - component: {fileID: 1038204249433217592}
+  m_Layer: 11
+  m_Name: Dash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2130455160551298915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074612055058350941}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.64, y: 1.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5303648527610662133}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038204249433217592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074612055058350941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f83f249bb92a34fbd6bc9addc3cd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: bd3fe705e07f2bf46aebc88ba29d355d, type: 3}
+  - {fileID: 21300000, guid: e87794f84a7d97d488fa1f4eeaa438a6, type: 3}
+  activeFrames: 
+  actionColliders: []
+  energyCost: 0
+  repositionX: 0
+  lerp: 0
+  actionType: 4
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  dashButton: 102
+  dashForce: 5
+  dashCooldown: 0.3
 --- !u!1 &1354972808140199538
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +174,92 @@ MonoBehaviour:
   dashButton: 102
   dashForce: 9
   dashCooldown: 0.3
+--- !u!1 &4900421019678540005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6071260289570066019}
+  - component: {fileID: 5250760268679125107}
+  - component: {fileID: 6367168975356118604}
+  m_Layer: 11
+  m_Name: Block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6071260289570066019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900421019678540005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5303648527610662133}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5250760268679125107
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900421019678540005}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1028204, y: 0.06487179}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.2541876, y: 4.3300858}
+  m_EdgeRadius: 0
+--- !u!114 &6367168975356118604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900421019678540005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891603e6439519a428dd72b561b891e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: e62762ff3f844db4db4528f5f3d89f69, type: 3}
+  - {fileID: 21300000, guid: 01d0a792ab9f95a4a92d23e669550398, type: 3}
+  - {fileID: 21300000, guid: e62762ff3f844db4db4528f5f3d89f69, type: 3}
+  activeFrames: 01000000
+  actionColliders: []
+  energyCost: 0
+  repositionX: 0
+  lerp: 0
+  actionType: 4
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  blockButton: 99
+  blockPercentage: 0.8
+  holdFrame: 1
 --- !u!1 &6219677544721504965
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +713,7 @@ MonoBehaviour:
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   blockButton: 99
   blockPercentage: 0.6
+  holdFrame: 1
 --- !u!1 &6219677545055183802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,6 +1611,7 @@ Transform:
   - {fileID: 6219677546060097993}
   - {fileID: 6219677545989123154}
   - {fileID: 6716609489330518066}
+  - {fileID: 5303648527610662133}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1579,6 +1725,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 6219677545639679579}
   - {fileID: 1061602771411908952}
+  - {fileID: 5203460828271030920}
   equipedWeapon: 0
   m_FacingRight: 1
   moving: 0
@@ -1909,6 +2056,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   attackButton: 120
+  holdFrame: 0
 --- !u!114 &5622818197582777462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +2069,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30671ccace5ed674280501c853cbc150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8271953847035737008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5303648527610662133}
+  - component: {fileID: 5203460828271030920}
+  m_Layer: 11
+  m_Name: Crossbow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5303648527610662133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8271953847035737008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.75, y: 0.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6071260289570066019}
+  - {fileID: 2158746971011584570}
+  - {fileID: 2130455160551298915}
+  m_Father: {fileID: 6219677546009896620}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5203460828271030920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8271953847035737008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f380cc7587f1b4049ac9c94ed9099c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Crossbow
+  attacks:
+  - {fileID: 2772479434365428739}
+  combos: []
+  block: {fileID: 6367168975356118604}
+  dash: {fileID: 1038204249433217592}
+  damage: 3
+  animationSpeed: 0.2
+--- !u!1 &8290368992389355966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2158746971011584570}
+  - component: {fileID: 2772479434365428739}
+  m_Layer: 11
+  m_Name: CrossbowShot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2158746971011584570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8290368992389355966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5303648527610662133}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2772479434365428739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8290368992389355966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67d5d78e6aab324a8bc7b25d7bd76aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: a22a11f05e34adf44ae262e742b1bb33, type: 3}
+  - {fileID: 21300000, guid: 75b5b0d2c4265054ba03024c3da78cef, type: 3}
+  - {fileID: 21300000, guid: 160e9acc3e24c5d48acacaa708834257, type: 3}
+  activeFrames: 
+  actionColliders: []
+  energyCost: 0
+  repositionX: 0
+  lerp: 0
+  actionType: 4
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  attackButton: 120
+  bolt: {fileID: 5585885612159962252, guid: 70b61569196d24a418fcde4929a2078e, type: 3}
+  boltForce: 15
+  fireFrame: 1
 --- !u!1 &8722548303159678473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2296,7 @@ MonoBehaviour:
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   blockButton: 99
   blockPercentage: 0.8
+  holdFrame: 1
 --- !u!61 &3562907781478733720
 BoxCollider2D:
   m_ObjectHideFlags: 0

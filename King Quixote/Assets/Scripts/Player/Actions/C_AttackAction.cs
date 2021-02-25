@@ -10,6 +10,8 @@ public class C_AttackAction : AttackAction
     private bool held = false;
     private bool first = false;
 
+    public int holdFrame = 0;
+
     // Start is called before the first frame update
     new void Start()
     {
@@ -35,7 +37,7 @@ public class C_AttackAction : AttackAction
             }
 
             //dont hardcode the frame
-            UpdateHoldFrame(held, 0);
+            UpdateHoldFrame(held, holdFrame);
 
             if (GetCurrentFrame() == GetMaxFrames())
             {
