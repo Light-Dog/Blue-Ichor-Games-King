@@ -2360,6 +2360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bootsnake
       objectReference: {fileID: 0}
+    - target: {fileID: 4260433950707364089, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4260433950707364090, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.76
@@ -2528,6 +2532,10 @@ PrefabInstance:
     - target: {fileID: 6219677546347679228, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: hitboxColor.b
       value: 0.32907617
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252307770114546997, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: chargeForce
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}

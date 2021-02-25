@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5233568056070183647}
   - component: {fileID: 2325668634323823021}
   - component: {fileID: 1299126671040469765}
-  - component: {fileID: 6510610782360029209}
+  - component: {fileID: 6093025388361477616}
   m_Layer: 0
   m_Name: BoxChip2
   m_TagString: Untagged
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6510610782360029209
+--- !u!114 &6093025388361477616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,13 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6556252332529848817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6050a35000ad249439a09f296c1d1010, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d51887387d6dca499bfa267683cd84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 10
-  maxY: 20
-  minX: 1
-  maxX: 35
-  minRot: -1
-  maxRot: 1
-  lifetime: 2
+  timer: 3

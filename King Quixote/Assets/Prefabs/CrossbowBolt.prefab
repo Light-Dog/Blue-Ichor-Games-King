@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7752067423256883616}
   - component: {fileID: 5703466039609821131}
   - component: {fileID: 2675489485546152437}
+  - component: {fileID: 7308572101725866357}
   m_Layer: 0
   m_Name: CrossbowBolt
   m_TagString: Bolt
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e3c0886c4813746940ed4b10cb68f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7308572101725866357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585885612159962252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d51887387d6dca499bfa267683cd84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 5

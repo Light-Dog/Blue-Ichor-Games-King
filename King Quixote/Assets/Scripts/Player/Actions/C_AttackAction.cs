@@ -5,12 +5,13 @@ using UnityEngine;
 public class C_AttackAction : AttackAction
 {
     private float chargeTime = 0.0f;
-    private float minTime = .75f;
+    private float minTime = .6f;
     private float maxTime = 1.0f;
     private bool held = false;
     private bool first = false;
 
     public int holdFrame = 0;
+    public float chargeForce = 6.0f;
 
     // Start is called before the first frame update
     new void Start()
@@ -32,8 +33,10 @@ public class C_AttackAction : AttackAction
 
             if(Charge())
             {
-                //yeet player
-                print("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET");
+                if (GetPlayer().GetComponent<PlayerController>().m_FacingRight)
+                    GetPlayer().GetComponent<Rigidbody2D>().AddForce(new Vector3(1.0f, 0f, 0.0f) * chargeForce, ForceMode2D.Impulse);
+                else
+                    GetPlayer().GetComponent<Rigidbody2D>().AddForce(new Vector3(-1.0f, 0f, 0.0f) * chargeForce, ForceMode2D.Impulse);
             }
 
             //dont hardcode the frame

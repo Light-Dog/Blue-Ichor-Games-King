@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4399485778615191475}
   - component: {fileID: 3942137017628361508}
   - component: {fileID: -7430731240638664763}
-  - component: {fileID: 6413897245228216200}
+  - component: {fileID: -6809935894538374139}
   m_Layer: 0
   m_Name: BoxChip1
   m_TagString: Untagged
@@ -99,13 +99,13 @@ Rigidbody2D:
   m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6413897245228216200
+--- !u!114 &-6809935894538374139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,13 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4437161812739774864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6050a35000ad249439a09f296c1d1010, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d51887387d6dca499bfa267683cd84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 10
-  maxY: 20
-  minX: -35
-  maxX: -1
-  minRot: -1
-  maxRot: 1
-  lifetime: 2
+  timer: 3

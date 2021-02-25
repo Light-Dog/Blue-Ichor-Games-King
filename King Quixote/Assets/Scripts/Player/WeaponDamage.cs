@@ -19,5 +19,10 @@ public class WeaponDamage : MonoBehaviour
 
             other.GetComponent<DamageAnim>().take_damage();
         }
+
+        if(other.GetComponent<Breakable>())
+        {
+            other.GetComponent<Breakable>().health -= weapon.parent.damage;
+        }
     }
 }

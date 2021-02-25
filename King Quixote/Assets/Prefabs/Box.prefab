@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e563f9a8d6652dd4ebdb361e0663c604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  broken: 0
-  become: {fileID: 21300000, guid: 2349deeff199d1f40bc0618143eddcc4, type: 3}
-  chip1: {fileID: 4437161812739774864, guid: 918fb6d627921c14685455f35d3af029, type: 3}
-  chip2: {fileID: 6556252332529848817, guid: 51d568235febb694ebf4303db9cc2e13, type: 3}
+  damagedSprite: {fileID: 21300000, guid: 2349deeff199d1f40bc0618143eddcc4, type: 3}
+  broken1: {fileID: 4437161812739774864, guid: 918fb6d627921c14685455f35d3af029, type: 3}
+  broken2: {fileID: 6556252332529848817, guid: 51d568235febb694ebf4303db9cc2e13, type: 3}
+  numChips: 3
+  shotForce: 1.5
+  health: 4
