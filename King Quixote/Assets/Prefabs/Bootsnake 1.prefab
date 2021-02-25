@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173547583729112755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.181, y: -1.895, z: 0}
+  m_LocalPosition: {x: -4.66, y: -1.81, z: 0}
   m_LocalScale: {x: 26.550886, y: 32.60329, z: 1}
   m_Children: []
   m_Father: {fileID: 4260433950707364090}
@@ -134,6 +134,7 @@ MonoBehaviour:
   lerp: 1
   reverse: 1
   damage: 2
+  attackRange: 5.5
 --- !u!1 &4260433950707364089
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ GameObject:
   - component: {fileID: 7122391362256300668}
   - component: {fileID: 461527818956312098}
   - component: {fileID: 1795213878978062014}
+  - component: {fileID: 1047547112202966240}
   m_Layer: 0
   m_Name: Bootsnake 1
   m_TagString: Untagged
@@ -234,18 +236,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f3ab8907c23e4ca5416b00902408c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleFrames: []
-  moveFrames: []
+  idleFrames:
+  - {fileID: 21300000, guid: 50a0567a083763641b9ed4122d528c87, type: 3}
+  - {fileID: 21300000, guid: 9d63d5ebb8b104e48be99312ae484d46, type: 3}
+  - {fileID: 21300000, guid: 8bb6482d8115a2844a08c6891103407d, type: 3}
+  moveFrames:
+  - {fileID: 21300000, guid: 27936c8995481844c9576dd90aa23d80, type: 3}
+  - {fileID: 21300000, guid: 1f6928f36b502c049bd465b5968d7974, type: 3}
+  - {fileID: 21300000, guid: 81559c5d27d87554799715db27631f16, type: 3}
+  - {fileID: 21300000, guid: 402c43a78fcbd6247ae986a37e46146b, type: 3}
+  - {fileID: 21300000, guid: c9ce334b58bbc7f4eae79165d6420449, type: 3}
+  - {fileID: 21300000, guid: 30d5f37e324e75348ab4836c14de0d32, type: 3}
   deathFrames: []
   animationSpeed: 0.2
   reverseIdle: 0
   lerp: 0
-  repositionX: 0
+  repositionX: -0.4
   currentFrame: 1
   maxFrame: 1
-  maxMoveFrame: 0
-  unitController: {fileID: 0}
-  isMoving: 0
+  unitController: {fileID: 4260433950707364089}
+  facingRight: 0
 --- !u!114 &1173547583114683617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e6dd7c558131841a3e4e61dbdb4fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damaged: 0
   animationSpeed: 0.02
   maxHeight: 1.5
   minWidth: 0.8
@@ -274,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1769ee9ee8c9ebf4684c456bdb51924b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  facingRight: 0
   health: 10
   actions:
   - {fileID: 1132999191498704433}
@@ -289,14 +298,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4260433950707364089}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 7df7ffcca89bb6841b2b8dd6c07e6f26, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -315,16 +324,33 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.075377464, y: -1.1457481}
+  m_Offset: {x: 0.075377464, y: -0.7759285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.34, y: 6.68}
+    oldSize: {x: 12.6, y: 6.3}
     newSize: {x: 7.94, y: 6.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.676564, y: 4.388504}
+  m_Size: {x: 4.676564, y: 3.6488647}
   m_EdgeRadius: 0
+--- !u!114 &1047547112202966240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260433950707364089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78aefee7b3c4b5248b522d8218893f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  moveRange: 15
+  attackRange: 5.5
+  direction: 1
+  moving: 0
