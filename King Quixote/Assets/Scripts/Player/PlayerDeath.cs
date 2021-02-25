@@ -10,7 +10,7 @@ public class PlayerDeath : MonoBehaviour
     float fadePercent = 0f;
     float fadeColor = 0.0f;
     float fadeSpeed = .5f;
-    int deathLevel = 4;
+    int deathLevel = 5;
     
 
     // Start is called before the first frame update
