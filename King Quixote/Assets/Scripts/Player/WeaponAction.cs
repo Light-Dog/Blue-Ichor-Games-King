@@ -139,7 +139,7 @@ public class WeaponAction : MonoBehaviour
         }
     }
 
-    public void UpdateHoldFrame(bool held)
+    public void UpdateHoldFrame(bool held, int holdFrame)
     {
         player.GetComponent<SpriteRenderer>().sprite = frames[currentFrame];
 
@@ -149,7 +149,7 @@ public class WeaponAction : MonoBehaviour
 
         if (currentFrame < maxFrames)
         {
-            if(ActiveFrameCheck() && held)
+            if(holdFrame == currentFrame && held)
             {
 
             }

@@ -20,7 +20,7 @@ public class BlockAction : WeaponAction
         if(CheckActive())
         {
   
-            UpdateHoldFrame(CheckButtonHold());
+            UpdateHoldFrame(CheckButtonHold(), 1);
 
             if (GetCurrentFrame() == GetMaxFrames())
                 ResetData();

@@ -1210,6 +1210,7 @@ MonoBehaviour:
   moveSpeed: 3
   moveRange: 15
   attackRange: 5.5
+  direction: 1
   moving: 0
 --- !u!1 &1049649402
 GameObject:
@@ -1410,6 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1769ee9ee8c9ebf4684c456bdb51924b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 0
   health: 10
   actions: []
   moving: 0

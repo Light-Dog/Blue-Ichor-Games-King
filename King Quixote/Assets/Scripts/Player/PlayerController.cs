@@ -58,8 +58,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        //if (Input.GetKeyDown(KeyCode.P))
-            //health = 0;
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (equipedWeapon == 0)
+                equipedWeapon = 1;
+            else
+                equipedWeapon = 0;
+        }
         //drawCollider = !drawCollider;
 
         if(!dead)
