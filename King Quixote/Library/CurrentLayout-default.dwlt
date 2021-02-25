@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 997
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 62
+  controlID: 153
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 137
+  controlID: 127
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 138
+  controlID: 128
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -343,21 +343,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Sprites/KingQ
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Sprites/KingQ
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\wbake\Desktop\Gam400\Blue-Ichor-Games-King\King Quixote
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: ac440000
-    m_LastClickedID: 17580
-    m_ExpandedIDs: 000000009e440000a0440000a2440000a4440000ac440000ba440000e847000000ca9a3b
+    m_SelectedIDs: c4430000
+    m_LastClickedID: 17348
+    m_ExpandedIDs: 00000000a4430000a6430000a8430000aa43000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -385,7 +385,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e440000a0440000a2440000a4440000
+    m_ExpandedIDs: 00000000a4430000a6430000a8430000aa430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -507,9 +507,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 60b8ffff
-      m_LastClickedID: -18336
-      m_ExpandedIDs: aaefffff5af4ffff
+      m_SelectedIDs: 86490000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 36e8ffff4ee8ffff0ee9ffff16e9ffffd8ebffff84eeffffa2f0ffffaef0ffffd8f2ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -569,9 +569,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 11.539734, y: 1.420914, z: -73.977875}
+    m_Target: {x: 7.1272855, y: 3.713804, z: -75.02357}
     speed: 2
-    m_Value: {x: 11.539734, y: 1.420914, z: -73.977875}
+    m_Value: {x: 7.1272855, y: 3.713804, z: -75.02357}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -622,9 +622,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.7850623
+    m_Target: 15.704619
     speed: 2
-    m_Value: 4.7850623
+    m_Value: 15.704619
   m_Ortho:
     m_Target: 1
     speed: 2

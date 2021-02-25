@@ -11,6 +11,11 @@ public class AnimationCycle : MonoBehaviour
     public Sprite[] deathFrames;
     public float animationSpeed = .2f;
 
+    public Sprite jumping;
+    public Sprite falling;
+    private bool rising = false;
+    private bool descending = false;
+
     public bool reverseIdle = false;
 
     public bool lerp = false;
@@ -123,7 +128,10 @@ public class AnimationCycle : MonoBehaviour
     void MoveUpdate()
     {
         if (currentFrame >= 0 && currentFrame < maxMoveFrame)
-            gameObject.GetComponent<SpriteRenderer>().sprite = moveFrames[currentFrame];
+        {
+            if(!AerialCheck())
+                gameObject.GetComponent<SpriteRenderer>().sprite = moveFrames[currentFrame];
+        }
 
         if (timerUpdate())
         {
@@ -160,7 +168,10 @@ public class AnimationCycle : MonoBehaviour
     void UpdateFrame()
     {
         if(currentFrame >= 0 && currentFrame < maxFrame)
-            gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
+        {
+            if (!AerialCheck())
+                gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
+        }
 
         if (timerUpdate())
         {
@@ -171,7 +182,8 @@ public class AnimationCycle : MonoBehaviour
 
     void ReverseUpdate()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
+        if (!AerialCheck())
+            gameObject.GetComponent<SpriteRenderer>().sprite = idleFrames[currentFrame];
 
         if (timerUpdate())
         {
@@ -225,4 +237,25 @@ public class AnimationCycle : MonoBehaviour
     {
         pause = toPause;
     }
+
+    private bool AerialCheck()
+    {
+        if(rising)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = jumping;
+            return true;
+        }
+
+        if(descending)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = falling;
+            return true;
+        }
+
+        return false;
+    }
+
+    public void StartJump() { rising = true; }
+    public void PeakJump() { descending = true;  rising = false; }
+    public void Landed() { descending = false; }
 }

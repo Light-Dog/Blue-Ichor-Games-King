@@ -80,10 +80,17 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
+                gameObject.GetComponent<AnimationCycle>().StartJump();
             }
 
+            if (!m_Grounded && m_Rigidbody2D.velocity.y <= 0f)
+                gameObject.GetComponent<AnimationCycle>().PeakJump();
+
+            if (m_Grounded)
+                gameObject.GetComponent<AnimationCycle>().Landed();
+
             //if(energyPercent >= .1f)
-                energyPercent -= weapons[equipedWeapon].WeaponCheck();
+            energyPercent -= weapons[equipedWeapon].WeaponCheck();
 
             StatusUpdate();
 

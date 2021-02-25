@@ -1692,6 +1692,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cdb28c442b8970c4c86fee20108b84c3, type: 3}
   - {fileID: 21300000, guid: bf986591686d47d42bea4c7ab5a2cdf2, type: 3}
   animationSpeed: 0.2
+  jumping: {fileID: 21300000, guid: a27e632dbdd012d46a7d996bdf471e74, type: 3}
+  falling: {fileID: 21300000, guid: 66e4fd86325f6124f9d7f4d9f27afadc, type: 3}
   reverseIdle: 0
   lerp: 0
   repositionX: 0
@@ -2057,6 +2059,7 @@ MonoBehaviour:
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   attackButton: 120
   holdFrame: 0
+  chargeForce: 6
 --- !u!114 &5622818197582777462
 MonoBehaviour:
   m_ObjectHideFlags: 0

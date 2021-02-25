@@ -242,6 +242,8 @@ MonoBehaviour:
   moveFrames: []
   deathFrames: []
   animationSpeed: 0.2
+  jumping: {fileID: 0}
+  falling: {fileID: 0}
   reverseIdle: 0
   lerp: 0
   repositionX: 0
@@ -784,6 +786,8 @@ MonoBehaviour:
   moveFrames: []
   deathFrames: []
   animationSpeed: 0.15
+  jumping: {fileID: 0}
+  falling: {fileID: 0}
   reverseIdle: 0
   lerp: 0
   repositionX: 0
@@ -1684,6 +1688,8 @@ MonoBehaviour:
   moveFrames: []
   deathFrames: []
   animationSpeed: 0.1
+  jumping: {fileID: 0}
+  falling: {fileID: 0}
   reverseIdle: 0
   lerp: 0
   repositionX: 0
@@ -2050,6 +2056,8 @@ MonoBehaviour:
   moveFrames: []
   deathFrames: []
   animationSpeed: 0.2
+  jumping: {fileID: 0}
+  falling: {fileID: 0}
   reverseIdle: 0
   lerp: 0
   repositionX: 0
