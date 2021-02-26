@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class WeaponAction : MonoBehaviour
 {
-    public enum typeOfAction { Attack, Combo, Block, Dash, none };
+    public enum typeOfAction { Attack, Combo, Block, Dash, Counter, none };
 
     //frames for animation
     public Sprite[] frames;

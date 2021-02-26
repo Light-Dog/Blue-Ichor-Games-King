@@ -10,13 +10,14 @@ public class WeaponController : MonoBehaviour
     public List<ComboAction> combos;
     public BlockAction block;
     public DashAction dash;
+    public CounterAction counter;
 
     public int damage = 0;
     public float animationSpeed = 0.2f;
 
     float timer = 0.0f;
     int currentFrame = 0;
-    WeaponAction currentAction = null;
+    public WeaponAction currentAction = null;
 
     // Start is called before the first frame update
     void Start()
@@ -46,13 +47,24 @@ public class WeaponController : MonoBehaviour
             if(currentAction.actionType == WeaponAction.typeOfAction.Attack)
                 ActionUpdate();
 
-            if(currentAction.actionType == WeaponAction.typeOfAction.Attack || currentAction.actionType == WeaponAction.typeOfAction.Combo)
+            if(currentAction.actionType == WeaponAction.typeOfAction.Attack || currentAction.actionType == WeaponAction.typeOfAction.Combo || currentAction.actionType == WeaponAction.typeOfAction.Counter)
             {
                 if(dash.DashStart())
                 {
                     currentAction.CancelAction();
                     currentAction = dash;
                     return dash.energyCost;
+                }
+            }
+
+            if(currentAction.actionType == WeaponAction.typeOfAction.Block)
+            {
+                if(counter.CounterStart())
+                {
+                    currentAction.CancelAction();
+                    currentAction = counter;
+                    return counter.energyCost;
+                    
                 }
             }
 
@@ -194,6 +206,9 @@ public class WeaponController : MonoBehaviour
             cool = false;
 
         if (dash.CheckActive())
+            cool = false;
+
+        if (counter.CheckActive())
             cool = false;
 
         return cool;

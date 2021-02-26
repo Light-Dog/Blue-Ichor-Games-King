@@ -2334,6 +2334,10 @@ PrefabInstance:
       propertyPath: hitboxColor.b
       value: 0.32907617
       objectReference: {fileID: 0}
+    - target: {fileID: 6219677546347679228, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: actionType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7252307770114546997, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: chargeForce
       value: 10

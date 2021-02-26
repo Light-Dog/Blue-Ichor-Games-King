@@ -8,6 +8,7 @@ public class BlockAction : WeaponAction
     public float blockPercentage = 0.6f;
     public int holdFrame = 1;
 
+
     // Start is called before the first frame update
     new void Start()
     {
@@ -22,6 +23,7 @@ public class BlockAction : WeaponAction
         {
   
             UpdateHoldFrame(CheckButtonHold(), holdFrame);
+            
 
             if (GetCurrentFrame() == GetMaxFrames())
                 ResetData();
