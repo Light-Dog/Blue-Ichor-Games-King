@@ -104,6 +104,8 @@ MonoBehaviour:
   moveFrames: []
   deathFrames: []
   animationSpeed: 0.1
+  jumping: {fileID: 0}
+  falling: {fileID: 0}
   reverseIdle: 0
   lerp: 0
   repositionX: 0
@@ -139,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 0
+  blood: {fileID: 5248119684984567955, guid: abde0919d8eaf4744965cd739ac38fd4, type: 3}
+  numBleed: 3
   health: 5
   actions: []
   moving: 0

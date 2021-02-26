@@ -17,6 +17,10 @@ public class EnemyController : MonoBehaviour
     public Node goal = null;
     */
 
+    public GameObject blood;
+    public int numBleed = 3;
+    private float shotForce = 2.5f;
+
     [Header("Enemy Variables")]
     public int health = 10;
     public List<EnemyAction> actions;
@@ -92,6 +96,26 @@ public class EnemyController : MonoBehaviour
         if(health <= 0 && !dontDie)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void Bleed()
+    {
+        for (int i = 0; i < numBleed; i++)
+        {
+            Vector2 upShot1 = new Vector2(Random.Range(-0.05f, 0.25f), Random.Range(.65f, 1.2f));
+            Vector2 upShot2 = new Vector2(Random.Range(-.25f, 0.05f), Random.Range(.65f, 1.2f));
+
+            GameObject temp1 = Instantiate(blood, gameObject.transform.position, gameObject.transform.rotation);
+            GameObject temp2 = Instantiate(blood, gameObject.transform.position, gameObject.transform.rotation);
+
+            temp1.GetComponent<Rigidbody2D>().AddForce(upShot1 * shotForce, ForceMode2D.Impulse);
+            temp1.GetComponent<Rigidbody2D>().AddTorque(180, ForceMode2D.Impulse);
+            temp1.GetComponent<KillTimer>().StartTimer();
+
+            temp2.GetComponent<Rigidbody2D>().AddForce(upShot2 * shotForce, ForceMode2D.Impulse);
+            temp2.GetComponent<Rigidbody2D>().AddTorque(-180, ForceMode2D.Impulse);
+            temp2.GetComponent<KillTimer>().StartTimer();
         }
     }
 

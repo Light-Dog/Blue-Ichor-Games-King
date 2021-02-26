@@ -18,6 +18,7 @@ public class CrossbowBolt : MonoBehaviour
         if (other.GetComponent<EnemyController>())
         {
             other.GetComponent<EnemyController>().health -= weapon.damage;
+            other.GetComponent<EnemyController>().Bleed();
             other.GetComponent<DamageAnim>().take_damage();
 
             Destroy(gameObject);
@@ -31,6 +32,7 @@ public class CrossbowBolt : MonoBehaviour
         if (other.GetComponent<Breakable>())
         {
             other.GetComponent<Breakable>().health -= weapon.damage;
+            other.GetComponent<Breakable>().Crack();
             Destroy(gameObject);
         }
     }

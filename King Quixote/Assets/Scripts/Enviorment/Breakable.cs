@@ -71,6 +71,28 @@ public class Breakable : MonoBehaviour
         }
     }
 
+    public void Crack()
+    {
+
+        for (int i = 0; i < numChips/2; i++)
+        {
+            Vector2 upShotRight = new Vector2(Random.Range(0.0f, 0.3f), Random.Range(.7f, 1.1f));
+            Vector2 upShotLeft = new Vector2(Random.Range(-.3f, 0.0f), Random.Range(.7f, 1.1f));
+
+
+            GameObject temp1 = Instantiate(broken1, gameObject.transform.position, gameObject.transform.rotation);
+            GameObject temp2 = Instantiate(broken2, gameObject.transform.position, gameObject.transform.rotation);
+
+            temp1.GetComponent<Rigidbody2D>().AddForce(upShotRight * shotForce, ForceMode2D.Impulse);
+            temp1.GetComponent<Rigidbody2D>().AddTorque(360, ForceMode2D.Impulse);
+            temp1.GetComponent<KillTimer>().StartTimer();
+
+            temp2.GetComponent<Rigidbody2D>().AddForce(upShotLeft * shotForce, ForceMode2D.Impulse);
+            temp2.GetComponent<Rigidbody2D>().AddTorque(-360, ForceMode2D.Impulse);
+            temp2.GetComponent<KillTimer>().StartTimer();
+        }
+    }
+
     public void Break()
     {
         broken = true;
