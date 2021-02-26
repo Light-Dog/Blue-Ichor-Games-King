@@ -31,6 +31,7 @@ public class AttackAction : WeaponAction
     {
         if (Input.GetKeyDown(attackButton))
         {
+            //print("Attack Buytton: " + attackButton);
             ActivateAction();
             return true;
         }

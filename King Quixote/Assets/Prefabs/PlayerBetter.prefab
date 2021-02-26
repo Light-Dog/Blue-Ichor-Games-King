@@ -2270,6 +2270,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30671ccace5ed674280501c853cbc150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6527553735986057380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 918309681086325421}
+  - component: {fileID: 8122105820140181175}
+  m_Layer: 11
+  m_Name: CrossbowStance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &918309681086325421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527553735986057380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5303648527610662133}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8122105820140181175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527553735986057380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0382a2564c035154bbe94b8ac3bd3e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 8e4704b72fe29e54c9150fef3d7238c6, type: 3}
+  - {fileID: 21300000, guid: c7f78b91ce2bc144eb2e43e355f139fc, type: 3}
+  - {fileID: 21300000, guid: c6305fd71360cfc4bb850adb3bacc11a, type: 3}
+  activeFrames: 
+  actionColliders: []
+  energyCost: 0
+  repositionX: 0
+  lerp: 0
+  actionType: 5
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  attackButton: 122
+  bolt: {fileID: 5585885612159962252, guid: 70b61569196d24a418fcde4929a2078e, type: 3}
+  boltForce: 25
+  fireFrame: 1
 --- !u!1 &7968397904776055056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2461,7 @@ Transform:
   - {fileID: 2158746971011584570}
   - {fileID: 2130455160551298915}
   - {fileID: 3135152381944421626}
+  - {fileID: 918309681086325421}
   m_Father: {fileID: 6219677546009896620}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2419,6 +2480,7 @@ MonoBehaviour:
   weaponName: Crossbow
   attacks:
   - {fileID: 2772479434365428739}
+  - {fileID: 8122105820140181175}
   combos: []
   block: {fileID: 6367168975356118604}
   dash: {fileID: 1038204249433217592}

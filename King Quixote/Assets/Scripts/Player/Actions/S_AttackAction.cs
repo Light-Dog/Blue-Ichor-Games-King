@@ -22,7 +22,11 @@ public class S_AttackAction : AttackAction
     {
         if(CheckActive())
         {
-            if (Input.GetKeyDown(attackButton))
+            print("Activated");
+
+            GetPlayer().GetComponent<Rigidbody2D>().velocity = new Vector2();
+
+            if (Input.GetKeyUp(attackButton))
             {
                 ResetData();
             }
