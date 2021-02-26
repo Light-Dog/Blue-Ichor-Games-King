@@ -1346,6 +1346,66 @@ Transform:
   m_Father: {fileID: 216310424}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1497071179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497071180}
+  - component: {fileID: 1497071181}
+  m_Layer: 11
+  m_Name: CrossbowStance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1497071180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497071179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2112027108}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497071181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497071179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0382a2564c035154bbe94b8ac3bd3e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 8e4704b72fe29e54c9150fef3d7238c6, type: 3}
+  - {fileID: 21300000, guid: c7f78b91ce2bc144eb2e43e355f139fc, type: 3}
+  - {fileID: 21300000, guid: c6305fd71360cfc4bb850adb3bacc11a, type: 3}
+  activeFrames: 
+  actionColliders: []
+  energyCost: 0
+  repositionX: 0
+  lerp: 0
+  actionType: 5
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  attackButton: 122
+  bolt: {fileID: 5585885612159962252, guid: 70b61569196d24a418fcde4929a2078e, type: 3}
+  boltForce: 25
+  fireFrame: 1
 --- !u!1001 &1642823733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2130,6 +2190,11 @@ Transform:
   m_Father: {fileID: 2053596250}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2112027108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5303648527610662133, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+  m_PrefabInstance: {fileID: 6219677546233464702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1173547584185254150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2230,6 +2295,14 @@ PrefabInstance:
       propertyPath: fadeObject
       value: 
       objectReference: {fileID: 421052183}
+    - target: {fileID: 5203460828271030920, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: attacks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203460828271030920, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: attacks.Array.data[1]
+      value: 
+      objectReference: {fileID: 1497071181}
     - target: {fileID: 6219677544928156496, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_audioClip
       value: 

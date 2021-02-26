@@ -210,4 +210,10 @@ public class WeaponAction : MonoBehaviour
         }
     }
 
+    public void Restart()
+    {
+        currentFrame = 0;
+        activeFrameIndex = 0;
+    }
+
 }
