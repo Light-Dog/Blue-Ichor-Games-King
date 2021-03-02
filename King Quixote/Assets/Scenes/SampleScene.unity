@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FocusList:
-  - {fileID: 1056783190}
+  - {fileID: 0}
   m_ActionRectSpaceAdded: 12
   m_CameraLimits:
     serializedVersion: 2
@@ -1156,17 +1156,6 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   weight: 1
---- !u!114 &1056783190 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1354537019507001808, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-  m_PrefabInstance: {fileID: 6219677546233464702}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807f8d2bf0831224f8b2f509fa2f073f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1132646442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8951340527477293171, guid: 0e4a678bcb6c60f4abe75ece5697477d, type: 3}
@@ -2286,6 +2275,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6219677545055183803, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677545055183803, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -55.18131
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677545055183803, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677545055183803, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -40.622116
+      objectReference: {fileID: 0}
     - target: {fileID: 6219677545639679579, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: animationSpeed
       value: 0.2
@@ -2385,6 +2390,26 @@ PrefabInstance:
     - target: {fileID: 6219677546347679228, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: actionType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546415782232, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546415782232, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546415782232, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546415782232, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 80.79508
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546415782232, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20.264105
       objectReference: {fileID: 0}
     - target: {fileID: 7252307770114546997, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: chargeForce

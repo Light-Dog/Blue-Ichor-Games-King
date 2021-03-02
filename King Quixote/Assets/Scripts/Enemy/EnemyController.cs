@@ -27,6 +27,10 @@ public class EnemyController : MonoBehaviour
     EnemyAction currentAction = null;
 
     public bool moving = false;
+    public float attackDelay = 2.0f;
+    bool attackCooldown = false;
+    float attackTimer = 0.0f;
+
     public bool drawCollider = false;
 
     public bool dontDie = false;
@@ -54,6 +58,8 @@ public class EnemyController : MonoBehaviour
 
         //Check if moving (for animation control)
         moving = pathfinding.moving;
+        if (moving && !attackCooldown)
+            pathfinding.Move();
 
         //Flips Image if needed
         if (pathfinding.direction > 0 && facingRight == false)
@@ -68,12 +74,15 @@ public class EnemyController : MonoBehaviour
             if(currentAction)
             {
                 if (!currentAction.IsActive())
+                {
                     currentAction = null;
+                    attackCooldown = true;
+                }
             }
             else
             {
-                //if they have an action
-                if (actions.Capacity != 0)
+                //if they have an action & mot on cooldown
+                if (actions.Capacity != 0 && attackCooldown == false)
                 {
                     //check range of attack
                     if (actions[0].RangeCheck())
@@ -82,8 +91,8 @@ public class EnemyController : MonoBehaviour
                         currentAction = actions[0];
                     }
                 }
-
-
+                else
+                    AttackDelay();
             }
 
         }
@@ -96,6 +105,17 @@ public class EnemyController : MonoBehaviour
         if(health <= 0 && !dontDie)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void AttackDelay()
+    {
+        if (attackTimer < attackDelay)
+            attackTimer += Time.deltaTime;
+        else
+        {
+            attackTimer = 0.0f;
+            attackCooldown = false;
         }
     }
 

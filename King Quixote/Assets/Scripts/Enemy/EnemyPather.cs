@@ -39,8 +39,6 @@ public class EnemyPather : MonoBehaviour
         else
             moving = false;
         //check the direction to move
-        //set move
-        Move();
     }
 
     private void CheckSide()
@@ -68,7 +66,7 @@ public class EnemyPather : MonoBehaviour
 
     }
 
-    private void Move()
+    public void Move()
     {
         if (moving && body)
         {
