@@ -1887,6 +1887,7 @@ GameObject:
   - component: {fileID: 6219677546009896618}
   - component: {fileID: 6219677546009896619}
   - component: {fileID: 3422164732707768628}
+  - component: {fileID: 8683857121733676586}
   m_Layer: 11
   m_Name: PlayerBetter
   m_TagString: Player
@@ -2046,7 +2047,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c5d0350732c9fcf4baf61d9ae7ca54c5, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -2090,6 +2091,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeObject: {fileID: 0}
+--- !u!114 &8683857121733676586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219677546009896625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ef66453f88bfc45919e47b06ff9f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Influence: {x: 1, y: 1}
+  m_DrawDebug: 0
+  m_Offset: {x: 0, y: 0}
+  m_VelocityToOffset: {x: 0.2, y: 0.1}
 --- !u!1 &6219677546060097992
 GameObject:
   m_ObjectHideFlags: 0
