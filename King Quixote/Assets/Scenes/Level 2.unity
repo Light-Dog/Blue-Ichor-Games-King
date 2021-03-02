@@ -3846,8 +3846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: {x: 2, y: 2}
-  m_ViewChangedThreshold: {x: 2, y: 3}
-  m_IsMovingThreshold: {x: 3, y: 5}
+  m_ViewChangedThreshold: {x: 1.5, y: 2}
+  m_IsMovingThreshold: {x: 2, y: 2}
   m_DrawDebug: 0
 --- !u!114 &2087829961
 MonoBehaviour:
