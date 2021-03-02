@@ -21,7 +21,7 @@ public class EnemyAction : MonoBehaviour
     public bool reverse = false;
     bool forward = true;
 
-    EnemyController parent;
+    public EnemyController parent;
     Transform player;
     bool active = false;
 
@@ -30,7 +30,7 @@ public class EnemyAction : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         parent = gameObject.GetComponentInParent<EnemyController>();
         player = FindObjectOfType<PlayerController>().gameObject.GetComponent<Transform>();
@@ -175,4 +175,6 @@ public class EnemyAction : MonoBehaviour
     }
 
     public bool IsActive() { return active;  }
+    public bool FinalFrameCheck() { return (currentFrame == maxFrames); }
+    public int GetCurrentFrame() { return currentFrame; }
 }

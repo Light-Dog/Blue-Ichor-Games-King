@@ -96,6 +96,11 @@ public class EnemyController : MonoBehaviour
             }
 
         }
+        else
+        {
+            if(attackCooldown)
+                AttackDelay();
+        }
 
 
     }

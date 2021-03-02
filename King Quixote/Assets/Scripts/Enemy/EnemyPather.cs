@@ -37,7 +37,11 @@ public class EnemyPather : MonoBehaviour
         if (inMoveRange && !inAttackRange)
             moving = true;
         else
+        {
             moving = false;
+            if(body)
+                body.velocity = Vector3.zero;
+        }
         //check the direction to move
     }
 
@@ -81,4 +85,5 @@ public class EnemyPather : MonoBehaviour
     }
 
     public bool InAttackRange() { return inAttackRange;  }
+
 }
