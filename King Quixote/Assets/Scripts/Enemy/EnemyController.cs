@@ -21,6 +21,9 @@ public class EnemyController : MonoBehaviour
     public int numBleed = 3;
     private float shotForce = 2.5f;
 
+    private float iframe = 0.0f;
+    public bool damaged = false;
+
     [Header("Enemy Variables")]
     public int health = 10;
     public List<EnemyAction> actions;
@@ -111,6 +114,17 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(damaged)
+        {
+            if (iframe < .3f)
+                iframe += Time.deltaTime;
+            else
+            {
+                iframe = 0.0f;
+                damaged = false;
+            }
+        }
     }
 
     private void AttackDelay()
@@ -126,6 +140,7 @@ public class EnemyController : MonoBehaviour
 
     public void Bleed()
     {
+        damaged = true;
         for (int i = 0; i < numBleed; i++)
         {
             Vector2 upShot1 = new Vector2(Random.Range(-0.05f, 0.25f), Random.Range(.65f, 1.2f));

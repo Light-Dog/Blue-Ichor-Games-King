@@ -732,8 +732,8 @@ MonoBehaviour:
   activeFrames: 010000000200000003000000
   actionColliders: []
   energyCost: 0
-  repositionX: 0
-  lerp: 0
+  repositionX: 0.0001
+  lerp: 1
   actionType: 4
   sfx: {fileID: 6219677545123391549}
   parent: {fileID: 0}
@@ -2019,8 +2019,8 @@ MonoBehaviour:
     m_Bits: 256
   m_GroundCheck: {fileID: 6219677546060097993}
   health: 10
-  energyBar: {fileID: 0}
-  healthBar: {fileID: 0}
+  barImages: {fileID: 0}
+  healthImages: {fileID: 0}
   dead: 0
   weapons:
   - {fileID: 6219677545639679579}
@@ -2268,8 +2268,8 @@ MonoBehaviour:
   activeFrames: 02000000
   actionColliders: []
   energyCost: 10
-  repositionX: 0
-  lerp: 0
+  repositionX: 0.0001
+  lerp: 1
   actionType: 4
   sfx: {fileID: 6219677544928156496}
   parent: {fileID: 0}
@@ -2565,6 +2565,104 @@ MonoBehaviour:
   bolt: {fileID: 5585885612159962252, guid: 70b61569196d24a418fcde4929a2078e, type: 3}
   boltForce: 15
   fireFrame: 1
+--- !u!1 &8360212562097116206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2322336528127694478}
+  - component: {fileID: 4622313066184577776}
+  - component: {fileID: 3034402907475181045}
+  - component: {fileID: 7186163173614414912}
+  m_Layer: 11
+  m_Name: ShieldSpin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2322336528127694478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360212562097116206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6716609489330518066}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4622313066184577776
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360212562097116206}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.046091, y: 0.20252728}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.4164696, y: 3.910544}
+  m_EdgeRadius: 0
+--- !u!114 &3034402907475181045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360212562097116206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41d0095d4750784f95c557e58e6c261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 3a459fb1be2705941a12a356e8cf0b8c, type: 3}
+  - {fileID: 21300000, guid: 54cbc32f6795db641b6345a0f54c00d8, type: 3}
+  - {fileID: 21300000, guid: 8b2ea52dc97d54f4ba73998b3dbf8ea5, type: 3}
+  - {fileID: 21300000, guid: a4870f736de0e2d45a3e9295c7e60ab2, type: 3}
+  activeFrames: 03000000
+  actionColliders: []
+  energyCost: 20
+  repositionX: 0.0001
+  lerp: 1
+  actionType: 5
+  sfx: {fileID: 0}
+  parent: {fileID: 0}
+  hitboxColor: {r: 0, g: 0, b: 0, a: 0}
+  attackButton: 122
+--- !u!114 &7186163173614414912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360212562097116206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30671ccace5ed674280501c853cbc150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8722548303159678473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,6 +2695,7 @@ Transform:
   - {fileID: 3685059396339555092}
   - {fileID: 4205428911660897068}
   - {fileID: 951962013146112871}
+  - {fileID: 2322336528127694478}
   m_Father: {fileID: 6219677546009896620}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

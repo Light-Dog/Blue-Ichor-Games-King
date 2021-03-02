@@ -11,14 +11,18 @@ public class WeaponDamage : MonoBehaviour
         weapon = gameObject.GetComponentInParent<WeaponAction>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.GetComponent<EnemyController>())
         {
-            other.GetComponent<EnemyController>().health -= weapon.parent.damage;
-            other.GetComponent<EnemyController>().Bleed();
+            if(other.GetComponent<EnemyController>().damaged != true)
+            {
+                other.GetComponent<EnemyController>().health -= weapon.parent.damage;
+                other.GetComponent<EnemyController>().Bleed();
 
-            other.GetComponent<DamageAnim>().take_damage();
+                other.GetComponent<DamageAnim>().take_damage();
+            }
+
         }
 
         if(other.GetComponent<Breakable>())
