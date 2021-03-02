@@ -19,8 +19,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Stats")]
     public int health = 10;
-    public Image energyBar;
-    public Image healthBar;
+
+    public GameObject barImages;
+    Image energyBar;
+    Image healthBar;
+
+    public GameObject healthImages;
+    Image[] hearts;
+
     public bool dead = false;
 
     [Header("Weapons")]
@@ -53,6 +59,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+        Image[] uiBars = barImages.GetComponentsInChildren<Image>();
+        energyBar = uiBars[0];
+        healthBar = uiBars[1];
+
+        hearts = healthImages.GetComponentsInChildren<Image>();
     }
 
     void Update()
@@ -168,6 +180,17 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<AnimationCycle>().DeathCheck();
             dead = true;
         }
+        else if(health <= 7 && health > 3)
+        {
+            hearts[0].enabled = false;
+            hearts[1].enabled = true;
+        }
+        else if(health <= 3)
+        {
+            hearts[1].enabled = false;
+            hearts[2].enabled = true;
+        }
+
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------

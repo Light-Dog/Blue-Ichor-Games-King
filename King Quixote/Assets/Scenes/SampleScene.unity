@@ -180,6 +180,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30bd30960e7adc949b5f439c197b51e1, type: 3}
+--- !u!1 &184762074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1428113736030681151, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
+  m_PrefabInstance: {fileID: 1642823733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &212107585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5019799415410979071, guid: 899a8e0f44e10734f8e58691e0345adc, type: 3}
+  m_PrefabInstance: {fileID: 1642823733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &216310423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2441,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1382257024}
+    - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: barImages
+      value: 
+      objectReference: {fileID: 212107585}
+    - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: healthImages
+      value: 
+      objectReference: {fileID: 184762074}
     - target: {fileID: 6219677546009896623, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_Sprite
       value: 
