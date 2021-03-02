@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 421277805544427097}
   - component: {fileID: 421277805544427099}
   - component: {fileID: 421277805544427098}
+  - component: {fileID: 3363931805161713433}
   m_Layer: 9
   m_Name: EndPortal
   m_TagString: Untagged
@@ -116,4 +117,22 @@ MonoBehaviour:
   TargetScene:
     m_Handle: 0
   touch: 1
-  touchTime: 1
+  touchTime: 4
+--- !u!114 &3363931805161713433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421277805544427095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ce1d5a52005864089231b9cc2e1aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera2D: {fileID: 0}
+  m_TagThatTriggers: Player
+  m_EnterZoom: 4.5
+  m_ExitZoom: 8
+  m_TransitionTime: 4
+  m_DrawDebug: 1
