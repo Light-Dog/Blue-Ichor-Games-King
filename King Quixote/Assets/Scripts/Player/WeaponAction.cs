@@ -81,6 +81,8 @@ public class WeaponAction : MonoBehaviour
         player.GetComponent<AnimationCycle>().PauseAnimation(true);
         active = true;
 
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, player.GetComponent<Rigidbody2D>().velocity.y);
+
         if (sfx != null)
         {
             if (!sfx.isPlaying)

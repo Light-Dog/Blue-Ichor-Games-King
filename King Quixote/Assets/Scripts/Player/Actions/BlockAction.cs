@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockAction : WeaponAction
 {
-    public KeyCode blockButton;
+    string blockButton = "Block";
     public float blockPercentage = 0.6f;
     public int holdFrame = 1;
 
@@ -32,7 +32,7 @@ public class BlockAction : WeaponAction
 
     public bool CheckButtonHold()
     {
-        if (Input.GetKey(blockButton))
+        if (Input.GetButton(blockButton))
             return true;
 
         return false;
@@ -40,7 +40,7 @@ public class BlockAction : WeaponAction
 
     public bool BlockCheck()
     {
-        if (Input.GetKeyDown(blockButton))
+        if (Input.GetButtonDown(blockButton))
         {
             ActivateAction();
             return true;

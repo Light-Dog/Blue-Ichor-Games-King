@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DashAction : WeaponAction
 {
-    public KeyCode dashButton;
+    string buttonDash = "Dodge";
     public float dashForce = 0.0f;
     public float dashCooldown = .15f;
     bool delay = false;
@@ -47,7 +47,7 @@ public class DashAction : WeaponAction
     public bool DashStart()
     {
         //Give it the yeet
-        if (Input.GetKeyDown(dashButton))
+        if (Input.GetButtonDown(buttonDash))
         {
             ActivateAction();
             GetPlayer().GetComponent<Rigidbody2D>().velocity = Vector3.zero;

@@ -18,6 +18,11 @@ public class C_AttackAction : AttackAction
     {
         base.Start();
         first = true;
+
+        if (attackType == 1)
+            buttonName = "Attack 1";
+        else
+            buttonName = "Attack 2";
     }
 
     // Update is called once per frame
@@ -58,7 +63,7 @@ public class C_AttackAction : AttackAction
             {
                 chargeTime += Time.deltaTime;
 
-                if(Input.GetKeyUp(attackButton))
+                if(Input.GetButtonUp(buttonName))
                 {
                     held = false;
 

@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class AttackAction : WeaponAction
 {
-    public KeyCode attackButton;
+    public int attackType = 1;
+    public string buttonName;
 
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
         actionType = typeOfAction.Attack;
+
+        if (attackType == 1)
+            buttonName = "Attack 1";
+        else
+            buttonName = "Attack 2";
     }
 
     // Update is called once per frame
@@ -29,7 +35,7 @@ public class AttackAction : WeaponAction
 
     public bool AttackStart()
     {
-        if (Input.GetKeyDown(attackButton))
+        if (Input.GetButtonDown(buttonName))
         {
             //print("Attack Buytton: " + attackButton);
             ActivateAction();
@@ -41,7 +47,7 @@ public class AttackAction : WeaponAction
 
     public bool AttackCheck()
     {
-        if(Input.GetKeyDown(attackButton))
+        if(Input.GetButtonDown(buttonName))
         {
             return true;
         }

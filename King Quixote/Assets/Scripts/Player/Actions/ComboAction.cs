@@ -5,7 +5,7 @@ using UnityEngine;
 public class ComboAction : WeaponAction
 {
     public string comboName;
-    public List<KeyCode> buttons;
+    public List<string> buttons;
     public List<int> keyframes;  //make into a window of frames to recieve input
     public bool comboEnabled = false;
     public int comboIndex = 0;
@@ -45,11 +45,11 @@ public class ComboAction : WeaponAction
         return false;
     }
 
-    public bool ContinueCombo(KeyCode keyPress, int currrentFrame)
+    public bool ContinueCombo(string button, int currrentFrame)
     {
         if(currrentFrame == keyframes[comboIndex])
         {
-            if(keyPress == buttons[comboIndex])
+            if(button == buttons[comboIndex])
             {
                 comboIndex++;
                 comboEnabled = true;

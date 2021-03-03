@@ -14,7 +14,10 @@ public class R_AttackAction : AttackAction
     {
         base.Start();
 
-        //bolt = GameObject.FindGameObjectWithTag("Bolt");
+        if (attackType == 1)
+            buttonName = "Attack 1";
+        else
+            buttonName = "Attack 2";
     }
 
     // Update is called once per frame

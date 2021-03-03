@@ -134,7 +134,7 @@ public class WeaponController : MonoBehaviour
                 currentFrame = 0;
                 foreach (ComboAction combo in combos)
                 {
-                    if (combo.ContinueCombo(attack.attackButton, currentFrame))
+                    if (combo.ContinueCombo(attack.buttonName, currentFrame))
                         print("Combo Started");
                 }
 
@@ -163,7 +163,7 @@ public class WeaponController : MonoBehaviour
                 {
                     if (combo.ComboEnabled())
                     {
-                        combo.ContinueCombo(attack.attackButton, currentFrame);
+                        combo.ContinueCombo(attack.buttonName, currentFrame);
 
                         if (combo.CheckComboComplete())
                         {

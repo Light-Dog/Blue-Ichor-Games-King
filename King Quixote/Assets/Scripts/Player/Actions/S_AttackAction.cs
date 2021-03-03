@@ -15,6 +15,11 @@ public class S_AttackAction : AttackAction
     new void Start()
     {
         base.Start();
+
+        if (attackType == 1)
+            buttonName = "Attack 1";
+        else
+            buttonName = "Attack 2";
     }
 
     // Update is called once per frame
@@ -26,12 +31,12 @@ public class S_AttackAction : AttackAction
 
             GetPlayer().GetComponent<Rigidbody2D>().velocity = new Vector2();
 
-            if (Input.GetKeyUp(attackButton))
+            if (Input.GetButtonUp(buttonName))
             {
                 ResetData();
             }
 
-            if (Input.GetKeyDown(parent.attacks[0].attackButton))
+            if (Input.GetButtonDown(parent.attacks[0].buttonName))
                 toggledFire = false;
 
             UpdateHoldFrame(toggledFire, 0);

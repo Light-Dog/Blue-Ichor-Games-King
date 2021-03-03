@@ -59,7 +59,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  counterButton: 118
 --- !u!61 &7638871374158034143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,8 +152,7 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  dashButton: 102
-  dashForce: 5
+  dashForce: 9
   dashCooldown: 0.3
 --- !u!1 &1354972808140199538
 GameObject:
@@ -211,7 +209,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  dashButton: 102
   dashForce: 9
   dashCooldown: 0.3
 --- !u!1 &2092957604237593225
@@ -273,7 +270,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  counterButton: 118
 --- !u!61 &6361396456259346026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -367,7 +363,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  dashButton: 102
   dashForce: 9
   dashCooldown: 0.3
 --- !u!1 &3193659794195153867
@@ -429,7 +424,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  counterButton: 118
 --- !u!61 &7565332475614234532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -551,7 +545,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  blockButton: 99
   blockPercentage: 0.8
   holdFrame: 1
 --- !u!1 &6219677544721504965
@@ -739,7 +732,9 @@ MonoBehaviour:
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
   comboName: 1-2
-  buttons: 7a00000078000000
+  buttons:
+  - Attack 1
+  - Attack 2
   keyframes: 0000000002000000
   comboEnabled: 0
   comboIndex: 0
@@ -1005,7 +1000,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  blockButton: 99
   blockPercentage: 0.6
   holdFrame: 1
 --- !u!1 &6219677545055183802
@@ -1444,7 +1438,8 @@ MonoBehaviour:
   sfx: {fileID: 6219677545186736529}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  attackButton: 120
+  attackType: 2
+  buttonName: 
 --- !u!1 &6219677545540651494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,7 +2269,8 @@ MonoBehaviour:
   sfx: {fileID: 6219677544928156496}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  attackButton: 122
+  attackType: 1
+  buttonName: 
 --- !u!114 &4047689483186123282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,7 +2339,8 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  attackButton: 122
+  attackType: 2
+  buttonName: 
   bolt: {fileID: 5585885612159962252, guid: 70b61569196d24a418fcde4929a2078e, type: 3}
   boltForce: 25
   fireFrame: 1
@@ -2431,9 +2428,10 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  attackButton: 120
+  attackType: 1
+  buttonName: 
   holdFrame: 0
-  chargeForce: 6
+  chargeForce: 10
 --- !u!114 &5622818197582777462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2559,8 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  attackButton: 120
+  attackType: 1
+  buttonName: 
   bolt: {fileID: 5585885612159962252, guid: 70b61569196d24a418fcde4929a2078e, type: 3}
   boltForce: 15
   fireFrame: 1
@@ -2650,7 +2649,8 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  attackButton: 122
+  attackType: 2
+  buttonName: 
 --- !u!114 &7186163173614414912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2714,6 +2714,7 @@ MonoBehaviour:
   weaponName: Shield
   attacks:
   - {fileID: 7252307770114546997}
+  - {fileID: 3034402907475181045}
   combos: []
   block: {fileID: 2897516654677553324}
   dash: {fileID: 6565643586551277081}
@@ -2778,7 +2779,6 @@ MonoBehaviour:
   sfx: {fileID: 0}
   parent: {fileID: 0}
   hitboxColor: {r: 0, g: 0, b: 0, a: 0}
-  blockButton: 99
   blockPercentage: 0.8
   holdFrame: 1
 --- !u!61 &3562907781478733720

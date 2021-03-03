@@ -1680,17 +1680,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
---- !u!114 &1716083941 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3034402907475181045, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-  m_PrefabInstance: {fileID: 6219677546233464702}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41d0095d4750784f95c557e58e6c261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1818272820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,16 +1954,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40154d1a641b6494d873d146b012126b, type: 3}
---- !u!82 &2014631869 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6219677544928156496, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-  m_PrefabInstance: {fileID: 6219677546233464702}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2035389013 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6219677545123391549, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-  m_PrefabInstance: {fileID: 6219677546233464702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2036181631 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8683857121733676586, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
@@ -2372,14 +2351,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1061602771411908952, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: attacks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1061602771411908952, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: attacks.Array.data[1]
-      value: 
-      objectReference: {fileID: 1716083941}
     - target: {fileID: 3422164732707768628, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: fadeObject
       value: 
@@ -2408,14 +2379,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: -40.622116
       objectReference: {fileID: 0}
-    - target: {fileID: 6219677545639679579, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: animationSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6219677545749392756, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: sfx
-      value: 
-      objectReference: {fileID: 2035389013}
     - target: {fileID: 6219677545989123157, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2493,10 +2456,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6219677546347679228, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: sfx
-      value: 
-      objectReference: {fileID: 2014631869}
-    - target: {fileID: 6219677546347679228, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: hitboxColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -2535,10 +2494,6 @@ PrefabInstance:
     - target: {fileID: 6219677546415782232, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_LocalScale.y
       value: 20.264105
-      objectReference: {fileID: 0}
-    - target: {fileID: 7252307770114546997, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: chargeForce
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}

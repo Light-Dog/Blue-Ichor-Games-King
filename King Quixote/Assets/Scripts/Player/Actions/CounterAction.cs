@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CounterAction : WeaponAction
 {
-    public KeyCode counterButton;
+    string button1 = "Attack 1";
+    string button2 = "Attack 2";
 
     // Start is called before the first frame update
     new void Start()
@@ -27,7 +28,7 @@ public class CounterAction : WeaponAction
 
     public bool CounterStart()
     {
-        if (Input.GetKeyDown(counterButton))
+        if (Input.GetButtonDown(button1) || Input.GetButtonDown(button2))
         {
             ActivateAction();
             return true;
