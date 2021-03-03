@@ -12,13 +12,16 @@ public class GoToScene : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (touchTime > 0)
+        if (collision.GetComponent<PlayerController>()!= null)
         {
-            touchTime -= Time.deltaTime;
-        }
-        else
-        {
-            touch = true;
+            if (touchTime > 0)
+            {
+                touchTime -= Time.deltaTime;
+            }
+            else
+            {
+                touch = true;
+            }
         }
     }
 
