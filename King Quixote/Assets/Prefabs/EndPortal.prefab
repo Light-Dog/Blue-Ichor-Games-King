@@ -117,7 +117,7 @@ MonoBehaviour:
   TargetScene:
     m_Handle: 0
   touch: 1
-  touchTime: 4
+  touchTime: 2
 --- !u!114 &3363931805161713433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,5 +134,5 @@ MonoBehaviour:
   m_TagThatTriggers: Player
   m_EnterZoom: 4.5
   m_ExitZoom: 8
-  m_TransitionTime: 4
+  m_TransitionTime: 2
   m_DrawDebug: 1

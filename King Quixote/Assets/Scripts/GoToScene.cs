@@ -6,36 +6,19 @@ public class GoToScene : MonoBehaviour
 {
 
     public int TargetSceneIndex = 1;
-    public Scene TargetScene;
-    public bool touch = false;
     public float touchTime = 1.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    public void SwitchScene()
-    {
-
-        SceneManager.LoadScene(TargetSceneIndex);
-        //SceneManager.LoadScene(TargetScene.buildIndex);
-    }
-
+    bool touch = false;
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (touch == true)
+        if (touchTime > 0)
         {
-            if (touchTime > 0)
-            {
-                touchTime -= Time.deltaTime;
-            }
-            else
-            {
-                SwitchScene();
-            }
+            touchTime -= Time.deltaTime;
+        }
+        else
+        {
+            touch = true;
         }
     }
 
@@ -43,6 +26,7 @@ public class GoToScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(touch)
+            SceneManager.LoadScene(TargetSceneIndex);
     }
 }
