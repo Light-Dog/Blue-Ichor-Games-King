@@ -28,7 +28,7 @@ public class CounterAction : WeaponAction
 
     public bool CounterStart()
     {
-        if (Input.GetButtonDown(button1) || Input.GetButtonDown(button2))
+        if (InputManager.GetKeyDown(button1) || InputManager.GetKeyDown(button2))
         {
             ActivateAction();
             return true;

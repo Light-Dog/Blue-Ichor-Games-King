@@ -70,19 +70,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (InputManager.GetKeyDown("Change Weapon"))
         {
-            equipedWeapon = 0;
-            UpdateSprites();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            equipedWeapon = 1;
-            UpdateSprites();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            equipedWeapon = 2;
+            if (equipedWeapon < 2)
+                equipedWeapon++;
+            else
+                equipedWeapon = 0;
             UpdateSprites();
         }
 

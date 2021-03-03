@@ -35,7 +35,7 @@ public class AttackAction : WeaponAction
 
     public bool AttackStart()
     {
-        if (Input.GetButtonDown(buttonName))
+        if (InputManager.GetKeyDown(buttonName))
         {
             //print("Attack Buytton: " + attackButton);
             ActivateAction();
@@ -47,7 +47,7 @@ public class AttackAction : WeaponAction
 
     public bool AttackCheck()
     {
-        if(Input.GetButtonDown(buttonName))
+        if(InputManager.GetKeyDown(buttonName))
         {
             return true;
         }

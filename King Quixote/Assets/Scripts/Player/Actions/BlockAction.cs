@@ -32,7 +32,7 @@ public class BlockAction : WeaponAction
 
     public bool CheckButtonHold()
     {
-        if (Input.GetButton(blockButton))
+        if (InputManager.GetKey(blockButton))
             return true;
 
         return false;
@@ -40,7 +40,7 @@ public class BlockAction : WeaponAction
 
     public bool BlockCheck()
     {
-        if (Input.GetButtonDown(blockButton))
+        if (InputManager.GetKeyDown(blockButton))
         {
             ActivateAction();
             return true;

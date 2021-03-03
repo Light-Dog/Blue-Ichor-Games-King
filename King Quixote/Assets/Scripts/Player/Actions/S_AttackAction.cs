@@ -31,12 +31,12 @@ public class S_AttackAction : AttackAction
 
             GetPlayer().GetComponent<Rigidbody2D>().velocity = new Vector2(0f, GetPlayer().GetComponent<Rigidbody2D>().velocity.y);
 
-            if (Input.GetButtonUp(buttonName))
+            if (InputManager.GetKeyUp(buttonName))
             {
                 ResetData();
             }
 
-            if (Input.GetButtonDown(parent.attacks[0].buttonName))
+            if (InputManager.GetKeyDown(parent.attacks[0].buttonName))
                 toggledFire = false;
 
             UpdateHoldFrame(toggledFire, 0);

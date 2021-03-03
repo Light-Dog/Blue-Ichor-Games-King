@@ -47,7 +47,7 @@ public class DashAction : WeaponAction
     public bool DashStart()
     {
         //Give it the yeet
-        if (Input.GetButtonDown(buttonDash))
+        if (InputManager.GetKeyDown(buttonDash))
         {
             ActivateAction();
             GetPlayer().GetComponent<Rigidbody2D>().velocity = Vector3.zero;

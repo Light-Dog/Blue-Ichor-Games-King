@@ -63,7 +63,7 @@ public class C_AttackAction : AttackAction
             {
                 chargeTime += Time.deltaTime;
 
-                if(Input.GetButtonUp(buttonName))
+                if(InputManager.GetKeyUp(buttonName))
                 {
                     held = false;
 
