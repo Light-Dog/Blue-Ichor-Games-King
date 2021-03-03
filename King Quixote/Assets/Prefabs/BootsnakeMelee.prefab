@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173547583729112755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 461527818956312098}
   - component: {fileID: 1795213878978062014}
   - component: {fileID: 1047547112202966240}
+  - component: {fileID: 8427334087092072355}
   m_Layer: 0
   m_Name: BootsnakeMelee
   m_TagString: Untagged
@@ -248,7 +249,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 402c43a78fcbd6247ae986a37e46146b, type: 3}
   - {fileID: 21300000, guid: c9ce334b58bbc7f4eae79165d6420449, type: 3}
   - {fileID: 21300000, guid: 30d5f37e324e75348ab4836c14de0d32, type: 3}
-  deathFrames: []
+  deathFrames:
+  - {fileID: 21300000, guid: 1cdb0b1acb0f2f04baf969a059881391, type: 3}
   animationSpeed: 0.2
   jumping: {fileID: 0}
   falling: {fileID: 0}
@@ -289,6 +291,7 @@ MonoBehaviour:
   facingRight: 0
   blood: {fileID: 913322630512675513, guid: c356f2cc04edacf4182af39b21f9d750, type: 3}
   numBleed: 3
+  damaged: 0
   health: 10
   actions:
   - {fileID: 1132999191498704433}
@@ -361,3 +364,16 @@ MonoBehaviour:
   attackRange: 5.5
   direction: 1
   moving: 0
+--- !u!114 &8427334087092072355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260433950707364089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d51887387d6dca499bfa267683cd84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 5

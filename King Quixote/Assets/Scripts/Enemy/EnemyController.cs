@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
     public bool drawCollider = false;
 
     public bool dontDie = false;
+    bool dead = false;
 
     public float animationSpeed = 0.2f;
     float timer = 0.0f;
@@ -59,52 +60,54 @@ public class EnemyController : MonoBehaviour
         //Health check
         EnemyStatusUpdate();
 
-        //Check if moving (for animation control)
-        moving = pathfinding.moving;
-        if (moving && !attackCooldown)
-            pathfinding.Move();
-
-        //Flips Image if needed
-        if (pathfinding.direction > 0 && facingRight == false)
-            Flip();
-        else if (pathfinding.direction < 0 && facingRight == true)
-            Flip();
-
-        //Checks attack range
-        if(pathfinding.InAttackRange())
+        if(!dead)
         {
-            //checks if there is an attack playing
-            if(currentAction)
+            //Check if moving (for animation control)
+            moving = pathfinding.moving;
+            if (moving && !attackCooldown)
+                pathfinding.Move();
+
+            //Flips Image if needed
+            if (pathfinding.direction > 0 && facingRight == false)
+                Flip();
+            else if (pathfinding.direction < 0 && facingRight == true)
+                Flip();
+
+            //Checks attack range
+            if (pathfinding.InAttackRange())
             {
-                if (!currentAction.IsActive())
+                //checks if there is an attack playing
+                if (currentAction)
                 {
-                    currentAction = null;
-                    attackCooldown = true;
-                }
-            }
-            else
-            {
-                //if they have an action & mot on cooldown
-                if (actions.Capacity != 0 && attackCooldown == false)
-                {
-                    //check range of attack
-                    if (actions[0].RangeCheck())
+                    if (!currentAction.IsActive())
                     {
-                        actions[0].Activate();
-                        currentAction = actions[0];
+                        currentAction = null;
+                        attackCooldown = true;
                     }
                 }
                 else
+                {
+                    //if they have an action & mot on cooldown
+                    if (actions.Capacity != 0 && attackCooldown == false)
+                    {
+                        //check range of attack
+                        if (actions[0].RangeCheck())
+                        {
+                            actions[0].Activate();
+                            currentAction = actions[0];
+                        }
+                    }
+                    else
+                        AttackDelay();
+                }
+
+            }
+            else
+            {
+                if (attackCooldown)
                     AttackDelay();
             }
-
         }
-        else
-        {
-            if(attackCooldown)
-                AttackDelay();
-        }
-
 
     }
 
@@ -112,7 +115,11 @@ public class EnemyController : MonoBehaviour
     {
         if(health <= 0 && !dontDie)
         {
-            Destroy(gameObject);
+            gameObject.GetComponent<AnimationCycle>().DeathCheck();
+            gameObject.GetComponent<KillTimer>().StartTimer();
+            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            dead = true;
         }
 
         if(damaged)
