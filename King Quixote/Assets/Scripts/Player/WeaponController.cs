@@ -36,7 +36,7 @@ public class WeaponController : MonoBehaviour
         
     }
 
-    public float WeaponCheck()
+    public float WeaponCheck(float energy)
     {
         //check should look for attack input, combos, blocking
         //function to check for inputs, bool to track if an action is running
@@ -46,7 +46,7 @@ public class WeaponController : MonoBehaviour
         float weaponCost = 0.0f;
 
         if(currentAction == null)
-            weaponCost = ActionStart();
+            weaponCost = ActionStart(energy);
         else
         {
             if(currentAction.actionType == WeaponAction.typeOfAction.Attack)
@@ -54,7 +54,7 @@ public class WeaponController : MonoBehaviour
 
             if(currentAction.actionType == WeaponAction.typeOfAction.Attack || currentAction.actionType == WeaponAction.typeOfAction.Combo || currentAction.actionType == WeaponAction.typeOfAction.Counter)
             {
-                if(dash.DashStart())
+                if(dash.DashStart(energy))
                 {
                     currentAction.CancelAction();
                     currentAction = dash;
@@ -121,9 +121,9 @@ public class WeaponController : MonoBehaviour
 
     //-------------------------------------------------------------------------------------------------------------------------------------------
 
-    private float ActionStart()
+    private float ActionStart(float energyPercent)
     {
-        if(dash.DashStart())
+        if(dash.DashStart(energyPercent))
         {
             currentAction = dash;
             return dash.energyCost;
@@ -132,23 +132,26 @@ public class WeaponController : MonoBehaviour
         //check for attacks and all combos that start with that attack
         foreach (AttackAction attack in attacks)
         {
-            if (attack.AttackStart())
+            if(attack.EnergyComapre(energyPercent))
             {
-                //attack action is active
-                currentAction = attack;
-                currentFrame = 0;
-                foreach (ComboAction combo in combos)
+                if (attack.AttackStart())
                 {
-                    if (combo.ContinueCombo(attack.buttonName, currentFrame))
-                        print("Combo Started");
-                }
+                    //attack action is active
+                    currentAction = attack;
+                    currentFrame = 0;
+                    foreach (ComboAction combo in combos)
+                    {
+                        if (combo.ContinueCombo(attack.buttonName, currentFrame))
+                            print("Combo Started");
+                    }
 
-                return attack.energyCost;
+                    return attack.energyCost;
+                }
             }
         }
 
         //check for block
-        if (block.BlockCheck())
+        if (block.BlockCheck(energyPercent))
         {
             currentAction = block;
             return block.energyCost;

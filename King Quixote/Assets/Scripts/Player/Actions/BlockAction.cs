@@ -38,8 +38,10 @@ public class BlockAction : WeaponAction
         return false;
     }
 
-    public bool BlockCheck()
+    public bool BlockCheck(float energy)
     {
+        if(EnergyComapre(energy))
+
         if (InputManager.GetKeyDown(blockButton))
         {
             ActivateAction();

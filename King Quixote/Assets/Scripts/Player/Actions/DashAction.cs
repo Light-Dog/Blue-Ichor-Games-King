@@ -44,9 +44,11 @@ public class DashAction : WeaponAction
         }
     }
 
-    public bool DashStart()
+    public bool DashStart(float energy)
     {
         //Give it the yeet
+        if(EnergyComapre(energy))
+
         if (InputManager.GetKeyDown(buttonDash))
         {
             ActivateAction();

@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public List<WeaponController> weapons;
     public int equipedWeapon = 0;
 
+    public float energyPerSecondBack = .1f;
+
     float energyPercent = 1.0f;
     float timer = 0.0f;
 
@@ -103,7 +105,7 @@ public class PlayerController : MonoBehaviour
                 gameObject.GetComponent<AnimationCycle>().Landed();
 
             //if(energyPercent >= .1f)
-            energyPercent -= weapons[equipedWeapon].WeaponCheck();
+            energyPercent -= weapons[equipedWeapon].WeaponCheck(energyPercent);
 
             StatusUpdate();
 
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour
             timer = 0.0f;
 
             if (energyPercent < 1.0f)
-                energyPercent += .04f;
+                energyPercent += energyPerSecondBack;
         }
         else
             timer += Time.deltaTime;

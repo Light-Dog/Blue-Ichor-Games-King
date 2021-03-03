@@ -218,4 +218,12 @@ public class WeaponAction : MonoBehaviour
         activeFrameIndex = 0;
     }
 
+    public bool EnergyComapre(float energy)
+    {
+        if (energy >= energyCost)
+            return true;
+
+        return false;
+    }
+
 }
