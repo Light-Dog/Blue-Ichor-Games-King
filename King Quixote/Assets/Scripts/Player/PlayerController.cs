@@ -232,6 +232,15 @@ public class PlayerController : MonoBehaviour
                 //jump = false;
             }
         }
+        colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, LayerMask.NameToLayer("Boxes"));
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                m_Grounded = true;
+                //jump = false;
+            }
+        }
     }
 
     private void Flip()

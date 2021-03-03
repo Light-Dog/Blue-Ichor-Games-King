@@ -27,8 +27,12 @@ public class WeaponDamage : MonoBehaviour
 
         if(other.GetComponent<Breakable>())
         {
-            other.GetComponent<Breakable>().health -= weapon.parent.damage;
-            other.GetComponent<Breakable>().Crack();
+            if(other.GetComponent<Breakable>().safe)
+            {
+                other.GetComponent<Breakable>().health -= weapon.parent.damage;
+                other.GetComponent<Breakable>().Crack();
+
+            }
         }
     }
 }

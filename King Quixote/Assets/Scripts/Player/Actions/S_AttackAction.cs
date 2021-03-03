@@ -29,7 +29,7 @@ public class S_AttackAction : AttackAction
         {
             print("Activated");
 
-            GetPlayer().GetComponent<Rigidbody2D>().velocity = new Vector2();
+            GetPlayer().GetComponent<Rigidbody2D>().velocity = new Vector2(0f, GetPlayer().GetComponent<Rigidbody2D>().velocity.y);
 
             if (Input.GetButtonUp(buttonName))
             {

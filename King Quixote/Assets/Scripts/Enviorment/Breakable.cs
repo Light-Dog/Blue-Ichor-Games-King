@@ -16,6 +16,9 @@ public class Breakable : MonoBehaviour
     private bool broken = false;
     private bool summoned = false;
 
+    float iframe = 0.0f;
+    public bool safe = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,8 @@ public class Breakable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //summons chips once upon death
         if (broken == true && summoned == false)
         {
             //Change Sprite
@@ -33,14 +38,19 @@ public class Breakable : MonoBehaviour
             //Spawn Chips and YEET them UP and a little away
             SummonBroken();
 
-            //disable collider
-            if (gameObject.GetComponent<BoxCollider2D>())
-            {
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            }
-
-            broken = false;
             summoned = true;
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+
+        if(safe == false)
+        {
+            if (iframe <= .2f)
+                iframe += Time.deltaTime;
+            else
+            {
+                iframe = 0f;
+                safe = true;
+            }
         }
 
         if (health < 0)
@@ -73,7 +83,7 @@ public class Breakable : MonoBehaviour
 
     public void Crack()
     {
-
+        safe = false;
         for (int i = 0; i < numChips/2; i++)
         {
             Vector2 upShotRight = new Vector2(Random.Range(0.0f, 0.3f), Random.Range(.7f, 1.1f));
@@ -96,5 +106,14 @@ public class Breakable : MonoBehaviour
     public void Break()
     {
         broken = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 }
