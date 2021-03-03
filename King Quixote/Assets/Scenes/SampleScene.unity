@@ -2355,6 +2355,18 @@ PrefabInstance:
       propertyPath: fadeObject
       value: 
       objectReference: {fileID: 421052183}
+    - target: {fileID: 5203460828271030920, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: weaponIdles.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b4e7f6855be9074f8777505e38da93c, type: 3}
+    - target: {fileID: 5203460828271030920, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: weaponIdles.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7421f5db2d2c5fd48a99008f1913cd34, type: 3}
+    - target: {fileID: 5203460828271030920, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: weaponIdles.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0dec7fda7e5c3a24e85c6e71be7815a5, type: 3}
     - target: {fileID: 6219677544928156496, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -2383,10 +2395,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6219677546009896618, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: c5d0350732c9fcf4baf61d9ae7ca54c5, type: 2}
     - target: {fileID: 6219677546009896620, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.64

@@ -1856,6 +1856,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Lance
+  weaponIdles:
+  - {fileID: 21300000, guid: 7b4e7f6855be9074f8777505e38da93c, type: 3}
+  - {fileID: 21300000, guid: 7421f5db2d2c5fd48a99008f1913cd34, type: 3}
+  - {fileID: 21300000, guid: 3af99c9d91c710c45a1996100040c799, type: 3}
+  weaponRun:
+  - {fileID: 21300000, guid: 640b5f974241097498603f787ee9c308, type: 3}
+  - {fileID: 21300000, guid: b6d4b098142f1fe4ea173815b7403793, type: 3}
+  - {fileID: 21300000, guid: ed0d31e517ca74e47a1b6207f0595c08, type: 3}
+  - {fileID: 21300000, guid: 24b49396bc913ea418fa196e8c6e069d, type: 3}
+  weaponJump: {fileID: 21300000, guid: a27e632dbdd012d46a7d996bdf471e74, type: 3}
+  weaponLand: {fileID: 21300000, guid: 66e4fd86325f6124f9d7f4d9f27afadc, type: 3}
   attacks:
   - {fileID: 6219677546347679228}
   - {fileID: 6219677545707575184}
@@ -2493,6 +2504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Crossbow
+  weaponIdles: []
+  weaponRun: []
+  weaponJump: {fileID: 0}
+  weaponLand: {fileID: 0}
   attacks:
   - {fileID: 2772479434365428739}
   - {fileID: 8122105820140181175}
@@ -2712,6 +2727,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Shield
+  weaponIdles:
+  - {fileID: 21300000, guid: ad1baa09cdf197d4d971d7c7f8d63eb6, type: 3}
+  - {fileID: 21300000, guid: 692b63525e5e4044f97ae1313aefd3ee, type: 3}
+  - {fileID: 21300000, guid: 5646ff51e45277447a7dcf92ba5eedc0, type: 3}
+  weaponRun: []
+  weaponJump: {fileID: 21300000, guid: 710dc61ef890ddb4eb5af60e6e032ccc, type: 3}
+  weaponLand: {fileID: 21300000, guid: 2d5e8853dbf182744af89aa9bfaaf82b, type: 3}
   attacks:
   - {fileID: 7252307770114546997}
   - {fileID: 3034402907475181045}

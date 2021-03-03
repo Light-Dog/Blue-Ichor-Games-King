@@ -6,6 +6,11 @@ public class WeaponController : MonoBehaviour
 {
     public string weaponName;
 
+    public Sprite[] weaponIdles;
+    public Sprite[] weaponRun;
+    public Sprite weaponJump;
+    public Sprite weaponLand;
+
     public List<AttackAction> attacks;
     public List<ComboAction> combos;
     public BlockAction block;

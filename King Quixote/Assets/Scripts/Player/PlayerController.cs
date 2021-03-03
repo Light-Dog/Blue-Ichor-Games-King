@@ -71,12 +71,20 @@ public class PlayerController : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
             equipedWeapon = 0;
+            UpdateSprites();
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
             equipedWeapon = 1;
+            UpdateSprites();
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
             equipedWeapon = 2;
-        //drawCollider = !drawCollider;
+            UpdateSprites();
+        }
 
         if(!dead)
         {
@@ -252,5 +260,25 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void UpdateSprites()
+    {
+        //idle
+        if(weapons[equipedWeapon].weaponIdles.Length > 0)
+            gameObject.GetComponent<AnimationCycle>().idleFrames = weapons[equipedWeapon].weaponIdles;
+
+        //run
+        if(weapons[equipedWeapon].weaponRun.Length > 0)
+            gameObject.GetComponent<AnimationCycle>().moveFrames = weapons[equipedWeapon].weaponRun;
+
+        //jump & land
+        if(weapons[equipedWeapon].weaponJump)
+            gameObject.GetComponent<AnimationCycle>().jumping = weapons[equipedWeapon].weaponJump;
+
+        if(weapons[equipedWeapon].weaponLand)
+            gameObject.GetComponent<AnimationCycle>().falling = weapons[equipedWeapon].weaponLand;
+
+        gameObject.GetComponent<AnimationCycle>().currentFrame = 0;
     }
 }
