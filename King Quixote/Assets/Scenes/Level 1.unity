@@ -1377,6 +1377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 306505115}
     m_Modifications:
+    - target: {fileID: 5671798513988267144, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
+      propertyPath: healthPotion
+      value: 
+      objectReference: {fileID: 8845472828412473781, guid: 9b07367b63ad60341b0594a8fbd745cd, type: 3}
     - target: {fileID: 8380495867995278102, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 98.90156
@@ -2360,6 +2364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 306505115}
     m_Modifications:
+    - target: {fileID: 5671798513988267144, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
+      propertyPath: healthPotion
+      value: 
+      objectReference: {fileID: 3020707622433681065, guid: 5cf49ec38940fc2448f536e94cd38693, type: 3}
     - target: {fileID: 8380495867995278102, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.961561
@@ -3456,6 +3464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 306505115}
     m_Modifications:
+    - target: {fileID: 5671798513988267144, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
+      propertyPath: healthPotion
+      value: 
+      objectReference: {fileID: 3020707622433681065, guid: 5cf49ec38940fc2448f536e94cd38693, type: 3}
     - target: {fileID: 8380495867995278102, guid: 461c6ad2ccd8e0f49987d46dec6b5fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 166.80157

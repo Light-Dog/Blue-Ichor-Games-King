@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha0))
                 health = 0;
-            if (Input.GetKeyDown(KeyCode.Tilde))
+            if (Input.GetKeyDown(KeyCode.Backspace))
             {
                 m_JumpForce *= 1.5f;
                 runSpeed *= 1.5f;
