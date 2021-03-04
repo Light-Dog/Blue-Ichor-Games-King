@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public bool dead = false;
 
+    public int coins = 0;
+
     [Header("Weapons")]
     public List<WeaponController> weapons;
     public int equipedWeapon = 0;
@@ -183,17 +185,27 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<AnimationCycle>().DeathCheck();
             dead = true;
         }
+        else if(health > 7)
+        {
+            hearts[0].enabled = true;
+            hearts[1].enabled = false;
+            hearts[2].enabled = false;
+        }
         else if(health <= 7 && health > 3)
         {
             hearts[0].enabled = false;
             hearts[1].enabled = true;
+            hearts[2].enabled = false;
         }
         else if(health <= 3)
         {
+            hearts[0].enabled = false;
             hearts[1].enabled = false;
             hearts[2].enabled = true;
         }
 
+        float heal = (float)health / 10f;
+        healthBar.fillAmount = heal;
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------

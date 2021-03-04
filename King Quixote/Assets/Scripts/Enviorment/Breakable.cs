@@ -9,6 +9,8 @@ public class Breakable : MonoBehaviour
     public GameObject broken1;
     public GameObject broken2;
 
+    public GameObject healthPotion = null;
+
     public int numChips = 5;
     public float shotForce = 8.0f;
 
@@ -61,7 +63,6 @@ public class Breakable : MonoBehaviour
 
     public void SummonBroken()
     {
-
         for (int i = 0; i < numChips; i++)
         {
             Vector2 upShotRight = new Vector2(Random.Range(0.0f, 0.3f), Random.Range(.7f, 1.1f));
@@ -79,6 +80,15 @@ public class Breakable : MonoBehaviour
             temp2.GetComponent<Rigidbody2D>().AddTorque(-360, ForceMode2D.Impulse);
             temp2.GetComponent<KillTimer>().StartTimer();
         }
+
+        if(healthPotion != null)
+        {
+            Vector2 heartShot = new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(.6f, .9f));
+            GameObject potion = Instantiate(healthPotion, gameObject.transform.position, gameObject.transform.rotation);
+
+            potion.GetComponent<Rigidbody2D>().AddForce(heartShot * 40f, ForceMode2D.Impulse);
+        }
+
     }
 
     public void Crack()
