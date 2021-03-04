@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 
+    GoToScene sceneUI;
+
     //-------------------------------------------------------------------------------------------------------------------------------------------
 
     [Header("Player Stats")]
@@ -73,6 +75,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.P))
+            health = 0;
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            m_JumpForce *= 2;
+            runSpeed *= 2;
+        }
 
         if (InputManager.GetKeyDown("Change Weapon"))
         {
@@ -145,6 +155,8 @@ public class PlayerController : MonoBehaviour
             damagePercentage = damagePercentage / 10.0f;
             healthBar.fillAmount -= damagePercentage;
 
+            //camShake.Shake(.15f, 4f);
+
             damaged = true;
         }
     }
@@ -184,6 +196,11 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponent<AnimationCycle>().DeathCheck();
             dead = true;
+
+            //Debug.Break();
+
+            print("Trigger Death animation and start transition");
+            FindObjectOfType<GoToScene>().DeathToMenu();
         }
         else if(health > 7)
         {

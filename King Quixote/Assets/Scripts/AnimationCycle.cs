@@ -152,7 +152,7 @@ public class AnimationCycle : MonoBehaviour
         if (currentFrame >= 0 && currentFrame < maxDeathFrame)
             gameObject.GetComponent<SpriteRenderer>().sprite = deathFrames[currentFrame];
 
-        if (timerUpdate(2.0f))
+        if (timerUpdate())
         {
             if (currentFrame < maxDeathFrame)
                 currentFrame++;
