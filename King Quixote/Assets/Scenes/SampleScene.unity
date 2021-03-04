@@ -2171,6 +2171,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6219677546060097993, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219677546060097993, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.53
+      objectReference: {fileID: 0}
     - target: {fileID: 6219677546347679228, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: hitboxColor.a
       value: 1

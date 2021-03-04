@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     public float m_MovementSmoothing = .05f;  // How much to smooth out the movement
 
     public LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
+    public LayerMask m_WhatIsBoxes;
     public Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 
-    float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    float k_GroundedRadius = .3f; // Radius of the overlap circle to determine if grounded
 
     GoToScene sceneUI;
 
@@ -237,7 +238,7 @@ public class PlayerController : MonoBehaviour
     //moves the player
     private void Move(float move, bool jump)
     {   
-        if (m_Grounded || airControl)
+        if (airControl)
         {
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
@@ -249,9 +250,8 @@ public class PlayerController : MonoBehaviour
                 Flip();             // Otherwise if the input is moving the player left and the player is facing right...
         }
         // If the player should jump...
-        if (m_Grounded && jump)
+        if (jump)
         {
-            m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
     }
@@ -267,15 +267,17 @@ public class PlayerController : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
+                print("Collided with: " + colliders[i].gameObject.name);
                 m_Grounded = true;
                 //jump = false;
             }
         }
-        colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, LayerMask.NameToLayer("Boxes"));
+        colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsBoxes);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
             {
+                print("Collided with: " + colliders[i].gameObject.name);
                 m_Grounded = true;
                 //jump = false;
             }
