@@ -30,6 +30,21 @@ public class InputManager : MonoBehaviour
         KeyCode.Escape
     };
 
+    static KeyCode[] wesDefault = new KeyCode[9]
+    {
+        KeyCode.W,
+        KeyCode.A,
+        KeyCode.D,
+        KeyCode.Q,
+        KeyCode.Mouse0,
+        KeyCode.Mouse1,
+        KeyCode.LeftShift,
+        KeyCode.F,
+        KeyCode.Escape
+    };
+
+    static bool defaultOn = true;
+
     static InputManager()
     {
         keyMapping = new Dictionary<string, KeyCode>();
@@ -47,6 +62,23 @@ public class InputManager : MonoBehaviour
         {
             keyMapping.Add(keyMaps[i], changedKeyCodes[i]);
         }
+    }
+
+    public static bool SwapBinding()
+    {
+        if (defaultOn)
+        {
+            UpdateKeyMap(wesDefault);
+            defaultOn = false;
+            return true;
+        }
+        else
+        {
+            UpdateKeyMap(defaults);
+            defaultOn = false;
+        }
+
+        return false;
     }
 
     public static KeyCode[] GetKeyCodes()

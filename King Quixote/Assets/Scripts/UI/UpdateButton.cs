@@ -22,6 +22,7 @@ public class UpdateButton : MonoBehaviour
         if (InputManager.GetKeyDown("Escape"))
         {
             ShowMenu();
+
         }
 
         if(changeKey)
@@ -273,6 +274,7 @@ public class UpdateButton : MonoBehaviour
             menu.SetActive(true);
             Time.timeScale = 0.001f;
             FindObjectOfType<AudioManager>().Deafen(true);
+            FindObjectOfType<PlayerController>().paused = true;
 
             oldKeys = InputManager.GetKeyCodes();
         }
@@ -281,6 +283,7 @@ public class UpdateButton : MonoBehaviour
             menu.SetActive(false);
             Time.timeScale = 1.0f;
             FindObjectOfType<AudioManager>().Deafen(false);
+            FindObjectOfType<PlayerController>().paused = false;
         }
     }
 
@@ -290,6 +293,14 @@ public class UpdateButton : MonoBehaviour
             keyText.GetComponent<TextMeshProUGUI>().text = "Off";
         else
             keyText.GetComponent<TextMeshProUGUI>().text = "On";
+    }
+
+    public void InputChange()
+    {
+        if (InputManager.SwapBinding())
+            keyText.GetComponent<TextMeshProUGUI>().text = "On";
+        else
+            keyText.GetComponent<TextMeshProUGUI>().text = "Off";
     }
 
     public void UpdateInput(KeyCode key, int whichKey)

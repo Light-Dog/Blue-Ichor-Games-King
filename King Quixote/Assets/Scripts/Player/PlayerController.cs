@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     public bool dead = false;
 
+    public bool paused = false;
+
     public int coins = 0;
 
     [Header("Weapons")]
@@ -71,57 +73,62 @@ public class PlayerController : MonoBehaviour
         healthBar = uiBars[1];
 
         hearts = healthImages.GetComponentsInChildren<Image>();
+        paused = false;
     }
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.P))
-            health = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if(!paused)
         {
-            m_JumpForce *= 2;
-            runSpeed *= 2;
-        }
-
-        if (InputManager.GetKeyDown("Change Weapon"))
-        {
-            if (equipedWeapon < 2)
-                equipedWeapon++;
-            else
-                equipedWeapon = 0;
-            UpdateSprites();
-        }
-
-        if(!dead)
-        {
-            GroundCheck();
-
-            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
-            if (horizontalMove > 0.0f ||  horizontalMove < 0.0f)
-                moving = true;
-            else
-                moving = false;
-
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+                health = 0;
+            if (Input.GetKeyDown(KeyCode.Tilde))
             {
-                jump = true;
-                gameObject.GetComponent<AnimationCycle>().StartJump();
+                m_JumpForce *= 1.5f;
+                runSpeed *= 1.5f;
+                energyPerSecondBack = 50f;
             }
 
-            if (!m_Grounded && m_Rigidbody2D.velocity.y <= 0f)
-                gameObject.GetComponent<AnimationCycle>().PeakJump();
+            if (InputManager.GetKeyDown("Change Weapon"))
+            {
+                if (equipedWeapon < 2)
+                    equipedWeapon++;
+                else
+                    equipedWeapon = 0;
+                UpdateSprites();
+            }
 
-            if (m_Grounded)
-                gameObject.GetComponent<AnimationCycle>().Landed();
+            if (!dead)
+            {
+                GroundCheck();
 
-            //if(energyPercent >= .1f)
-            energyPercent -= weapons[equipedWeapon].WeaponCheck(energyPercent);
+                horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-            StatusUpdate();
+                if (horizontalMove > 0.0f || horizontalMove < 0.0f)
+                    moving = true;
+                else
+                    moving = false;
 
+                if (Input.GetButtonDown("Jump"))
+                {
+                    jump = true;
+                    gameObject.GetComponent<AnimationCycle>().StartJump();
+                }
+
+                if (!m_Grounded && m_Rigidbody2D.velocity.y <= 0f)
+                    gameObject.GetComponent<AnimationCycle>().PeakJump();
+
+                if (m_Grounded)
+                    gameObject.GetComponent<AnimationCycle>().Landed();
+
+                //if(energyPercent >= .1f)
+                energyPercent -= weapons[equipedWeapon].WeaponCheck(energyPercent);
+
+                StatusUpdate();
+
+            }
         }
+       
 
 
     }

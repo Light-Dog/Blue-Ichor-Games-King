@@ -8,6 +8,8 @@ public class Collectable : MonoBehaviour
     public float timer = 3.0f;
     bool pickUp = false;
 
+    bool destroy = false;
+    float deathtimer = 0f;
 
     // Start is called before the first frame update
     void Update()
@@ -20,6 +22,13 @@ public class Collectable : MonoBehaviour
                 MakePickUp();
         }
             
+        if(destroy)
+        {
+            if (deathtimer < 1f)
+                deathtimer += Time.deltaTime;
+            else
+                Destroy(gameObject);
+        }
     }
 
     public void MakePickUp()
@@ -38,15 +47,17 @@ public class Collectable : MonoBehaviour
             if (other.GetComponent<PlayerController>().health > 10)
                 other.GetComponent<PlayerController>().health = 10;
 
+            //gameObject.GetComponent<AudioSource>().Play();
 
             Destroy(gameObject);
         }
-        else if (other.GetComponent<PlayerController>() && !heal)
+        else if (other.GetComponent<PlayerController>() && !heal && !destroy)
         {
             other.GetComponent<PlayerController>().coins++;
+            gameObject.GetComponent<AudioSource>().Play();
 
-
-            Destroy(gameObject);
+            gameObject.GetComponent<SpriteRenderer>().color = Vector4.zero;
+            destroy = true;
         }
     }
 

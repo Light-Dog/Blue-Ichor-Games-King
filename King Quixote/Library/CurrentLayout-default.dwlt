@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Hierarchy
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 17
+  controlID: 79
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 137
+  controlID: 84
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 138
+  controlID: 85
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -177042
+  m_LastSelectedObjectID: 77558
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -490,7 +490,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e2cbfcfffacbfcff1acdfcff28cdfcffd2d3fcff80d8fcff88d8fcff34d9fcffe4ddfcfff6e4fcff5af6fcffa4fdfcff6002fdffb206fdff6e0bfdffd60bfdffee0bfdff120dfdff240dfdffd213fdff8418fdff021dfdff0a1dfdffbc30fdff3852fdffcc60fdffc469fdff7c70fdff3675fdff0c7afdffc67efdff468dfdfff68dfdffaa8efdffa695fdff289afdffb69cfdffd09cfdfff09dfdfffe9dfdffa8a4fdffb0a4fdfff8a8fdffa8a9fdff80b1fdffdcbbfdffdac0fdff5cd2fdff84d3fdffa4d8fdff32e5fdffaafafdff9efffdff2a04feff8c09feff040ffeff6412feffa422feff0833feffd238feff943dfeff8a4ffeffa252feffa858feff2a63feff2664feff4864feff2c6bfeff2070feffae76feffc676feffea77fefffc77feff9c7efeff4483feff5083feff0084feffda8afeff8491feff3696feff889afeff7ca0feffaea2feffeca2feff54adfeff72b2feffecb4feff0eb5feffc6cafeff82edfeffa4edfeffca03ffff7a07ffff1a1bffff3c1bffffe427ffffd435ffff6077ffff3e85ffff8c8cffff7891ffff6a99ffff089cffff2c9cffffc4a9ffffd4c1ffff7cc6ffff86c6ffff94c6ffffd6cffffffacfffff86d3ffff00daffffaedbffff36dfffff00e0fffff2f2ffff3cfbffff5cfbffff005f0000c86000007ed00000a0f2000036fa00005e0f0100801d01007c3c0100586301009cb301007ae301003a860200
+      m_ExpandedIDs: 7062ffff7eb0ffffa8b0ffff0cb7ffff08baffffa6bfffff88c1ffffecc6ffffb2c9ffff66caffffecddffffa4deffffccdeffffe8deffffd2e6ffffeae6ffff0ee8ffff20e8ffffceeeffff80f3ffff8cf3ffff3cf4ffff5cfbffff9ea600002ebd00001e250100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -550,9 +550,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 114.42957, y: -0.37013727, z: -76.1935}
+    m_Target: {x: -4.74672, y: 17.759188, z: -97.117294}
     speed: 2
-    m_Value: {x: 114.42957, y: -0.37013727, z: -76.1935}
+    m_Value: {x: 770.1045, y: 249.02893, z: -31.127275}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -603,9 +603,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 56.611984
+    m_Target: 49.546013
     speed: 2
-    m_Value: 56.611984
+    m_Value: 295.8517
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -623,7 +623,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.027304096, y: 0.011092076, z: -0.00030506472, w: -0.9995717}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -693,21 +693,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\wbake\Desktop\Gam400\Blue-Ichor-Games-King\King Quixote
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 29}
-    m_SelectedIDs: c0430000
-    m_LastClickedID: 17344
-    m_ExpandedIDs: 00000000a0430000a2430000a4430000a6430000c2430000c443000000ca9a3b
+    scrollPos: {x: 0, y: 173}
+    m_SelectedIDs: 62440000
+    m_LastClickedID: 17506
+    m_ExpandedIDs: 00000000384400003a4400003c4400003e44000040440000424400005c4400009c44000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -735,7 +735,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a0430000a2430000a4430000a6430000a8430000
+    m_ExpandedIDs: 00000000384400003a4400003c4400003e4400004044000042440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -790,7 +790,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 147
+  m_DirectoriesAreaWidth: 286
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
