@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 88
+  controlID: 137
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 62
+  controlID: 63
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 63
+  controlID: 64
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -488,9 +488,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 344c0000
-      m_LastClickedID: 19508
-      m_ExpandedIDs: 16e9ffff88f0fffffe4b0000
+      m_SelectedIDs: 923f0000
+      m_LastClickedID: 16274
+      m_ExpandedIDs: 42faffff46fbffff163f0000303f0000503f00009c3f0000d43f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -550,9 +550,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.8899317, y: -1.413217, z: -2.6531801}
+    m_Target: {x: 640.2703, y: 388.24863, z: -100.26485}
     speed: 2
-    m_Value: {x: 2.6880727, y: -1.3802466, z: -2.6171706}
+    m_Value: {x: 615.77234, y: 383.70395, z: -97.95046}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -603,9 +603,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.359587
+    m_Target: 537.7402
     speed: 2
-    m_Value: 7.9996047
+    m_Value: 514.5839
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -693,12 +693,12 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Title
+    - Assets/Scenes
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Title
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\benal\OneDrive\Documents\GitHub\Blue-Ichor-Games-King\King
     Quixote
@@ -706,9 +706,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7a4c0000
-    m_LastClickedID: 19578
-    m_ExpandedIDs: 00000000be4b0000c04b0000c24b0000c44b0000c64b0000d84b000000ca9a3b
+    m_SelectedIDs: 963e0000
+    m_LastClickedID: 16022
+    m_ExpandedIDs: 000000007c3e00007e3e0000803e0000823e00009a3e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -736,7 +736,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be4b0000c04b0000c24b0000c44b0000c64b0000
+    m_ExpandedIDs: 000000007c3e00007e3e0000803e0000823e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
