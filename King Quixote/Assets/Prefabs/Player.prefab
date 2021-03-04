@@ -2723,7 +2723,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad1baa09cdf197d4d971d7c7f8d63eb6, type: 3}
   - {fileID: 21300000, guid: 692b63525e5e4044f97ae1313aefd3ee, type: 3}
   - {fileID: 21300000, guid: 5646ff51e45277447a7dcf92ba5eedc0, type: 3}
-  weaponRun: []
+  weaponRun:
+  - {fileID: 21300000, guid: e9dfb4c4824e8b14bb47c8a15d66eac7, type: 3}
+  - {fileID: 21300000, guid: c36f39d1516f434479a0d3c1674c1920, type: 3}
+  - {fileID: 21300000, guid: 41ea9d561c5210d45bf205e011c7cad0, type: 3}
+  - {fileID: 21300000, guid: 292a464749a5cb84e9473a0d064c6d0d, type: 3}
   weaponJump: {fileID: 21300000, guid: 710dc61ef890ddb4eb5af60e6e032ccc, type: 3}
   weaponLand: {fileID: 21300000, guid: 2d5e8853dbf182744af89aa9bfaaf82b, type: 3}
   attacks:
