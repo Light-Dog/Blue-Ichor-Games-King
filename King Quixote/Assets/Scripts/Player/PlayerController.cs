@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
                 else
                     moving = false;
 
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") && m_Grounded)
                 {
                     jump = true;
                     gameObject.GetComponent<AnimationCycle>().StartJump();

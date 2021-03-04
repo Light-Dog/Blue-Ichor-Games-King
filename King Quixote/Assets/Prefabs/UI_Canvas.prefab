@@ -572,8 +572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755089e6830a72746973d75a7fa73a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetSceneIndex: 1
-  touchTime: 1
   transition: {fileID: 6033311934054917301}
 --- !u!1 &2552527506435957036
 GameObject:
