@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public bool paused = false;
 
-    public int coins = 0;
+    bool buff = false;
 
     [Header("Weapons")]
     public List<WeaponController> weapons;
@@ -87,11 +87,9 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha0))
                 health = 0;
-            if (Input.GetKeyDown(KeyCode.Backspace))
+            if (Input.GetKeyDown(KeyCode.Backspace) || FindObjectOfType<KingMe>().CoinsCollected())
             {
-                m_JumpForce *= 1.5f;
-                runSpeed *= 1.5f;
-                energyPerSecondBack = 50f;
+                BuffPlayer();
             }
 
             if (InputManager.GetKeyDown("Change Weapon"))
@@ -146,6 +144,19 @@ public class PlayerController : MonoBehaviour
     public int DealDamage()
     {
         return weapons[equipedWeapon].damage;
+    }
+
+    public void BuffPlayer()
+    {
+        if(!buff)
+        {
+            m_JumpForce *= 1.5f;
+            runSpeed *= 1.5f;
+            energyPerSecondBack = 50f;
+            buff = true;
+
+            gameObject.GetComponent<SpriteRenderer>().color = new Vector4(1f, 1f, 0, 1f);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -278,7 +289,7 @@ public class PlayerController : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                print("Collided with: " + colliders[i].gameObject.name);
+                //print("Collided with: " + colliders[i].gameObject.name);
                 m_Grounded = true;
                 //jump = false;
             }

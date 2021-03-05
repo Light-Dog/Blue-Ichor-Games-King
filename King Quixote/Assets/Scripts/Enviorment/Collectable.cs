@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour
 {
     public bool heal = false;
     public float timer = 3.0f;
     bool pickUp = false;
+
+
+    public Sprite[] spin = new Sprite[4];
+    float spinTime = .2f;
+    int currentFrame = 0;
 
     bool destroy = false;
     float deathtimer = 0f;
@@ -28,6 +34,21 @@ public class Collectable : MonoBehaviour
                 deathtimer += Time.deltaTime;
             else
                 Destroy(gameObject);
+        }
+
+        if(!heal)
+        {
+            if (spinTime >= 0.0f)
+                spinTime -= Time.deltaTime;
+            else
+            {
+                currentFrame++;
+                if (currentFrame > 3)
+                    currentFrame = 0;
+
+                gameObject.GetComponent<SpriteRenderer>().sprite = spin[currentFrame];
+                spinTime = .2f;
+            }
         }
     }
 
@@ -53,7 +74,8 @@ public class Collectable : MonoBehaviour
         }
         else if (other.GetComponent<PlayerController>() && !heal && !destroy)
         {
-            other.GetComponent<PlayerController>().coins++;
+            FindObjectOfType<KingMe>().AddCoin();
+            
             gameObject.GetComponent<AudioSource>().Play();
 
             gameObject.GetComponent<SpriteRenderer>().color = Vector4.zero;

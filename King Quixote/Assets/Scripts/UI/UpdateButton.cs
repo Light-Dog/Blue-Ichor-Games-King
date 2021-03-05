@@ -276,6 +276,12 @@ public class UpdateButton : MonoBehaviour
             FindObjectOfType<AudioManager>().Deafen(true);
             FindObjectOfType<PlayerController>().paused = true;
 
+            if (FindObjectOfType<KingMe>().CoinsCollected())
+            {
+                print("coins collected");
+                //FindObjectOfType<SettingsScript>().checkCoin();
+            }
+
             oldKeys = InputManager.GetKeyCodes();
         }
         else

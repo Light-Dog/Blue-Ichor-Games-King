@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bolt
   - Land
+  - King
   layers:
   - Default
   - TransparentFX
