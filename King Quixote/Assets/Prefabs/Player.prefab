@@ -2031,7 +2031,6 @@ MonoBehaviour:
   healthImages: {fileID: 0}
   dead: 0
   paused: 0
-  coins: 0
   weapons:
   - {fileID: 6219677545639679579}
   - {fileID: 1061602771411908952}
@@ -2505,7 +2504,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b16d2b3e3f9defd4fb1daf33db79fd99, type: 3}
   - {fileID: 21300000, guid: 18c53d07a21624a4baddd4f4d3f7ef58, type: 3}
   - {fileID: 21300000, guid: 84861fff2fb89e14194c33f3e2cd5321, type: 3}
-  weaponRun: []
+  weaponRun:
+  - {fileID: 21300000, guid: f5177402c01a492408aece849eecf50c, type: 3}
+  - {fileID: 21300000, guid: 1b3b08a20a3d1d045a54c9c72b3470e4, type: 3}
+  - {fileID: 21300000, guid: 8ace5a44a68db2a40b6186882af3e502, type: 3}
+  - {fileID: 21300000, guid: 1bcbe5284c942224b80c5a8de92cb108, type: 3}
   weaponJump: {fileID: 21300000, guid: f69f7f5086ff8b84cbd299dd40b9fa1f, type: 3}
   weaponLand: {fileID: 21300000, guid: 621ac78b1f5ae2f4b9135d98e66d5b0b, type: 3}
   attacks:
