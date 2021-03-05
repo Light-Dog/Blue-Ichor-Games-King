@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5792853093334570307}
   m_Layer: 5
-  m_Name: Weapons
+  m_Name: w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,7 +413,7 @@ RectTransform:
   m_GameObject: {fileID: 2917619035344660679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0926301, y: 1.0926301, z: 1.0926301}
   m_Children:
   - {fileID: 1837269331946832920}
   m_Father: {fileID: 3358291384271774245}
@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 142.4, y: 150.7}
+  m_AnchoredPosition: {x: 114, y: 134}
   m_SizeDelta: {x: 164.8869, y: 153.30002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3358291383954186460
@@ -1849,14 +1849,14 @@ RectTransform:
   m_GameObject: {fileID: 6257931568095566132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0926301, y: 1.0926301, z: 1.0926301}
   m_Children: []
   m_Father: {fileID: 3358291384271774245}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -777.6, y: -371.3}
+  m_AnchoredPosition: {x: -799, y: -388}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8358210686028619943
