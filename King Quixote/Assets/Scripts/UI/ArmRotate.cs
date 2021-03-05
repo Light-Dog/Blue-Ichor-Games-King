@@ -10,6 +10,7 @@ public class ArmRotate : MonoBehaviour
     private Transform Pos1;
     private Transform Pos2;
     private Transform Pos3;
+    
 
     public int currentPos = 1;
     public float swingSpeed = 0.1f;

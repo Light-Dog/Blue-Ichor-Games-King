@@ -4807,6 +4807,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+--- !u!1 &1380721334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1422017453220705078, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+  m_PrefabInstance: {fileID: 1380721333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1459093670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5906,6 +5911,10 @@ PrefabInstance:
       propertyPath: healthImages
       value: 
       objectReference: {fileID: 858690748}
+    - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1380721334}
     - target: {fileID: 6219677546009896625, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_Name
       value: Player

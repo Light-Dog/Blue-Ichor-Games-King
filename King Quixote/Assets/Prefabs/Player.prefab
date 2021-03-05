@@ -2037,6 +2037,11 @@ MonoBehaviour:
   - {fileID: 1061602771411908952}
   - {fileID: 5203460828271030920}
   equipedWeapon: 0
+  icon: {fileID: 0}
+  weaponImages:
+  - {fileID: 21300000, guid: a9a01f34f66c13a4396214395be78d0c, type: 3}
+  - {fileID: 21300000, guid: 9c3e0f7ce2aa75b4c80ae93402ab5876, type: 3}
+  - {fileID: 21300000, guid: 83b814f1922b5ab40b0925744dd43510, type: 3}
   energyPerSecondBack: 0.1
   m_FacingRight: 1
   moving: 0

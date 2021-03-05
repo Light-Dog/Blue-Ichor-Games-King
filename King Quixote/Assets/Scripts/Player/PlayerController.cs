@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
     public List<WeaponController> weapons;
     public int equipedWeapon = 0;
 
+    public GameObject icon;
+    public Sprite[] weaponImages;
+    
+
     public float energyPerSecondBack = .1f;
 
     float energyPercent = 1.0f;
@@ -92,11 +96,7 @@ public class PlayerController : MonoBehaviour
 
             if (InputManager.GetKeyDown("Change Weapon"))
             {
-                if (equipedWeapon < 2)
-                    equipedWeapon++;
-                else
-                    equipedWeapon = 0;
-                UpdateSprites();
+                ChangeWeapon();
             }
 
             if (!dead)
@@ -231,6 +231,17 @@ public class PlayerController : MonoBehaviour
 
         float heal = (float)health / 10f;
         healthBar.fillAmount = heal;
+    }
+
+    private void ChangeWeapon()
+    {
+        if (equipedWeapon < 2)
+            equipedWeapon++;
+        else
+            equipedWeapon = 0;
+
+        icon.GetComponent<Image>().sprite = weaponImages[equipedWeapon];
+        UpdateSprites();
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------

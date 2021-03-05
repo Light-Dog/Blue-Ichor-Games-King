@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &89937484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2917619035344660679, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+  m_PrefabInstance: {fileID: 3358291385811126435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &111863048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -874,6 +879,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd949d31d7e598498c2852b348f8376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &546157172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3358291385764785872, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+  m_PrefabInstance: {fileID: 3358291385811126435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &693519771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1032,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &840343618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1422017453220705078, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+  m_PrefabInstance: {fileID: 3358291385811126435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &920084132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1126,6 +1141,11 @@ MonoBehaviour:
   right: {fileID: 0}
   up: {fileID: 0}
   weight: 1
+--- !u!1 &1128712290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3358291384970561378, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+  m_PrefabInstance: {fileID: 3358291385811126435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1421875171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,6 +1763,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2102613211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4279668138799607710, guid: 441462b54fc5fdf43bf91b52fb330233, type: 3}
+  m_PrefabInstance: {fileID: 4279668137170451223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1173547584185254150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1896,6 +1921,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40449493774667084, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 2102613211}
     - target: {fileID: 3358291384271774241, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
       propertyPath: m_Name
       value: Canvas?
@@ -1983,6 +2012,14 @@ PrefabInstance:
     - target: {fileID: 3358291384271774245, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792853093334570307, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 142.3999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792853093334570307, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150.7002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19975eea0b54d9b4e955ec4c6c821c1d, type: 3}
@@ -2091,7 +2128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4279668139166451066, guid: 441462b54fc5fdf43bf91b52fb330233, type: 3}
       propertyPath: m_RaycastTarget
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441462b54fc5fdf43bf91b52fb330233, type: 3}
@@ -2201,15 +2238,23 @@ PrefabInstance:
     - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: barImages
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1128712290}
     - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: healthImages
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 546157172}
     - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: camShake
       value: 
       objectReference: {fileID: 519420034}
+    - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: weaponStills
+      value: 
+      objectReference: {fileID: 89937484}
+    - target: {fileID: 6219677546009896621, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 840343618}
     - target: {fileID: 6219677546009896623, guid: b60fc3834cba58b4799bef0f88c9567e, type: 3}
       propertyPath: m_Sprite
       value: 
