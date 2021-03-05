@@ -12,8 +12,10 @@ public class EnemyPather : MonoBehaviour
     public float moveRange = 15.0f;
     public float attackRange = 6.0f;
     public float direction = 1.0f;
-    private bool inMoveRange = false;
-    private bool inAttackRange = false;
+    public float yDistanceCheck = 5.0f;
+    public bool inMoveRange = false;
+    public bool yCheck;
+    public bool inAttackRange = false;
     public bool moving = false;
 
     private Transform player;
@@ -55,15 +57,20 @@ public class EnemyPather : MonoBehaviour
 
     private void RangeCheck()
     {
-        float distance = Mathf.Abs((player.localPosition.x - gameObject.GetComponent<Transform>().localPosition.x));
+        float x_distance = Mathf.Abs((player.localPosition.x - gameObject.transform.localPosition.x));
         //print("Distance: " + distance);
+        float y_distance = Mathf.Abs((player.localPosition.y - gameObject.transform.localPosition.y));
+        yCheck = true;
 
-        if (distance <= moveRange)
+        if (y_distance > yDistanceCheck || y_distance < -yDistanceCheck)
+            yCheck = false;
+
+        if (x_distance <= moveRange && yCheck)
             inMoveRange = true;
         else
             inMoveRange = false;
 
-        if (distance <= attackRange)
+        if (x_distance <= attackRange)
             inAttackRange = true;
         else
             inAttackRange = false;

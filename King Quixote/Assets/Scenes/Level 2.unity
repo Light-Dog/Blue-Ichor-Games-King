@@ -2109,6 +2109,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 759947671}
     m_Modifications:
+    - target: {fileID: 1047547112202966240, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
+      propertyPath: yDistanceCheck
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4260433950707364089, guid: 467cad71dc1c39747a516bbfdf1c5f20, type: 3}
       propertyPath: m_Name
       value: Bootsnake 1 (2)

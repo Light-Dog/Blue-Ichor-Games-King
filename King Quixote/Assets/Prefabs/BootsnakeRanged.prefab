@@ -227,6 +227,10 @@ MonoBehaviour:
   moveRange: 25
   attackRange: 12
   direction: 1
+  yDistanceCheck: 8
+  inMoveRange: 0
+  yCheck: 0
+  inAttackRange: 0
   moving: 0
 --- !u!114 &-701987277159294502
 MonoBehaviour:
