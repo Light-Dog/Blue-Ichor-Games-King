@@ -75,7 +75,7 @@ public class InputManager : MonoBehaviour
         else
         {
             UpdateKeyMap(defaults);
-            defaultOn = false;
+            defaultOn = true;
         }
 
         return false;

@@ -287,6 +287,15 @@ public class UpdateButton : MonoBehaviour
         }
     }
 
+    public void ResumeToMenu()
+    {
+        menu.SetActive(false);
+        Time.timeScale = 1f;
+        FindObjectOfType<AudioManager>().Deafen(false);
+        FindObjectOfType<PlayerController>().paused = false;
+        FindObjectOfType<GoToScene>().GoToMenu_Transition();
+    }
+
     public void MuteMusic()
     {
         if (FindObjectOfType<AudioManager>().MuteSongs())
