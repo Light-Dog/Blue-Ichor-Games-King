@@ -2501,10 +2501,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Crossbow
-  weaponIdles: []
+  weaponIdles:
+  - {fileID: 21300000, guid: b16d2b3e3f9defd4fb1daf33db79fd99, type: 3}
+  - {fileID: 21300000, guid: 18c53d07a21624a4baddd4f4d3f7ef58, type: 3}
+  - {fileID: 21300000, guid: 84861fff2fb89e14194c33f3e2cd5321, type: 3}
   weaponRun: []
-  weaponJump: {fileID: 0}
-  weaponLand: {fileID: 0}
+  weaponJump: {fileID: 21300000, guid: f69f7f5086ff8b84cbd299dd40b9fa1f, type: 3}
+  weaponLand: {fileID: 21300000, guid: 621ac78b1f5ae2f4b9135d98e66d5b0b, type: 3}
   attacks:
   - {fileID: 2772479434365428739}
   - {fileID: 8122105820140181175}
