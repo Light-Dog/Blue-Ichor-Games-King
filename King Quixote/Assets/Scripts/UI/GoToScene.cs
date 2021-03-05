@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 public class GoToScene : MonoBehaviour
 {
     public Animator transition;
+    public UpdateButton menu;
+
+    private void Update()
+    {
+        if(InputManager.GetKeyDown("Escape"))
+        {
+            menu.ShowMenu();
+        }
+    }
 
     public void GoToSceneCall(int scene)
     {

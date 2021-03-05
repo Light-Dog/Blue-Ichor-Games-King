@@ -46,7 +46,8 @@ public class S_AttackAction : AttackAction
             {
                 //spawn Crossbow Arrow and fire it
                 GameObject temp = Instantiate(bolt);
-                temp.transform.position = parent.transform.position;
+                temp.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y - .2f, parent.transform.position.z);
+                
 
                 float direction = -1.0f;
                 if (GetPlayer().GetComponent<PlayerController>().m_FacingRight)

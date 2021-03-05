@@ -19,11 +19,6 @@ public class UpdateButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.GetKeyDown("Escape"))
-        {
-            ShowMenu();
-
-        }
 
         if(changeKey)
         {
